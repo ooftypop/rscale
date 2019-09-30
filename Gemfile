@@ -28,7 +28,7 @@ gem 'turbolinks', '~> 5' # navigate application faster: github.com/turbolinks/tu
 # ==============================================================================
 # Authentication & Authorization ===============================================
 # ==============================================================================
-gem 'devise' # flexible authentication solution for Rails with Warden
+gem "devise", ">= 4.7.1" # flexible authentication solution for Rails with Warden
 
 # ==============================================================================
 # Assets =======================================================================
