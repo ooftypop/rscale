@@ -17,6 +17,7 @@ gem 'rails', '~> 5.2.3' # Bundle edge Rails instead: gem 'rails', github: 'rails
 gem 'coffee-rails', '~> 4.2' # CoffeeScript adapter for the Rails asset pipeline
 gem 'sass-rails', '~> 5.0' # Ruby on Rails stylesheet engine for Sass
 gem 'uglifier', '>= 1.3.0' # Ruby wrapper for UglifyJS JavaScript compressor
+gem 'sqlite3', '~> 1.3', '>= 1.3.6'
 
 # ==============================================================================
 # Admin ========================================================================
