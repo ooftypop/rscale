@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root to: "users#show"
+  authenticated :user do
+    root to: "users#show"
+  end
+
+  root to: "static_pages#index"
 
   devise_for :users, controllers: {
     sessions:      "users/sessions",
@@ -10,8 +14,8 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get 'sign_in',   to: 'users/sessions#new'
-    get 'sign_up',   to: 'users/registrations#new'
+    get   'sign_in', to: 'users/sessions#new'
+    get   'sign_up', to: 'users/registrations#new'
     delete 'logout', to: 'users/sessions#destroy'
   end
 end
