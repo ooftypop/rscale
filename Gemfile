@@ -30,6 +30,7 @@ gem 'turbolinks', '~> 5' # navigate application faster: github.com/turbolinks/tu
 # Authentication & Authorization ===============================================
 # ==============================================================================
 gem "devise", ">= 4.7.1" # flexible authentication solution for Rails with Warden
+gem "rolify" # Role management library with resource scoping 
 
 # ==============================================================================
 # Assets =======================================================================
