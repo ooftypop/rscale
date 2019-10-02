@@ -1,5 +1,34 @@
-<div class="user-forums">
-  <% if current_user.has_role?(:founder, :any) %>
-    <%= current_user.roles.where(role: "founder") %>
-  <% end %>
+<div class="forums-index">
+  <div class="forum-founder-index">
+    <% if current_user.has_role?(:founder, :any) %>
+      Forums where <%= current_user.email %> is Founder <br /><br />
+      <% @user_founder_forums.each do |forum| %>
+        <%= forum.title %><br />
+        <%= forum.description %><br />
+        <%= link_to 'View Forum', forum_path(forum.id) %><br />
+        <%= link_to 'Edit Forum', edit_forum_path(forum.id) %><br /><br />
+      <% end %>
+    <% end %>
+  </div>
+  <div class="forum-moderator-index">
+    <% if current_user.has_role?(:moderator, :any) %>
+      Forums where <%= current_user.email %> is Moderator <br />
+      <% @user_moderator_forums.each do |forum| %>
+        <%= forum.title %><br />
+        <%= forum.description %><br />
+        <%= link_to 'View Forum', forum_path(forum.id) %><br />
+        <%= link_to 'Edit Forum', edit_forum_path(forum.id) %><br />
+      <% end %>
+    <% end %>
+  </div>
+  <div class="forum-participant-index">
+    <% if current_user.has_role?(:participant, :any) %>
+      Forums where <%= current_user.email %> is Participant <br />
+      <% @user_participant_forums.each do |forum| %>
+        <%= forum.title %><br />
+        <%= forum.description %><br />
+        <%= link_to 'View Forum', forum_path(forum.id) %><br />
+      <% end %>
+    <% end %>
+  </div>
 </div>

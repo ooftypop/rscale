@@ -1,5 +1,8 @@
 <div class="forum-show">
   <%= @forum.title %><br />
   <%= @forum.description %><br />
-  <%= link_to 'Home', root_path %>
+  <%= link_to 'Home', root_path %><br />
+  <% if policy(@forum).update? %>
+    <%= link_to 'Edit Forum', edit_forum_path(@forum) %><br />
+  <% end %>
 </div>
