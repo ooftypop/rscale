@@ -1,0 +1,5 @@
+<div class="user-forums">
+  <% if current_user.has_role?(:founder, :any) %>
+    <%= current_user.roles.where(role: "founder") %>
+  <% end %>
+</div>

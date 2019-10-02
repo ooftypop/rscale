@@ -1,6 +1,12 @@
 <div class="users_show">
-  <% if user_signed_in? %>
-    <%= @user.email %>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
-  <% end %>
+  <div class="nav-area">
+    <% if user_signed_in? %>
+      <%= @user.email %>
+      <%= link_to('Start Forum', new_forum_path) %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <% end %>
+  </div>
+  <div class="forum-list">
+    <%= render partial: "forums/index" %>
+  </div>
 </div>
