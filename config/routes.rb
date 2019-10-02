@@ -18,4 +18,6 @@ Rails.application.routes.draw do
     get   'sign_up', to: 'users/registrations#new'
     delete 'logout', to: 'users/sessions#destroy'
   end
+
+  resources :forums
 end

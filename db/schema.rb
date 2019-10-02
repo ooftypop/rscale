@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_172245) do
+ActiveRecord::Schema.define(version: 2019_10_01_175920) do
+
+  create_table "forums", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
