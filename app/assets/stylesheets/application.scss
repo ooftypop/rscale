@@ -1,2 +1,24 @@
+@import "select2";
 @import 'bootstrap';
+@import "select2-bootstrap";
 @import "font-awesome";
+
+
+.modal-body {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+  text-align: center;
+  padding: 2rem 20px;
+  z-index: 100;
+}
+.modal-dialog {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  pointer-events: all;
+}
+.panel-heading {
+  text-align: center;
+}

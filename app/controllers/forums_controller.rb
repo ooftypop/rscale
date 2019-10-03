@@ -38,7 +38,31 @@ class ForumsController < ApplicationController
   def destroy
     @forum.destroy
     flash[:success] = "Forum closed"
-    redirect_to current_user || root_url
+    redirect_to root_url
+  end
+
+  def new_participants
+    render 'form.js'
+  end
+
+  def create_participants
+    role_array = ['founder', 'moderator', 'participant']
+
+    role_array.each do |assign_role|
+      roles = []
+      role_symbol = (assign_role + "_emails").to_sym
+      roles = params[role_symbol].split(",")
+      roles = params[role_symbol].split(" ")
+      roles.each do |email|
+        email = email.gsub(",", "")
+        user  = User.find_by(email: email)
+        user.add_role(assign_role.to_sym, @forum) unless user.nil?
+        if user.nil?
+          flash[:danger] = "#{user} doesnt exist. Try inviting them?"
+        end
+        redirect_to root_path
+      end
+    end
   end
 
   private

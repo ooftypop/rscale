@@ -9,10 +9,10 @@
         <%= link_to 'Edit Forum', edit_forum_path(forum.id) %><br /><br />
       <% end %>
     <% end %>
-  </div>
+  </div><br />
   <div class="forum-moderator-index">
     <% if current_user.has_role?(:moderator, :any) %>
-      Forums where <%= current_user.email %> is Moderator <br />
+      Forums where <%= current_user.email %> is Moderator <br /><br />
       <% @user_moderator_forums.each do |forum| %>
         <%= forum.title %><br />
         <%= forum.description %><br />
@@ -20,10 +20,10 @@
         <%= link_to 'Edit Forum', edit_forum_path(forum.id) %><br />
       <% end %>
     <% end %>
-  </div>
+  </div><br />
   <div class="forum-participant-index">
     <% if current_user.has_role?(:participant, :any) %>
-      Forums where <%= current_user.email %> is Participant <br />
+      Forums where <%= current_user.email %> is Participant <br /><br />
       <% @user_participant_forums.each do |forum| %>
         <%= forum.title %><br />
         <%= forum.description %><br />
@@ -31,4 +31,4 @@
       <% end %>
     <% end %>
   </div>
-</div>
+</div><br />

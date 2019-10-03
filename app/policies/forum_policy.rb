@@ -10,6 +10,6 @@ class ForumPolicy < ApplicationPolicy
   end
 
   def destroy?
-    @user.has_role?(:founder)
+    @user.has_role?(:founder, @record)
   end
 end
