@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get   'sign_in', to: 'users/sessions#new'
-    get   'sign_up', to: 'users/registrations#new'
-    delete 'logout', to: 'users/sessions#destroy'
+    get    'sign_in', to: 'users/sessions#new'
+    get    'sign_up', to: 'users/registrations#new'
+    delete 'logout',  to: 'users/sessions#destroy'
   end
 
   resources :forums
+  get  '/new_participants',    to: 'forums#new_participants'
+  post '/create_participants', to: 'forums#create_participants'
 end

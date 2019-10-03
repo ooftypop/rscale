@@ -39,6 +39,7 @@ gem "rolify" # Role management library with resource scoping
 gem 'bootstrap', '~> 4.3.1'
 gem "font-awesome-rails" # font-awesome for asset pipeline
 gem 'jquery-rails' # automate using jQuery with Rails
+gem 'select2-rails'
 
 # ==============================================================================
 # Forms ========================================================================
