@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   post '/create_participants', to: 'forums#create_participants'
 
   resources :polls
+  resources :poll_options
 end
