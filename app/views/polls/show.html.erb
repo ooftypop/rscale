@@ -1,0 +1,6 @@
+<div class="poll-show">
+  <%= @poll.title %><br />
+  <%= @poll.description %><br />
+  <%= link_to 'Home', root_path %><br />
+  <%= link_to 'Forum', forum_path(id: @poll.forum_id) %>
+</div>

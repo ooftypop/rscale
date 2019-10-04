@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   resources :forums
   get  '/new_participants',    to: 'forums#new_participants'
   post '/create_participants', to: 'forums#create_participants'
+
+  resources :polls
 end
