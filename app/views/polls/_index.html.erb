@@ -1,0 +1,12 @@
+<div class="poll-index">
+  <% if @forum.polls.any? %>
+    <% @forum.polls.each do |poll| %>
+      <div class="forum-poll">
+        <%= poll.title %><br />
+        <%= poll.description %><br />
+        <%= link_to 'View/Vote', poll_path(poll) %><br />
+        <%= link_to 'Edit Poll', edit_poll_path(poll) %><br /><br />
+      </div>
+    <% end %>
+  <% end %>
+</div>
