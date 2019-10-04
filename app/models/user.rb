@@ -3,10 +3,6 @@ class User < ApplicationRecord
   devise :confirmable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # after_create :assign_default_role
-  #
-  # def assign_default_role
-  #   self.add_role(:newuser) if self.roles.blank?
-  # end
+  has_many :poll_options
 
 end
