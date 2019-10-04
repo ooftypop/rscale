@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_231342) do
+ActiveRecord::Schema.define(version: 2019_10_04_203112) do
 
   create_table "forums", force: :cascade do |t|
     t.string "title"
     t.text "description"
+  end
+
+  create_table "poll_options", force: :cascade do |t|
+    t.text "description"
+    t.integer "poll_id"
+    t.string "title"
+    t.integer "user_id"
   end
 
   create_table "polls", force: :cascade do |t|

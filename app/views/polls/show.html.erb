@@ -2,5 +2,9 @@
   <%= @poll.title %><br />
   <%= @poll.description %><br />
   <%= link_to 'Home', root_path %><br />
-  <%= link_to 'Forum', forum_path(id: @poll.forum_id) %>
+  <%= link_to 'Forum', forum_path(id: @poll.forum_id) %><br />
+  <%= link_to 'Create Poll Option', new_poll_option_path(poll_id: @poll.id) %>
+  <div class="forums-poll-index"><br />
+    <%= render partial: "poll_options/index", remote: true %>
+  </div>
 </div>
