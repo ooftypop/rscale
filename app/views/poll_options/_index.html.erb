@@ -4,6 +4,7 @@
       <div class="poll-poll-option">
         <%= poll_option.title %><br />
         <%= poll_option.description %><br />
+        <%= link_to 'View Poll Option', poll_option_path(poll_option) %><br />
         <%= link_to 'Edit Poll Option', edit_poll_option_path(poll_option) %><br /><br />
       </div>
     <% end %>

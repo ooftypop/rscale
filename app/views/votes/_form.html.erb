@@ -1,0 +1,23 @@
+<div class="form">
+  <% if action_name == 'new' %>
+    <h3>Vote</h3>
+  <% elsif action_name == 'edit' %>
+    <h3>Update Vote</h3>
+  <% end %>
+
+  <%= form_for (@vote) do |f| %>
+    <%= f.hidden_field :poll_option_id, :value => @poll_option.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <% if @vote.errors.any? %>
+      <%= @vote.errors.full_messages %>
+    <% end %>
+
+    <%= f.range_field :rating, class: "form-control text-field", min: -5, max: 5 %><br />
+
+    <%= f.submit "Submit", class: "form-control submit-button" %><br />
+  <% end %>
+  <%= link_to 'Home', root_path %><br />
+  <% if action_name == 'edit' %>
+    <%= link_to 'Back', :back, class: "form-path-link " %><br />
+  <% end %>
+</div>

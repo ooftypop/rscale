@@ -4,5 +4,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :poll_options
+  has_many :votes
 
 end
