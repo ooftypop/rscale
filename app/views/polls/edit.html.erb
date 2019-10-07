@@ -1,3 +1,4 @@
 <div class="poll-edit">
   <%= render partial: "polls/form" %>
+  <%= link_to 'Add Users', new_participants_path(id: @poll), remote: true %>
 </div>

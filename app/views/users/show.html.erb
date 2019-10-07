@@ -2,12 +2,12 @@
   <div class="nav-area">
     <% if user_signed_in? %>
       <%= current_user.email %><br />
-      <%= link_to('Start Forum', new_forum_path) %><br />
+      <%= link_to('Start Poll', new_poll_path) %><br />
       <%= link_to('Edit User', edit_user_registration_path(current_user.id)) %><br />
       <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
     <% end %>
   </div><br />
-  <div class="forum-index">
-    <%= render partial: "forums/index" %>
+  <div class="poll-index">
+    <%= render partial: "polls/index" %>
   </div>
 </div>

@@ -1,16 +1,12 @@
 <div class="form">
   <%= form_tag "/create_participants" do %>
     <div class="">
-      <%= label_tag :founder_emails %><br />
+      <%= label_tag :resource_admin_emails %><br />
       <%= text_area_tag(:founder_emails, value = nil, options = {multiple: true, style: "width: 100%; height: 100px;"}) %>
     </div>
     <div class="">
-      <%= label_tag :moderator_emails %><br />
+      <%= label_tag :user_emails %><br />
       <%= text_area_tag(:moderator_emails, value = nil, options = {multiple: true, style: "width: 100%; height: 100px;"}) %>
-    </div>
-    <div class="">
-      <%= label_tag :participant_emails %><br />
-      <%= text_area_tag(:participant_emails, value = nil, options = {multiple: true, style: "width: 100%; height: 100px;"}) %>
     </div>
     <div class="participants-bottom-button">
       <%= submit_tag "Select", class: "btn btn-success" %>

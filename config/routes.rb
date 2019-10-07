@@ -13,11 +13,10 @@ Rails.application.routes.draw do
     confirmations: "users/confirmations"
   }
 
-  resources :forums
-  get  '/new_participants',    to: 'forums#new_participants'
-  post '/create_participants', to: 'forums#create_participants'
-
   resources :polls
+  get  '/new_participants',    to: 'polls#new_participants'
+  post '/create_participants', to: 'polls#create_participants'
+
   resources :poll_options
   resources :votes
 end
