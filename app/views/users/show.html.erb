@@ -1,10 +1,15 @@
 <div class="users_show">
   <div class="nav-area">
     <% if user_signed_in? %>
-      <%= current_user.email %><br />
+      <h5><%= current_user.email %></h5><br />
       <%= link_to('Start Poll', new_poll_path) %><br />
       <%= link_to('Edit User', edit_user_registration_path(current_user.id)) %><br />
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %><br />
+      <% if policy(:admin).index? %>
+        <h5>Admin Dashboards</h5>
+        <%= link_to 'Users Index', admin_users_path %><br />
+        <%= link_to 'Polls index', admin_polls_path %><br />
+      <% end %>
     <% end %>
   </div><br />
   <div class="poll-index">

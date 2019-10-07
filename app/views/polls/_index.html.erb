@@ -1,7 +1,7 @@
 <div class="polls-index">
   <div class="poll-admin-index">
     <% if current_user.has_role?(:resource_admin, :any) %>
-      polls where <%= current_user.email %> is resource admin <br /><br />
+      <h5>polls where <%= current_user.email %> is resource admin</h5> <br /><br />
       <% @user_admin_polls.each do |poll| %>
         <%= poll.title %><br />
         <%= poll.description %><br />
@@ -12,7 +12,7 @@
   </div><br />
   <div class="poll-user-index">
     <% if current_user.has_role?(:user, :any) %>
-      polls where <%= current_user.email %> is a User <br /><br />
+      <h5>polls where <%= current_user.email %> is a User</h5> <br /><br />
       <% @user_polls.each do |poll| %>
         <%= poll.title %><br />
         <%= poll.description %><br />
