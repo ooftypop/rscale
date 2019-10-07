@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     confirmations: "users/confirmations"
   }
 
+  namespace :admin do
+    resources :users, except: [:new, :create]
+    resources :polls, except: [:new, :create]
+  end
+
   resources :polls
   get  '/new_participants',    to: 'polls#new_participants'
   post '/create_participants', to: 'polls#create_participants'
