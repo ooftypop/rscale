@@ -14,8 +14,8 @@ class Role < ApplicationRecord
   scopify
 
   def self.types
-    { founder: 'founder',
-      moderator: 'moderator',
-      participant: 'participant' }
+    { admin: 'admin',
+      resource_admin: 'resource admin',
+      user: 'user' }
   end
 end

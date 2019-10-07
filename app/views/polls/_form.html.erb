@@ -6,7 +6,6 @@
   <% end %>
 
   <%= form_for (@poll) do |f| %>
-    <%= f.hidden_field :forum_id, :value => @forum.id %>
     <% if @poll.errors.any? %>
       <%= @poll.errors.full_messages %>
     <% end %>

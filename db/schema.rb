@@ -10,24 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_022748) do
-
-  create_table "forums", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-  end
+ActiveRecord::Schema.define(version: 2019_10_07_163323) do
 
   create_table "poll_options", force: :cascade do |t|
     t.text "description"
     t.integer "poll_id"
     t.string "title"
     t.integer "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "polls", force: :cascade do |t|
-    t.integer "forum_id"
     t.string "title"
     t.text "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", force: :cascade do |t|

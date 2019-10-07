@@ -1,12 +1,24 @@
-<div class="poll-index">
-  <% if @forum.polls.any? %>
-    <% @forum.polls.each do |poll| %>
-      <div class="forum-poll">
+<div class="polls-index">
+  <div class="poll-admin-index">
+    <% if current_user.has_role?(:resource_admin, :any) %>
+      polls where <%= current_user.email %> is resource admin <br /><br />
+      <% @user_admin_polls.each do |poll| %>
         <%= poll.title %><br />
         <%= poll.description %><br />
-        <%= link_to 'View/Vote', poll_path(poll) %><br />
-        <%= link_to 'Edit Poll', edit_poll_path(poll) %><br /><br />
-      </div>
+        <%= link_to 'View poll', poll_path(poll.id) %><br />
+        <%= link_to 'Edit poll', edit_poll_path(poll.id) %><br /><br />
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div><br />
+  <div class="poll-user-index">
+    <% if current_user.has_role?(:user, :any) %>
+      polls where <%= current_user.email %> is a User <br /><br />
+      <% @user_polls.each do |poll| %>
+        <%= poll.title %><br />
+        <%= poll.description %><br />
+        <%= link_to 'View poll', poll_path(poll.id) %><br />
+        <%= link_to 'Edit poll', edit_poll_path(poll.id) %><br />
+      <% end %>
+    <% end %>
+  </div><br />
+</div><br />

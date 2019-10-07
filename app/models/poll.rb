@@ -1,4 +1,6 @@
 class Poll < ApplicationRecord
-  belongs_to :forum
-  has_many   :poll_options
+  resourcify
+
+  has_many :poll_options
+  # has_many :users, through: :roles
 end

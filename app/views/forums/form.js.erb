@@ -1,3 +1,0 @@
-$(".modal-title").html("Participants in: <%= @forum.title %>");
-$(".modal-body").html("<%= escape_javascript(render partial: '/forums/participants_form', locals: { forum: @forum }) %>");
-$("#myModal").modal("show");
