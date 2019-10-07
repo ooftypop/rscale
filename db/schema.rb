@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_203112) do
+ActiveRecord::Schema.define(version: 2019_10_05_022748) do
 
   create_table "forums", force: :cascade do |t|
     t.string "title"
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 2019_10_04_203112) do
     t.index ["role_id"], name: "index_users_roles_on_role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
     t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "poll_option_id"
+    t.integer "user_id"
+    t.decimal "rating", default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

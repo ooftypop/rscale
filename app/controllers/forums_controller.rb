@@ -46,11 +46,10 @@ class ForumsController < ApplicationController
   end
 
   def create_participants
-    role_array = ['founder', 'moderator', 'participant']
 
-    role_array.each do |assign_role|
+    Role.types.keys.each do |assign_role|
       roles = []
-      role_symbol = (assign_role + "_emails").to_sym
+      role_symbol = (assign_role.to_s + "_emails").to_sym
       roles = params[role_symbol].split(",")
       roles = params[role_symbol].split(" ")
       roles.each do |email|
