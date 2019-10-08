@@ -8,23 +8,16 @@ class Admin::PollsController < Admin::AdminController
   end
 
   def show
-    # @poll = Poll.find_by(id: params[:id])
     authorize :admin, :show?
   end
 
   def edit
-    # @poll = Poll.find_by(id: params[:id])
     authorize :admin, :edit?
   end
 
   def update
     authorize :admin, :edit?
   end
-
-  # def destroy
-  #   @poll = Poll.find_by(id: params[:id])
-  #   authorize :admin, :destroy?
-  # end
 
   private
 

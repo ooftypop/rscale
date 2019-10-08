@@ -1,13 +1,22 @@
 class Admin::UsersController < Admin::AdminController
 
+  before_action :set_user, except: [:index]
+
   def index
     @users = User.all
     authorize :admin, :index?
   end
 
   def show
-    @user = User.find_by(id: params[:id])
     authorize :admin, :show?
+  end
+
+  def edit
+    authorize :admin, :edit?
+  end
+
+  def update
+    authorize :admin, :edit?
   end
 
   def remove_role_link( options = {  })
@@ -19,5 +28,9 @@ class Admin::UsersController < Admin::AdminController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
 end
