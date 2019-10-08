@@ -10,6 +10,14 @@ class Admin::UsersController < Admin::AdminController
     authorize :admin, :show?
   end
 
+  def remove_role_link( options = {  })
+    user = User.find(params[:user_id])
+    poll = Poll.find(params[:resource_id])
+    name = params[:name].to_sym
+    user.remove_role(name, poll)
+    redirect_to root_path
+  end
+
   private
 
 end

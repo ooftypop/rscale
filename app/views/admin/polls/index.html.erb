@@ -1,4 +1,10 @@
 <% @polls.each do |poll| %>
-  <%= poll.title %>
+  <%= poll.title %><br />
+  <% poll.roles.each do |role| %>
+    <%= role.name %><br />
+    <%= role.resource_id %><br />
+    <%= link_to 'Remove Role', role.destroy %>
+  <% end %>
+  <%= link_to 'Edit Poll', edit_admin_poll_path(poll) %><br />
 <% end %>
 <%= link_to 'Home', root_path %><br />
