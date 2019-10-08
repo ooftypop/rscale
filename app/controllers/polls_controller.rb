@@ -46,20 +46,24 @@ class PollsController < ApplicationController
   end
 
   def create_participants
-
-
     Role.types.keys.each do |assign_role|
-      roles = []
+      roles       = []
       role_symbol = (assign_role.to_s + "_emails").to_sym
-      roles = params[role_symbol].split(",")
-      roles = params[role_symbol].split(" ")
+      roles       = params[role_symbol].split(",")
+      roles       = params[role_symbol].split(" ")
+
       roles.each do |email|
         email = email.gsub(",", "")
         user  = User.find_by(email: email)
+
         user.add_role(assign_role.to_sym, Poll.find_by(id: params[:poll_id].to_i)) unless user.nil?
+
         if user.nil?
-          flash[:danger] = "#{user} doesnt exist. Try inviting them?"
+          new_user = User.invite!(email: email)
+          new_user.add_role(assign_role.to_sym, Poll.find_by(id: params[:poll_id].to_i))
+          flash[:danger] = "#{email} isnt a user. An invitation has been sent."
         end
+
         redirect_to root_path
       end
     end
