@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_213152) do
+ActiveRecord::Schema.define(version: 2019_10_08_224726) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "poll_groups", force: :cascade do |t|
+    t.integer "poll_id"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_poll_groups_on_group_id"
+    t.index ["poll_id"], name: "index_poll_groups_on_poll_id"
+  end
 
   create_table "poll_options", force: :cascade do |t|
     t.text "description"
@@ -37,6 +53,15 @@ ActiveRecord::Schema.define(version: 2019_10_08_213152) do
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
+  create_table "user_groups", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_user_groups_on_group_id"
+    t.index ["user_id"], name: "index_user_groups_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
