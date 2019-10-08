@@ -1,7 +1,10 @@
+<%= link_to 'Home', root_path %><br />
 <% @users.each do |user| %>
-  <%= user.email %>
+  <%= user.email %><br />
   <% user.roles.each do |role| %>
+    <%= role.resource_id %><br />
     <%= role.name %><br />
+    <%= link_to 'Delete Role', admin_remove_role_path(resource_id: role.resource_id, name: role.name, user_id: user.id) %><br /><br />
   <% end %>
 <% end %>
 <%= link_to 'Home', root_path %><br />

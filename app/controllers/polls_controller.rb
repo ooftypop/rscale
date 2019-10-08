@@ -47,6 +47,7 @@ class PollsController < ApplicationController
 
   def create_participants
 
+
     Role.types.keys.each do |assign_role|
       roles = []
       role_symbol = (assign_role.to_s + "_emails").to_sym
@@ -55,7 +56,7 @@ class PollsController < ApplicationController
       roles.each do |email|
         email = email.gsub(",", "")
         user  = User.find_by(email: email)
-        user.add_role(assign_role.to_sym, @poll) unless user.nil?
+        user.add_role(assign_role.to_sym, Poll.find_by(id: params[:poll_id].to_i)) unless user.nil?
         if user.nil?
           flash[:danger] = "#{user} doesnt exist. Try inviting them?"
         end
