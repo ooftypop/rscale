@@ -10,13 +10,14 @@ Rails.application.routes.draw do
     sessions:      "users/sessions",
     passwords:     "users/passwords",
     registrations: "users/registrations",
-    confirmations: "users/confirmations"
+    confirmations: "users/confirmations",
+    invitations:   "users/invitations"
   }
 
   namespace :admin do
     resources :users, except: [:new, :create]
     resources :polls, except: [:new, :create]
-    
+
     get '/remove_role', to: 'users#remove_role_link'
   end
 
