@@ -1,0 +1,19 @@
+<div class="group-index">
+  <% if current_user.email_groups.any? %>
+    <h5><%= current_user.email %> groups</h5><br /><br />
+    <% current_user.email_groups.each do |group| %>
+      <%= group.title %><br />
+      <%= group.description %><br />
+      <% if group.users.any? %>
+        <h6><%= group.title %>s Users</h6>
+        <% group.users.each do |user| %>
+          <%= link_to 'Remove User', remove_user_path(user_id: user.id, group_id: group.id) %>
+          <%= user.email %><br />
+        <% end %>
+      <% end %><br />
+      <%= link_to 'Show group', group_path(group) %><br />
+      <%= link_to 'Edit group', edit_group_path(group) %><br />
+      <%= link_to 'Add Emails', edit_user_emails_path(id: group), remote: true %><br /><br />
+    <% end %>
+  <% end %>
+</div>

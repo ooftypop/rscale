@@ -1,5 +1,8 @@
 <div class="group-show">
   <%= @group.title %><br />
   <%= @group.description %><br />
+  <%= link_to 'Edit group', edit_group_path(@group) %><br />
+  <%= link_to 'Add Emails', edit_user_emails_path(id: @group), remote: true %><br />
+  <%= link_to 'Back', :back, class: "form-path-link " %><br />
   <%= link_to 'Home', root_path %><br />
 </div>

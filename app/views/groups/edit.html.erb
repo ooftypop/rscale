@@ -1,3 +1,4 @@
 <div class="group-edit">
   <%= render partial: "groups/form" %>
+  <%= link_to 'Add Emails', edit_user_emails_path(id: @group), remote: true %>
 </div>
