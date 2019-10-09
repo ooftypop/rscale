@@ -1,0 +1,3 @@
+$(".modal-title").html("User Emails");
+$(".modal-body").html("<%= escape_javascript(render partial: '/groups/change_users_group', locals: { group: @group }) %>");
+$("#myModal").modal("show");

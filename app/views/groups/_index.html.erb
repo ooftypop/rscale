@@ -1,7 +1,17 @@
 <div class="group-index">
-  <% if current_user.groups.any? %>
-    <% current_user.groups.each do |group| %>
-      <%= group %>
+  <% if current_user.email_groups.any? %>
+    <h5><%= current_user.email %> groups</h5><br /><br />
+    <% current_user.email_groups.each do |group| %>
+      <%= group.title %><br />
+      <%= group.description %><br />
+      <% if group.users.any? %>
+        <% group.users.each do |user| %>
+          <%= user %>
+        <% end %>
+      <% end %>
+      <%= link_to 'Show group', group_path(group) %><br />
+      <%= link_to 'Edit group', edit_group_path(group) %><br />
+      <%= link_to 'Add Emails', edit_user_emails_path(id: group), remote: true %><br /><br />
     <% end %>
   <% end %>
 </div>

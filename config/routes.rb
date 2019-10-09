@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   post '/create_participants', to: 'polls#create_participants'
 
   resources :groups
+  get  '/edit_user_emails',  to: 'groups#edit_user_emails'
+  post '/change_users_group', to: 'groups#change_users_group'
+
   resources :poll_options
   resources :votes
 end

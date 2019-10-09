@@ -1,0 +1,12 @@
+<div class="form">
+  <%= form_tag "/change_users_group", remote: true do %>
+    <%= hidden_field_tag :group_id, @group.id %>
+    <div class="">
+      <%= label_tag :add_emails_below %><br />
+      <%= text_area_tag(:user_group_emails, value = nil, options = {multiple: true, style: "width: 100%; height: 100px;"}) %>
+    </div>
+    <div class="participants-bottom-button">
+      <%= submit_tag "Select", class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>

@@ -21,9 +21,7 @@
   <% end %>
   <%= link_to 'Home', root_path %><br />
   <% if action_name == 'edit' %>
-    <% if policy(@group).destroy? %>
-      <%= link_to 'Delete', @group, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link" %><br />
-      <% end %>
+    <%= link_to 'Delete', @group, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link" %><br />
     <%= link_to 'Back', :back, class: "form-path-link " %><br />
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  before_action :set_group, expect: [:index]
+  before_action :set_group, except: [:index]
 
   def index
     @groups = Group.all
@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
   end
 
   def new
+    @group.build_user
   end
 
   def create
@@ -40,17 +41,26 @@ class GroupsController < ApplicationController
     redirect_to root_url
   end
 
+  def edit_user_emails
+    render 'form.js'
+  end
+
+  def edit_users_group
+    puts "BOOGERS"
+  end
+
   private
 
   def set_group
-    @group = params[:id].present? ? Group.find(params[:id]) : Group.new
+    @group = params[:id].present? ? Group.find(params[:id]) : current_user.groups.new
   end
 
   def group_params
     params.require(:group).permit(
       :description,
       :title,
-      :user_id
+      :user_id,
+      users_attributes: [:user_id, :email]
     )
   end
 end
