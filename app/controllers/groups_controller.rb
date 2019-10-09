@@ -45,8 +45,33 @@ class GroupsController < ApplicationController
     render 'form.js'
   end
 
-  def edit_users_group
-    puts "BOOGERS"
+  def change_users_group
+    emails = []
+    emails = params[:user_group_emails].split(",")
+    emails = params[:user_group_emails].split(" ")
+    group  = Group.find(params[:group_id])
+
+    emails.each do |email|
+      email = email.gsub(",", "")
+      user  = User.find_by(email: email)
+      
+      group.users << user
+
+      if user.nil?
+        new_user = User.invite!(email: email)
+        flash[:danger] = "#{email} isnt a user. An invitation has been sent."
+      end
+
+      redirect_to root_path
+    end
+  end
+
+  def remove_user_from_group_path( options = {  })
+    user  = User.find(params[:user_id])
+    group = Group.find(params[:group_id])
+
+    group.users.delete(user)
+    redirect_to root_url
   end
 
   private
