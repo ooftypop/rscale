@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get  '/new_participants',    to: 'polls#new_participants'
   post '/create_participants', to: 'polls#create_participants'
 
+  resources :groups
   resources :poll_options
   resources :votes
 end
