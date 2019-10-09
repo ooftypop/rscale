@@ -1,0 +1,7 @@
+<div class="group-index">
+  <% if current_user.groups.any? %>
+    <% current_user.groups.each do |group| %>
+      <%= group %>
+    <% end %>
+  <% end %>
+</div>
