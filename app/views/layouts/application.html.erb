@@ -9,10 +9,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="margin: 10px 50px;">
+  <body>
+    <%= render partial: 'layouts/navbar', locals: {  } %>
+    <%= render partial: 'layouts/modal', locals: {  } %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= render partial: 'layouts/modal', locals: {  } %>
     <%= yield %>
   </body>
 </html>
