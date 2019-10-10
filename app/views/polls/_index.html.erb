@@ -6,7 +6,9 @@
         <%= poll.title %><br />
         <%= poll.description %><br />
         <%= link_to 'View poll', poll_path(poll.id) %><br />
-        <%= link_to 'Edit poll', edit_poll_path(poll.id) %><br /><br />
+        <% if policy(poll).update? %>
+          <%= link_to 'Edit poll', edit_poll_path(poll.id) %><br /><br />
+        <% end %>
       <% end %>
     <% end %>
   </div><br />
@@ -17,7 +19,9 @@
         <%= poll.title %><br />
         <%= poll.description %><br />
         <%= link_to 'View poll', poll_path(poll.id) %><br />
-        <%= link_to 'Edit poll', edit_poll_path(poll.id) %><br />
+        <% if policy(poll).update? %>
+          <%= link_to 'Edit poll', edit_poll_path(poll.id) %><br /><br />
+        <% end %>
       <% end %>
     <% end %>
   </div><br />

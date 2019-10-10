@@ -1,13 +1,15 @@
 <div class="poll-show">
   <%= @poll.title %><br />
   <%= @poll.description %><br />
-  <%= link_to 'Edit poll', edit_poll_path(@poll) %><br />
-  <%= link_to 'Create Poll Option', new_poll_option_path(poll_id: @poll.id) %><br />
-  <% if @poll.roles.any? %>
-    <% @poll.roles.each do |role| %>
-      <% role.users.each do |user| %>
-        <%= link_to 'Remove user', remove_user_from_poll_path(resource_id: role.resource_id, name: role.name, user_id: user.id) %>
-        <%= user.email %><br />
+  <% if policy(@poll).update? %>
+    <%= link_to 'Create Poll Option', new_poll_option_path(poll_id: @poll.id) %><br />
+    <%= link_to 'Edit poll', edit_poll_path(@poll) %><br />
+    <% if @poll.roles.any? %>
+      <% @poll.roles.each do |role| %>
+        <% role.users.each do |user| %>
+          <%= link_to 'Remove user', remove_user_from_poll_path(resource_id: role.resource_id, name: role.name, user_id: user.id) %>
+          <%= user.email %><br />
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
