@@ -54,15 +54,16 @@ class GroupsController < ApplicationController
     emails.each do |email|
       email = email.gsub(",", "")
       user  = User.find_by(email: email)
-      
-      group.users << user
 
       if user.nil?
         new_user = User.invite!(email: email)
         flash[:danger] = "#{email} isnt a user. An invitation has been sent."
+        group.users << new_user
+      else
+        group.users << user
       end
-
-      redirect_to root_path
+      
+      redirect_back(fallback_location: root_path)
     end
   end
 
