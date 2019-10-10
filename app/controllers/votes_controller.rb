@@ -16,9 +16,10 @@ class VotesController < ApplicationController
   def create
     @vote.assign_attributes(vote_params)
     if @vote.save
-      flash[:success] = "#{@vote.id}"
+      flash[:notice] = "Your vote has been counted!"
       redirect_to vote_path(@vote)
     else
+      flash[:alert] = "Vote not counted."
       render "new"
     end
   end
@@ -29,16 +30,16 @@ class VotesController < ApplicationController
 
   def update
     if @vote.update(vote_params)
-      flash[:success] = "You have updated your vote!"
+      flash[:notice] = "You have updated your vote!"
       redirect_to vote_path(@vote)
     else
-      alert[:danger] = "Vote not counted."
+      flash[:alert] = "Vote not counted."
     end
   end
 
   def destroy
     @vote.destroy
-    flash[:success] = "Vote removed"
+    flash[:notice] = "Vote removed"
     redirect_to root_url
   end
 

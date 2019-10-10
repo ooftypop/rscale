@@ -8,4 +8,7 @@ class Group < ApplicationRecord
   has_many :polls, through: :polls_groups
 
   accepts_nested_attributes_for :users
+
+  validates :title, presence: true
+  validates :description, presence: true
 end
