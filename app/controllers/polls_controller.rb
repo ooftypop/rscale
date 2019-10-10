@@ -94,6 +94,14 @@ class PollsController < ApplicationController
     end
   end
 
+  def remove_user_from_poll( options = {  })
+    user = User.find(params[:user_id])
+    poll = Poll.find(params[:resource_id])
+    name = params[:name].to_sym
+    user.remove_role(name, poll)
+    redirect_to poll_path(poll)
+  end
+
   private
 
   def set_poll
