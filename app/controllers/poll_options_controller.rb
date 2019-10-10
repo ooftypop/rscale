@@ -16,9 +16,10 @@ class PollOptionsController < ApplicationController
   def create
     @poll_option.assign_attributes(poll_option_params)
     if @poll_option.save
-      flash[:success] = "#{@poll_option.id}"
+      flash[:notice] = "Poll option has been created!"
       redirect_to poll_option_path(@poll_option)
     else
+      flash[:alert] = "Poll option not created."
       render "new"
     end
   end
@@ -29,16 +30,16 @@ class PollOptionsController < ApplicationController
 
   def update
     if @poll_option.update(poll_option_params)
-      flash[:success] = "You have updated the Poll Option!"
+      flash[:notice] = "You have updated the Poll Option!"
       redirect_to poll_option_path(@poll_option)
     else
-      alert[:danger] = "Poll option unable to update."
+      flash[:alert] = "Poll option unable to update."
     end
   end
 
   def destroy
     @poll_option.destroy
-    flash[:success] = "Poll Option removed"
+    flash[:notice] = "Poll Option removed"
     redirect_back(fallback_location: root_path)
   end
 

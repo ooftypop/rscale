@@ -16,9 +16,10 @@ class GroupsController < ApplicationController
   def create
     @group.assign_attributes(group_params)
     if @group.save
-      flash[:success] = "#{@group.id}"
+      flash[:notice] = "Group Created!"
       redirect_to group_path(@group)
     else
+      flash[:alert] = "Group not created."
       render "new"
     end
   end
@@ -28,10 +29,10 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      flash[:success] = "You have created a group!"
+      flash[:notice] = "You have created a group!"
       redirect_to group_path(@group)
     else
-      alert[:danger] = "Group unable to be updated."
+      flash[:alert] = "Group unable to be updated."
     end
   end
 
@@ -57,12 +58,12 @@ class GroupsController < ApplicationController
 
       if user.nil?
         new_user = User.invite!(email: email)
-        flash[:danger] = "#{email} isnt a user. An invitation has been sent."
+        flash[:alert] = "#{email} isnt a user. An invitation has been sent."
         group.users << new_user
       else
         group.users << user
       end
-      
+
       redirect_back(fallback_location: root_path)
     end
   end

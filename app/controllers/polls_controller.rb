@@ -16,9 +16,10 @@ class PollsController < ApplicationController
     @poll.assign_attributes(poll_params)
     if @poll.save
       current_user.add_role :resource_admin, @poll
-      flash[:success] = "#{@poll.id}"
+      flash[:notice] = "Poll has been created!"
       redirect_to poll_path(@poll)
     else
+      flash[:alert] = "Poll not created"
       render "new"
     end
   end
@@ -28,16 +29,16 @@ class PollsController < ApplicationController
 
   def update
     if @poll.update(poll_params)
-      flash[:success] = "You have updated the Poll!"
+      flash[:notice] = "You have updated the Poll!"
       redirect_to poll_path(@poll)
     else
-      alert[:danger] = "Poll unable to update."
+      flash[:alert] = "Poll unable to update."
     end
   end
 
   def destroy
     @poll.destroy
-    flash[:success] = "Poll removed"
+    flash[:notice] = "Poll removed"
     redirect_to root_url
   end
 
@@ -86,7 +87,7 @@ class PollsController < ApplicationController
         if user.nil?
           new_user = User.invite!(email: email)
           new_user.add_role(assign_role.to_sym, Poll.find_by(id: params[:poll_id].to_i))
-          flash[:danger] = "#{email} isnt a user. An invitation has been sent."
+          flash[:alert] = "#{email} isnt a user. An invitation has been sent."
         end
 
         redirect_to root_path
