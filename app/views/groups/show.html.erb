@@ -1,7 +1,25 @@
-<div class="group-show">
-  <%= @group.title %><br />
-  <%= @group.description %><br />
-  <%= link_to 'Edit group', edit_group_path(@group) %><br />
-  <%= link_to 'Add Emails', edit_user_emails_path(id: @group), remote: true %><br />
-  <%= link_to 'Back', :back, class: "form-path-link " %><br />
+<div class="group-show" style="text-align: center;">
+  <h5><%= @group.title %></h5>
+  <h6><%= @group.description %></h6>
+  <button><%= link_to 'Edit group', edit_group_path(@group) %></button>
+  <button><%= link_to 'Add Emails', edit_user_emails_path(id: @group), remote: true %></button>
+  <button><%= link_to 'Back', :back, class: "form-path-link " %></button>
+  <% if @group.users.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @group.users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= link_to 'Remove', remove_user_path(user_id: user.id, group_id: @group.id) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>

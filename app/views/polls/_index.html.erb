@@ -1,28 +1,50 @@
-<div class="polls-index">
+<div class="polls-index" style="text-align: center;">
   <div class="poll-admin-index">
     <% if current_user.has_role?(:resource_admin, :any) %>
-      <h5>polls where <%= current_user.email %> is resource admin</h5><br /><br />
-      <% @user_admin_polls.each do |poll| %>
-        <%= poll.title %><br />
-        <%= poll.description %><br />
-        <%= link_to 'View poll', poll_path(poll.id) %><br />
-        <% if policy(poll).update? %>
-          <%= link_to 'Edit poll', edit_poll_path(poll.id) %><br /><br />
-        <% end %>
-      <% end %>
+      <h5>Admin Polls</h5>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>View</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user_admin_polls.each do |poll| %>
+            <tr>
+              <td><%= poll.title %></td>
+              <td><%= poll.description %></td>
+              <td><%= link_to 'View poll', poll_path(poll.id) %></td>
+              <td><%= link_to 'Edit poll', edit_poll_path(poll.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
-  </div><br />
+  </div>
   <div class="poll-user-index">
     <% if current_user.has_role?(:user, :any) %>
-      <h5>polls where <%= current_user.email %> is a User</h5> <br /><br />
-      <% @user_polls.each do |poll| %>
-        <%= poll.title %><br />
-        <%= poll.description %><br />
-        <%= link_to 'View poll', poll_path(poll.id) %><br />
-        <% if policy(poll).update? %>
-          <%= link_to 'Edit poll', edit_poll_path(poll.id) %><br /><br />
-        <% end %>
-      <% end %>
+      <h5>Participation Polls</h5>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user_polls.each do |poll| %>
+          <tr>
+            <td><%= poll.title %></td>
+            <td><%= poll.description %></td>
+            <td><%= link_to 'View poll', poll_path(poll.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
-  </div><br />
-</div><br />
+  </div>
+</div>
