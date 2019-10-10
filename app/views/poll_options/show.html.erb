@@ -1,7 +1,6 @@
 <div class="poll-option-show">
   <%= @poll_option.title %><br />
   <%= @poll_option.description %><br />
-  <%= link_to 'Home', root_path %><br />
   <%= link_to 'Poll', poll_path(id: @poll_option.poll_id) %><br />
   <%= link_to 'Cast your vote', new_vote_path(poll_option_id: @poll_option.id) %>
 </div>

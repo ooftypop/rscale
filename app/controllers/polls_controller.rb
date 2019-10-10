@@ -41,6 +41,31 @@ class PollsController < ApplicationController
     redirect_to root_url
   end
 
+  def add_groups
+    @group_options = current_user.email_groups.map { |group| [group.title, group.id]}
+    render 'add_groups_form.js'
+  end
+
+  def create_poll_groups
+    groups      = []
+    users       = []
+    user_groups = params[:user_groups]
+    poll        = Poll.find(params[:poll_id].to_i)
+
+    user_groups.each do |group_id|
+      group = Group.find(group_id)
+      group.users.each do |user|
+        users = users.push(user)
+      end
+    end
+
+    users.each do |user|
+      user.add_role(:user, poll)
+    end
+
+    redirect_to poll_path(poll)
+  end
+
   def new_participants
     render 'form.js'
   end
@@ -67,6 +92,14 @@ class PollsController < ApplicationController
         redirect_to root_path
       end
     end
+  end
+
+  def remove_user_from_poll( options = {  })
+    user = User.find(params[:user_id])
+    poll = Poll.find(params[:resource_id])
+    name = params[:name].to_sym
+    user.remove_role(name, poll)
+    redirect_to poll_path(poll)
   end
 
   private
