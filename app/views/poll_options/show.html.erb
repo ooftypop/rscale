@@ -1,6 +1,7 @@
-<div class="poll-option-show">
-  <%= @poll_option.title %><br />
-  <%= @poll_option.description %><br />
-  <%= link_to 'Poll', poll_path(id: @poll_option.poll_id) %><br />
-  <%= link_to 'Cast your vote', new_vote_path(poll_option_id: @poll_option.id) %>
+<div class="poll-option-show" style="text-align: center;">
+  <h5><%= @poll_option.title %></h5>
+  <button><%= link_to 'Edit', edit_poll_option_path(@poll_option) %></button>
+  <button><%= link_to 'Cast your vote', new_vote_path(poll_option_id: @poll_option.id) %></button>
+  <button><%= link_to 'Poll', poll_path(id: @poll_option.poll_id) %></button>
+  <h6><%= @poll_option.description %></h6>
 </div>

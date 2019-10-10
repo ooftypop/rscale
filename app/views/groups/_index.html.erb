@@ -1,19 +1,30 @@
-<div class="group-index">
+<div class="group-index" style="text-align: center;">
   <% if current_user.email_groups.any? %>
-    <h5><%= current_user.email %> groups</h5><br /><br />
+    <h4>Email groups</h4>
     <% current_user.email_groups.each do |group| %>
-      <%= group.title %><br />
-      <%= group.description %><br />
+      <h5><%= group.title %></h5>
+      <button><%= link_to 'Show group', group_path(group) %></button>
+      <button><%= link_to 'Edit group', edit_group_path(group) %></button>
+      <button><%= link_to 'Add Emails', edit_user_emails_path(id: group), remote: true %></button><br />
+      <h6><%= group.description %></h6>
       <% if group.users.any? %>
-        <h6><%= group.title %>s Users</h6>
-        <% group.users.each do |user| %>
-          <%= link_to 'Remove User', remove_user_path(user_id: user.id, group_id: group.id) %>
-          <%= user.email %><br />
-        <% end %>
-      <% end %><br />
-      <%= link_to 'Show group', group_path(group) %><br />
-      <%= link_to 'Edit group', edit_group_path(group) %><br />
-      <%= link_to 'Add Emails', edit_user_emails_path(id: group), remote: true %><br /><br />
+        <table>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% group.users.each do |user| %>
+              <tr>
+                <td><%= user.email %></td>
+                <td><%= link_to 'Remove', remove_user_path(user_id: user.id, group_id: group.id) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
     <% end %>
   <% end %>
 </div>
