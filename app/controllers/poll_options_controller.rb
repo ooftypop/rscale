@@ -39,7 +39,7 @@ class PollOptionsController < ApplicationController
   def destroy
     @poll_option.destroy
     flash[:success] = "Poll Option removed"
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   private

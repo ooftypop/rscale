@@ -16,7 +16,7 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def update
-    authorize :admin, :edit?
+    authorize :admin, :update?
   end
 
   def remove_role_link( options = {  })
@@ -24,7 +24,7 @@ class Admin::UsersController < Admin::AdminController
     poll = Poll.find(params[:resource_id])
     name = params[:name].to_sym
     user.remove_role(name, poll)
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 
   private

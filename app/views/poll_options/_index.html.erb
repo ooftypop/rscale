@@ -9,6 +9,7 @@
           <th>View</th>
           <% if policy(@poll).update? %>
             <th>Edit</th>
+            <th>Delete</th>
           <% end %>
         </tr>
       </thead>
@@ -20,6 +21,7 @@
             <td><%= link_to 'View', poll_option_path(poll_option) %></td>
             <% if policy(@poll).update? %>
               <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
+              <td><%= link_to 'Delete', poll_option, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link" %></td>
             <% end %>
           </tr>
         <% end %>
