@@ -4,12 +4,15 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'no-reply@rscale.herokuapp.com'}
-  config.action_mailer.default_url_options = { :host => 'rscale.heroku.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'https://rscale.herokuapp.com',
+    user_name:            'GMAIL_ID',
+    password:             'GMAIL_PASSWORD',
+    authentication:       'plain',
+    enable_starttls_auto: true }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers

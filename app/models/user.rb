@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :email_groups, class_name: "Group", foreign_key: "user_id"
 
 
-  def confirmation_required?
-    false
-  end
+  # def confirmation_required?
+  #   false
+  # end
 end
