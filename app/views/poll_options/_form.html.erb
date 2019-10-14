@@ -6,7 +6,7 @@
   <% end %>
 
   <%= form_for (@poll_option) do |f| %>
-    <%= f.hidden_field :poll_id, :value => @poll.id %>
+    <%= f.hidden_field :poll_id, :value => params[:poll_id] %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <% if @poll_option.errors.any? %>
       <%= @poll_option.errors.full_messages %>
