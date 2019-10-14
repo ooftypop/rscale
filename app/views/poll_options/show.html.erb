@@ -5,3 +5,7 @@
   <button><%= link_to 'Poll', poll_path(id: @poll_option.poll_id) %></button>
   <h6><%= @poll_option.description %></h6>
 </div>
+
+<div class="votes-index"><br />
+  <%= render partial: "votes/index", remote: true %>
+</div>

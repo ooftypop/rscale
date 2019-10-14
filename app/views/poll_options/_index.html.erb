@@ -12,6 +12,7 @@
             <th>Edit</th>
             <th>Delete</th>
           <% end %>
+          <th>Average</th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +26,7 @@
               <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
               <td><%= link_to 'Delete', poll_option, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link" %></td>
             <% end %>
+            <td><%= average_poll_option_vote(poll_option, precision: 2) %></td>
           </tr>
         <% end %>
       </tbody>
