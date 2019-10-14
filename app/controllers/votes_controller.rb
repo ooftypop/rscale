@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
 
-  before_action :set_vote
+  before_action :set_vote, except: [:index]
 
   def index
     @votes = Vote.all
@@ -17,7 +17,7 @@ class VotesController < ApplicationController
     @vote.assign_attributes(vote_params)
     if @vote.save
       flash[:notice] = "Your vote has been counted!"
-      redirect_to vote_path(@vote)
+      redirect_to poll_option_path(id: @vote.poll_option_id)
     else
       flash[:alert] = "Vote not counted."
       render "new"

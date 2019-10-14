@@ -1,6 +1,7 @@
-<div class="form">
+<div class="form" style="text-align: center;">
   <% if action_name == 'new' %>
-    <h3>Vote</h3>
+    <h5>Vote on option <%= @poll_option.title %></h5>
+    <h5><%= @poll_option.description %></h5>
   <% elsif action_name == 'edit' %>
     <h3>Update Vote</h3>
   <% end %>
@@ -12,7 +13,10 @@
       <%= @vote.errors.full_messages %>
     <% end %>
 
-    <%= f.range_field :rating, class: "form-control text-field", min: -5, max: 5 %><br />
+    <div class="slidecontainer">
+      <input type="range" name="vote[rating]" min="-5" max="5" step="0.01" value="0" class="slider" id="myRange" onchange="updateTextInput(this.value);">
+      <input class="" type="text" id="textInput" value="0" style="border: none; text-decoration: none; text-align: center;" disabled>
+    </div>
 
     <%= f.submit "Submit", class: "form-control submit-button" %><br />
   <% end %>
@@ -20,3 +24,11 @@
     <%= link_to 'Back', :back, class: "form-path-link " %><br />
   <% end %>
 </div>
+
+
+
+<script type="text/javascript">
+  function updateTextInput(val) {
+          document.getElementById('textInput').value=val;
+        }
+</script>

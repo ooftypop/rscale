@@ -7,10 +7,12 @@
           <th>Title</th>
           <th>Description</th>
           <th>View</th>
+          <th>Vote</th>
           <% if policy(@poll).update? %>
             <th>Edit</th>
             <th>Delete</th>
           <% end %>
+          <th>Average</th>
         </tr>
       </thead>
       <tbody>
@@ -19,10 +21,12 @@
             <td><%= poll_option.title %></td>
             <td><%= poll_option.description %></td>
             <td><%= link_to 'View', poll_option_path(poll_option) %></td>
+            <td><%= link_to 'Vote', new_vote_path(poll_option_id: poll_option.id) %></td>
             <% if policy(@poll).update? %>
               <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
               <td><%= link_to 'Delete', poll_option, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link" %></td>
             <% end %>
+            <td><%= average_poll_option_vote(poll_option, precision: 2) %></td>
           </tr>
         <% end %>
       </tbody>
