@@ -1,6 +1,6 @@
 <div class="form">
-  <%= form_tag "/create_poll_groups", remote: true do %>
-    <%= hidden_field_tag :poll_id, @poll.id %>
+  <%= form_tag "/add_poll_groups", remote: true do %>
+    <%= hidden_field_tag :poll_id, params[:poll_id] %>
     <div class="">
       <h6>User Groups</h6><br>
       <%= select_tag :user_groups, options_for_select(@group_options),
