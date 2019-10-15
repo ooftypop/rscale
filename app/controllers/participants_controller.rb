@@ -60,7 +60,7 @@ class ParticipantsController < ApplicationController
           new_users = new_users.push(email)
 
           new_user.add_role(role.to_sym, Poll.find_by(id: params[:poll_id].to_i))
-          flash[:notice] = "#{all_new_users} isnt a user. An invitation has been sent."
+          flash[:notice] = "#{new_users} isnt a user. An invitation has been sent."
         else
           if user.has_role?(:moderator, poll) || user.has_role?(:user, poll)
             current_users = current_users.push(user.email)
