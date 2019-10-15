@@ -10,11 +10,12 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'https://rscale.herokuapp.com',
+    domain:               'gmail.com',
     user_name:            'no.response.rscale@gmail.com',
     password:             ENV['GMAIL_PASSWORD'],
     authentication:       'plain',
-    enable_starttls_auto: true }
+    enable_starttls_auto: true
+  }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
