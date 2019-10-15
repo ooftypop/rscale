@@ -12,7 +12,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'https://rscale.herokuapp.com',
     user_name:            'no.response.rscale@gmail.com',
-    password:             'GMAIL_PASSWORD',
+    password:             ENV['GMAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true }
 
