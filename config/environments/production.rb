@@ -11,7 +11,7 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'https://rscale.herokuapp.com',
-    user_name:            'GMAIL_ID',
+    user_name:            'no.response.rscale@gmail.com',
     password:             'GMAIL_PASSWORD',
     authentication:       'plain',
     enable_starttls_auto: true }
