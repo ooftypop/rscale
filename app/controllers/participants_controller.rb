@@ -8,9 +8,10 @@ class ParticipantsController < ApplicationController
   end
 
   def add_poll_groups
-    users       = []
-    user_groups = params[:user_groups]
-    poll        = Poll.find(params[:poll_id].to_i)
+    users         = []
+    user_groups   = params[:user_groups]
+    poll          = Poll.find(params[:poll_id].to_i)
+    current_users = []
 
     user_groups.each do |group_id|
       group = Group.find(group_id)
@@ -20,7 +21,12 @@ class ParticipantsController < ApplicationController
     end
 
     users.each do |user|
-      user.add_role(:user, poll)
+      if user.has_role?(:moderator, poll) || user.has_role?(:user, poll)
+        current_users = current_users.push(user.email)
+        flash[:notice] = "#{current_users} are part of the poll already."
+      else
+        user.add_role(:user, poll)
+      end
     end
 
     redirect_to poll_path(poll)
@@ -35,31 +41,32 @@ class ParticipantsController < ApplicationController
   end
 
   def create_poll_roles
-    Role.types.keys.each do |assign_role|
-      role_symbol   = (assign_role.to_s + "_emails").to_sym
-      roles         = params[role_symbol].to_s.split(",")
-      roles         = params[role_symbol].to_s.split(" ")
+    Role.types.keys.each do |role|
+      role_symbol   = (role.to_s + "_emails").to_sym
+      email_array   = params[role_symbol].to_s.split(",")
       poll          = Poll.find_by(id: params[:poll_id].to_i)
+      new_users     = []
+      current_users = []
 
-      all_new_users = []
-
-      roles.each do |email|
+      email_array.each do |email|
         email = email.gsub(/[," ]/, '')
         email = email.gsub("[", "")
         email = email.gsub("]", "")
-        user  = User.find_by(email: email)
+
+        user = User.find_by(email: email)
 
         if user.nil?
           new_user = User.invite!(email: email)
-          all_new_users = all_new_users.push(email)
+          new_users = new_users.push(email)
 
-          new_user.add_role(assign_role.to_sym, Poll.find_by(id: params[:poll_id].to_i))
+          new_user.add_role(role.to_sym, Poll.find_by(id: params[:poll_id].to_i))
           flash[:notice] = "#{all_new_users} isnt a user. An invitation has been sent."
         else
           if user.has_role?(:moderator, poll) || user.has_role?(:user, poll)
-            flash[:notice] = "#{user.email} is already part of the poll."
+            current_users = current_users.push(user.email)
+            flash[:notice] = "#{current_users} are part of the poll already."
           else
-            user.add_role(assign_role.to_sym, poll)
+            user.add_role(role.to_sym, poll)
           end
         end
 
