@@ -1,6 +1,4 @@
 class PollOptionsController < ApplicationController
-  helper PollOptionHelper
-
   before_action :set_poll_option
 
   def index
