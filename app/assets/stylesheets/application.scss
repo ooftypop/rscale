@@ -2,27 +2,12 @@
 @import 'bootstrap';
 @import "select2-bootstrap";
 @import "font-awesome";
+@import "layouts/navbar";
+@import "layouts/modal";
+@import "layouts/tables";
+@import "votes/votes";
 
-
-.modal-body {
-  font-family: 'Open Sans';
-  font-weight: 600;
-  font-style: normal;
-  font-size: 18px;
-  text-align: center;
-  padding: 2rem 20px;
-  z-index: 100;
-}
-.modal-dialog {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 6px;
-  pointer-events: all;
-}
-.panel-heading {
-  text-align: center;
-}
-
+// Flash messages ==============================================================
 .notice, .alert {
   border: 0px solid white;
   border-radius: 0px;
@@ -36,73 +21,4 @@
 }
 .notice {
   background-color: green;
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-thead {
-  display: table-header-group;
-  vertical-align: middle;
-  border-color: inherit;
-}
-
-tbody {
-  display: table-row-group;
-  vertical-align: middle;
-  border-color: inherit;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-// VOTE SLIDER =================================================================
-
-.slidecontainer {
-  text-align: center;
-  width: 100%;
-}
-
-.slider {
-  border-radius: 12px;
-  -webkit-appearance: none;
-  appearance: none;
-  width: 90%;
-  height: 25px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  border-radius: 12px;
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background: purple;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  background: purple;
-  cursor: pointer;
 }

@@ -1,0 +1,19 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  .navbar-nav {
+    width: 100%;
+  }
+  .nav-button {
+    background-color: #343a40 !important;
+    border: none;
+    text-decoration: none;
+    .link-button {
+      color: white;
+    }
+  }
+  .dropdown-menu {
+    background-color: #343a40 !important;
+    border: none;
+  }
+}

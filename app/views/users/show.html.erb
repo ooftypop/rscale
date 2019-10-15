@@ -1,10 +1,15 @@
-<div class="users_show">
-  <div class="nav-area">
-  </div><br />
-  <div class="poll-index">
-    <%= render partial: "polls/index" %>
-  </div>
-  <div class="poll-index">
-    <%= render partial: "groups/index" %>
+<div class="users-show">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="polls-tab" data-toggle="tab" href="#polls" role="tab" aria-controls="polls" aria-selected="true">Polls</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="groups-tab" data-toggle="tab" href="#groups" role="tab" aria-controls="groups" aria-selected="false">Groups</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="polls" role="tabpanel" aria-labelledby="polls-tab"><%= render partial: "polls/index" %></div>
+    <div class="tab-pane fade" id="groups" role="tabpanel" aria-labelledby="groups-tab"><%= render partial: "groups/index" %></div>
   </div>
 </div>
