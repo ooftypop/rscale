@@ -43,29 +43,36 @@ class GroupsController < ApplicationController
   end
 
   def edit_user_emails
+    current_user.email_groups.each do |group|
+      @users = group.users.map { |user| [user.email, user.email]}
+    end
+
     render 'form.js'
   end
 
   def change_users_group
-    emails = []
-    emails = params[:user_group_emails].split(",")
-    emails = params[:user_group_emails].split(" ")
-    group  = Group.find(params[:group_id])
+    emails        = params[:user_group_emails]
+    group         = Group.find(params[:group_id])
+    new_users     = []
 
     emails.each do |email|
-      email = email.gsub(",", "")
+      email = email.to_s
+      email = email.gsub(/[," ]/, '')
+      email = email.gsub("[", "")
+      email = email.gsub("]", "")
       user  = User.find_by(email: email)
 
       if user.nil?
         new_user = User.invite!(email: email)
-        flash[:alert] = "#{email} isnt a user. An invitation has been sent."
+        new_users = new_users.push(email)
+
+        flash[:notice] = "#{new_users} doesnt exist. An invitation has been sent."
         group.users << new_user
       else
         group.users << user
       end
-
-      redirect_back(fallback_location: root_path)
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def remove_user_from_group_path( options = {  })
