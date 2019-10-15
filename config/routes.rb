@@ -31,11 +31,11 @@ Rails.application.routes.draw do
   resources :votes
 
   # participants controller
-  get  '/new_participants',    to: 'participants#new_participants'
-  post '/create_participants', to: 'participants#create_participants'
+  get  '/new_poll_roles',       to: 'participants#new_poll_roles'
+  post '/create_poll_roles',    to: 'participants#create_poll_roles'
 
-  get  '/add_groups',          to: 'participants#add_groups'
-  post '/create_poll_groups',  to: 'participants#create_poll_groups'
+  get  '/add_groups',           to: 'participants#add_groups'
+  post '/add_poll_groups',      to: 'participants#add_poll_groups'
 
   get '/remove_user_from_poll', to: 'participants#remove_user_from_poll'
 end

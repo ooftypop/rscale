@@ -1,3 +1,0 @@
-$(".modal-title").html("Participants in: <%= @poll.title %>");
-$(".modal-body").html("<%= escape_javascript(render partial: '/participants/participants_form', locals: { poll: @poll }) %>");
-$("#myModal").modal("show");
