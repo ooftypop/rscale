@@ -21,20 +21,21 @@ Rails.application.routes.draw do
     get '/remove_role', to: 'users#remove_role_link'
   end
 
-  resources :polls
-  get  '/new_participants',    to: 'polls#new_participants'
-  post '/create_participants', to: 'polls#create_participants'
-
-  get  '/add_groups',          to: 'polls#add_groups'
-  post '/create_poll_groups',  to: 'polls#create_poll_groups'
-
-  get '/remove_user_from_poll', to: 'polls#remove_user_from_poll'
-
   resources :groups
   get  '/edit_user_emails',   to: 'groups#edit_user_emails'
   post '/change_users_group', to: 'groups#change_users_group'
   get  '/remove_user',        to: 'groups#remove_user_from_group_path'
 
+  resources :polls
   resources :poll_options
   resources :votes
+
+  # participants controller
+  get  '/new_participants',    to: 'participants#new_participants'
+  post '/create_participants', to: 'participants#create_participants'
+
+  get  '/add_groups',          to: 'participants#add_groups'
+  post '/create_poll_groups',  to: 'participants#create_poll_groups'
+
+  get '/remove_user_from_poll', to: 'participants#remove_user_from_poll'
 end

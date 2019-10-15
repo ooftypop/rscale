@@ -1,6 +1,6 @@
 <div class="form">
   <%= form_tag "/create_participants", remote: true do %>
-    <%= hidden_field_tag :poll_id, @poll.id %>
+    <%= hidden_field_tag :poll_id, params[:poll_id] %>
     <div class="">
       <%= label_tag :resource_admin_emails %><br />
       <%= text_area_tag(:resource_admin_emails, value = nil, options = {multiple: true, style: "width: 100%; height: 100px;"}) %>

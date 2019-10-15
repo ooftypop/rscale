@@ -1,0 +1,3 @@
+$(".modal-title").html("Add Groups to <%= @poll.title %>");
+$(".modal-body").html("<%= escape_javascript(render partial: '/participants/add_groups_to_polls', locals: { poll: @poll }) %>");
+$("#myModal").modal("show");
