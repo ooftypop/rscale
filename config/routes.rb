@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :polls, except: [:new, :create]
 
     get '/remove_role', to: 'users#remove_role_link'
+    get '/remove_user', to: 'users#delete_user_link'
   end
 
   resources :groups

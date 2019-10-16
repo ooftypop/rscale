@@ -1,8 +1,48 @@
-<% @polls.each do |poll| %>
-  <%= poll.title %><br />
-  <% poll.roles.each do |role| %>
-    <%= role.name %><br />
-    <%= role.resource_id %><br />
-  <% end %>
-  <%= link_to 'Edit Poll', edit_admin_poll_path(poll) %><br />
-<% end %>
+<div class="admin-polls-index" style="text-align: center;">
+
+  <h5>All Polls</h5>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Polls..." title="Type in a name">
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>View</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @polls.any? %>
+        <% @polls.each do |poll| %>
+          <tr>
+            <td><%= poll.title %></td>
+            <td><%= poll.description %></td>
+            <td><%= link_to 'View poll', poll_path(poll.id) %></td>
+            <td><%= link_to 'Edit poll', edit_poll_path(poll.id) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>

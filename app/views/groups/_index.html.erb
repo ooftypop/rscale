@@ -1,30 +1,49 @@
 <div class="group-index" style="text-align: center;">
   <% if current_user.email_groups.any? %>
     <h4>Email groups</h4>
-    <% current_user.email_groups.each do |group| %>
-      <h5><%= group.title %></h5>
-      <button><%= link_to 'Show group', group_path(group) %></button>
-      <button><%= link_to 'Edit group', edit_group_path(group) %></button>
-      <button><%= link_to 'Add Emails', edit_user_emails_path(id: group), remote: true %></button><br />
-      <h6><%= group.description %></h6>
-      <% if group.users.any? %>
-        <table>
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% group.users.each do |user| %>
-              <tr>
-                <td><%= user.email %></td>
-                <td><%= link_to 'Remove', remove_user_path(user_id: user.id, group_id: group.id) %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% end %>
-    <% end %>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Groups..." title="Type in a name">
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Add Emails</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_user.email_groups.each do |group| %>
+          <tr>
+            <td><%= group.title %></td>
+            <td><%= group.description %></td>
+            <td><%= link_to 'View', group_path(group) %></td>
+            <td><%= link_to 'Edit', edit_group_path(group) %></td>
+            <td><%= link_to 'Add Emails', edit_user_emails_path(id: group), remote: true %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
 </div>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>

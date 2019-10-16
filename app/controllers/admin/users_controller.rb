@@ -24,7 +24,15 @@ class Admin::UsersController < Admin::AdminController
     poll = Poll.find(params[:resource_id])
     name = params[:name].to_sym
     user.remove_role(name, poll)
+
     redirect_back(fallback_location: root_path)
+  end
+
+  def delete_user_link( options = {  })
+    user = User.find(params[:id])
+    user.destroy
+    flash[:notice] = "User destroyed."
+    redirect_to admin_users_path
   end
 
   private

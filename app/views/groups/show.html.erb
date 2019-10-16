@@ -5,7 +5,9 @@
   <button><%= link_to 'Add Emails', edit_user_emails_path(id: @group), remote: true %></button>
   <button><%= link_to 'Back', :back, class: "form-path-link " %></button>
   <% if @group.users.any? %>
-    <table>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for emails..." title="Type in a name">
+
+    <table id="myTable">
       <thead>
         <tr>
           <th>Email</th>
@@ -23,3 +25,24 @@
     </table>
   <% end %>
 </div>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
