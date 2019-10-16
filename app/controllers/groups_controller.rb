@@ -43,8 +43,11 @@ class GroupsController < ApplicationController
   end
 
   def edit_user_emails
-    current_user.email_groups.each do |group|
-      @users = group.users.map { |user| [user.email, user.email]}
+    if current_user.email_groups.empty?
+    else
+      current_user.email_groups.each do |group|
+        @users = group.users.map { |user| [user.email, user.email]}
+      end
     end
 
     render 'form.js'
