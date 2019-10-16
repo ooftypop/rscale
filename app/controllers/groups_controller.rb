@@ -44,6 +44,7 @@ class GroupsController < ApplicationController
 
   def edit_user_emails
     if current_user.email_groups.empty?
+      @users = []
     else
       current_user.email_groups.each do |group|
         @users = group.users.map { |user| [user.email, user.email]}

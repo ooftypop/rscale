@@ -3,7 +3,11 @@ class ParticipantsController < ApplicationController
   before_action :set_poll, except: [:index, :remove_user_from_poll]
 
   def add_groups
-    @group_options = current_user.email_groups.map { |group| [group.title, group.id]} unless current_user.email_groups.empty?
+    if current_user.email_groups.empty?
+      @group_options = []
+    else
+      @group_options = current_user.email_groups.map { |group| [group.title, group.id]}
+    end
     render 'add_groups_to_poll_form.js'
   end
 
