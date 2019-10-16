@@ -1,11 +1,10 @@
 class PollOption < ApplicationRecord
-  belongs_to :poll
+  belongs_to :poll, optional: true
   belongs_to :user
 
   has_many :votes, dependent: :destroy
 
   validates :title, presence: true
-  validates :description, presence: true
 
   def sum_ratings
     vote_average = []
@@ -14,5 +13,5 @@ class PollOption < ApplicationRecord
     end
     vote_average.sum
   end
-  
+
 end

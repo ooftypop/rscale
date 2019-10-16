@@ -16,6 +16,24 @@
     <%= f.text_field :description, class: "form-control text-field",
         placeholder: "Short Description" %><br />
 
+      <h5>Poll Options</h5>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+        <tbody class='fields'>
+          <%= f.fields_for :poll_options do |builder| %>
+            <%= builder.hidden_field :poll_id, :value => @poll.id %>
+            <%= render 'poll_option', f: builder %>
+          <% end %>
+        </tbody>
+    </table>
+
+    <%= link_to_add_row('Add Poll Option', f, :poll_options, class: 'btn btn-primary') %>
+
     <%= f.submit "Submit", class: "form-control submit-button" %><br />
   <% end %>
   <% if action_name == 'edit' %>
