@@ -1,7 +1,11 @@
 <div class="poll-edit">
   <%= render partial: "polls/form" %>
   <% if policy(@poll).update? %>
-    <%= link_to 'Add Groups', add_groups_path(poll_id: @poll.id), remote: true %><br />
+    <% if current_user.email_groups.any? %>
+      <%= link_to 'Add Groups', add_groups_path(poll_id: @poll.id), remote: true %><br />
+    <% else %>
+      <%= link_to 'Create Group', new_group_path %><br />
+    <% end %>
     <%= link_to 'Add Users', new_poll_roles_path(poll_id: @poll.id), remote: true %><br />
   <% end %>
   <%= link_to 'View Poll', poll_path(@poll) %>
