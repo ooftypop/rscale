@@ -10,6 +10,7 @@ class PollsController < ApplicationController
   end
 
   def new
+    @poll.poll_options.build
   end
 
   def create
@@ -25,6 +26,7 @@ class PollsController < ApplicationController
   end
 
   def edit
+    @poll.poll_options.build
   end
 
   def update
@@ -51,7 +53,13 @@ class PollsController < ApplicationController
   def poll_params
     params.require(:poll).permit(
       :description,
-      :title
+      :title,
+      poll_options_attributes: [:id,
+                                :title,
+                                :description,
+                                :poll_id,
+                                :user_id,
+                                :_destroy]
     )
   end
 end

@@ -24,7 +24,6 @@ class PollOptionsController < ApplicationController
   end
 
   def edit
-    @poll = Poll.find(@poll_option.poll_id)
   end
 
   def update
@@ -37,15 +36,16 @@ class PollOptionsController < ApplicationController
   end
 
   def destroy
+    @poll = @poll_option.poll.id
     @poll_option.destroy
     flash[:notice] = "Poll Option removed"
-    redirect_back(fallback_location: root_path)
+    redirect_to poll_path(@poll)
   end
 
   private
 
   def set_poll_option
-    @poll_option = params[:id].present? ? PollOption.find(params[:id]) : PollOption.new
+    @poll_option = params[:id].present? ? PollOption.find_by(id: params[:id].to_i) : PollOption.new
   end
 
   def poll_option_params
