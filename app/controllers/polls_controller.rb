@@ -7,15 +7,7 @@ class PollsController < ApplicationController
   end
 
   def show
-    @poll_options_ids = @poll.poll_options.ids
-    @poll_options_ids.each do |find_vote|
-      @vote = Vote.find_by(user_id: current_user.id, poll_option_id: find_vote)
-      if @vote.nil?
-        @vote = Vote.new
-      else
-        @vote
-      end
-    end
+    @vote = Vote.new
   end
 
   def new
@@ -54,10 +46,6 @@ class PollsController < ApplicationController
   end
 
   private
-
-  def set_vote
-    @vote = Vote.new
-  end
 
   def set_poll
     @poll = params[:id].present? ? Poll.find(params[:id]) : Poll.new

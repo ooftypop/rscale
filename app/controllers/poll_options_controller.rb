@@ -6,7 +6,6 @@ class PollOptionsController < ApplicationController
   end
 
   def show
-    @vote = Vote.new
   end
 
   def new
