@@ -6,12 +6,11 @@
         <tr>
           <th>Title</th>
           <th>Description</th>
-          <th>View</th>
-          <th>Vote</th>
+          <th>Vote Range</th>
           <% if policy(@poll).update? %>
             <th>Edit</th>
           <% end %>
-          <th>Average</th>
+          <th>Sum</th>
         </tr>
       </thead>
       <tbody>
@@ -19,8 +18,7 @@
           <tr>
             <td><%= poll_option.title %></td>
             <td><%= poll_option.description %></td>
-            <td><%= link_to 'View', poll_option_path(poll_option) %></td>
-            <td><%= link_to 'Vote', new_vote_path(poll_option_id: poll_option.id) %></td>
+            <td><%= render partial: "votes/form", locals: { option_id: poll_option.id } %></td>
             <% if policy(@poll).update? %>
               <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
             <% end %>

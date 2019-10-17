@@ -7,9 +7,9 @@
   border-radius: 12px;
   -webkit-appearance: none;
   appearance: none;
-  width: 90%;
-  height: 25px;
-  background: #d3d3d3;
+  width: 50%;
+  height: 20px;
+  background: #666666;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
@@ -24,9 +24,9 @@
   border-radius: 12px;
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
-  background: purple;
+  width: 20px;
+  height: 20px;
+  background: black;
   cursor: pointer;
 }
 
@@ -35,4 +35,13 @@
   height: 25px;
   background: purple;
   cursor: pointer;
+}
+
+.vote-submit-button {
+  margin-left: 50px;
+  background-color: #666666;
+  border: none;
+  border-radius: 6px;
+  color: white;
+
 }
