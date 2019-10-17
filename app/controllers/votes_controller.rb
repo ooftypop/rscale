@@ -19,8 +19,8 @@ class VotesController < ApplicationController
       flash[:notice] = "Your vote has been counted!"
       redirect_back(fallback_location: root_path)
     else
-      flash[:alert] = "Vote not counted."
-      render "new"
+      flash[:alert] = "Vote not within range. Vote not counted."
+      redirect_back(fallback_location: root_path)
     end
   end
 
