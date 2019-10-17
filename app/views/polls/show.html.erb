@@ -8,6 +8,9 @@
   <div class="poll-options-index"><br />
     <%= render partial: "poll_options/index", remote: true %>
   </div>
+
+  <%# <%= submit_tag "Vote", id: "masterSave", onclick: "submitAllVotes()", class: "submit-button", data: { confirm: "Confirm your Votes?" } %> %>
+
   <% if policy(@poll).update? %>
     <% if @poll.roles.any? %>
       <h5><%= @poll.title %> Participants</h5>
@@ -32,3 +35,10 @@
     <% end %>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  // function submitAllVotes() {
+  //   $(".slider").attr("disabled", true);
+  //   $('.vote-submit-button').click();
+  // };
+</script>

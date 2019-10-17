@@ -7,7 +7,6 @@ class Poll < ApplicationRecord
   has_many :groups, through: :polls_groups
 
   validates :title, presence: true
-  validates :description, presence: true
 
   accepts_nested_attributes_for :poll_options, reject_if: lambda {|attributes| attributes['title'].blank?}
 end
