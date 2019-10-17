@@ -1,34 +1,24 @@
 <div class="form" style="text-align: center;">
-  <% if action_name == 'new' %>
-    <h5>Vote on option <%= @poll_option.title %></h5>
-    <h5><%= @poll_option.description %></h5>
-  <% elsif action_name == 'edit' %>
-    <h3>Update Vote</h3>
-  <% end %>
 
   <%= form_for (@vote) do |f| %>
-    <%= f.hidden_field :poll_option_id, :value => @poll_option.id %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :poll_option_id, value: option_id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
     <% if @vote.errors.any? %>
       <%= @vote.errors.full_messages %>
     <% end %>
 
-    <div class="slidecontainer">
-      <input type="range" name="vote[rating]" min="-5" max="5" step="0.01" value="0" class="slider" id="myRange" onchange="updateTextInput(this.value);">
-      <input class="" type="text" id="textInput" value="0" style="border: none; text-decoration: none; text-align: center;" disabled>
-    </div>
+    <input class="" type="text" id="textInput<%= option_id %>" value="0" style="background-color: rgba(1,1,1,0); border: none; text-decoration: none; text-align: center;" disabled>
 
-    <%= f.submit "Submit", class: "form-control submit-button" %><br />
-  <% end %>
-  <% if action_name == 'edit' %>
-    <%= link_to 'Back', :back, class: "form-path-link " %><br />
+    <input type="range" name="vote[rating]" min="-5" max="5" step="0.01" value="0" class="slider" id="myRange<%= option_id %>" onchange="updateTextInput<%= option_id %>(this.value);">
+
+    <%= f.submit "Vote", class: "submit-button vote-submit-button" %>
+
   <% end %>
 </div>
 
-
-
 <script type="text/javascript">
-  function updateTextInput(val) {
-          document.getElementById('textInput').value=val;
-        }
+  function updateTextInput<%= option_id %>(val) {
+    document.getElementById("textInput<%= option_id %>").value=val;
+  }
 </script>

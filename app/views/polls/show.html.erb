@@ -4,11 +4,11 @@
   <% if policy(@poll).update? %>
     <button><%= link_to 'Create Poll Option', new_poll_option_path(poll_id: @poll.id) %></button>
     <button><%= link_to 'Edit poll', edit_poll_path(@poll) %></button>
-
-    <div class="poll-options-index"><br />
-      <%= render partial: "poll_options/index", remote: true %>
-    </div>
-    
+  <% end %>
+  <div class="poll-options-index"><br />
+    <%= render partial: "poll_options/index", remote: true %>
+  </div>
+  <% if policy(@poll).update? %>
     <% if @poll.roles.any? %>
       <h5><%= @poll.title %> Participants</h5>
       <table>

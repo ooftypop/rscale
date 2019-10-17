@@ -17,7 +17,7 @@ class VotesController < ApplicationController
     @vote.assign_attributes(vote_params)
     if @vote.save
       flash[:notice] = "Your vote has been counted!"
-      redirect_to poll_option_path(id: @vote.poll_option_id)
+      redirect_back(fallback_location: root_path)
     else
       flash[:alert] = "Vote not counted."
       render "new"
