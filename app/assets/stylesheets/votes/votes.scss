@@ -7,7 +7,7 @@
   border-radius: 12px;
   -webkit-appearance: none;
   appearance: none;
-  width: 50%;
+  width: 80%;
   height: 20px;
   background: #666666;
   outline: none;
@@ -38,10 +38,23 @@
 }
 
 .vote-submit-button {
-  margin-left: 50px;
+  position: absolute;
+  visibility: hidden;
+}
+
+.slider-range-value {
+  background-color: rgba(1,1,1,0);
+  border: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+.submit-all-button {
   background-color: #666666;
   border: none;
   border-radius: 6px;
   color: white;
-
+  font-size: 20px;
+  margin: 20px;
+  padding: 10px 20px 10px 20px;
 }
