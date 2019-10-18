@@ -6,10 +6,10 @@
     <button><%= link_to 'Edit poll', edit_poll_path(@poll) %></button>
   <% end %>
   <div class="poll-options-index"><br />
-    <%= render partial: "poll_options/index", remote: true %>
+    <%= render partial: "poll_options/index" %>
   </div>
-
-  <%# <%= submit_tag "Vote", id: "masterSave", onclick: "submitAllVotes()", class: "submit-button", data: { confirm: "Confirm your Votes?" } %> %>
+  
+  <%= user_voted(@poll) %>
 
   <% if policy(@poll).update? %>
     <% if @poll.roles.any? %>
@@ -37,8 +37,13 @@
 </div>
 
 <script type="text/javascript">
-  // function submitAllVotes() {
-  //   $(".slider").attr("disabled", true);
-  //   $('.vote-submit-button').click();
-  // };
+  function submitAllVotes() {
+    if (confirm("Are you sure you want to submit these votes?")) {
+      $('.vote-submit-button').click();
+      $(".slider").attr("disabled", true);
+      document.getElementById("masterSave").innerHTML = "Voted!"
+      $("#masterSave").attr("disabled", true);
+    } else {
+    }
+  }
 </script>

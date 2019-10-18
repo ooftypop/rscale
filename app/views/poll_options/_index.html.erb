@@ -18,7 +18,11 @@
           <tr>
             <td><%= poll_option.title %></td>
             <td><%= poll_option.description %></td>
-            <td><%= render partial: "votes/form", locals: { option_id: poll_option.id } %></td>
+            <% if current_user.voted_for_option?(poll_option) %>
+              <td><%= render partial: "votes/new", locals: { option_id: poll_option.id } %></td>
+            <% else %>
+              <td><%= render partial: "votes/show", locals: { option_id: poll_option.id } %></td>
+            <% end %>
             <% if policy(@poll).update? %>
               <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
             <% end %>

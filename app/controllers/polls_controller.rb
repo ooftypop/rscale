@@ -1,4 +1,5 @@
 class PollsController < ApplicationController
+  helper PollsHelper
 
   before_action :set_poll, except: [:index]
 
@@ -7,7 +8,25 @@ class PollsController < ApplicationController
   end
 
   def show
-    @vote = Vote.new
+    if @poll.poll_options.any?
+      poll_option_ids = @poll.poll_options.ids
+      votes = []
+
+      poll_option_ids.each do |poll_option_id|
+        vote = Vote.find_by(user_id: current_user.id, poll_option_id: poll_option_id)
+
+        if vote
+          votes << vote
+        else
+          @vote = Vote.new
+        end
+
+      end
+
+      votes.each do |vote|
+        @vote = vote
+      end
+    end
   end
 
   def new
