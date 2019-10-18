@@ -1,6 +1,6 @@
 <div class="form" id="vote-form-<%= option_id %>" style="text-align: center;">
 
-  <%= form_with(model: @vote) do |f| %>
+  <%= form_with(model: Vote.new) do |f| %>
     <%= f.hidden_field :poll_option_id, value: option_id %>
     <%= f.hidden_field :user_id, value: current_user.id %>
 
