@@ -1,0 +1,28 @@
+.sign-pages {
+  text-align: center;
+  .sign-field {
+    border: 1px solid #696969;
+    border-radius: 2px;
+    margin: 10px;
+    padding-left: 5px;
+    text-decoration: none;
+  }
+  .sign-submit-button {
+    background-color: #666666;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px 10px 5px 10px;
+  }
+  .registration-cancel-field {
+    background-color: #BD0000;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 12px;
+    margin: 5px;
+    padding: 5px 10px 5px 10px;
+  }
+}
