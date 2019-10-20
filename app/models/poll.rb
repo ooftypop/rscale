@@ -8,5 +8,5 @@ class Poll < ApplicationRecord
 
   validates :title, presence: true
 
-  accepts_nested_attributes_for :poll_options, reject_if: lambda {|attributes| attributes['title'].blank?}
+  # accepts_nested_attributes_for :poll_options, reject_if: lambda {|attributes| attributes['title'].blank?}
 end
