@@ -1,5 +1,6 @@
 class ParticipantsController < ApplicationController
-
+  
+  before_action :authenticate_user!
   before_action :set_poll, except: [:index, :remove_user_from_poll]
 
   def add_groups

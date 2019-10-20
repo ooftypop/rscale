@@ -15,4 +15,15 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "Somethings up with that email..."
     redirect_to root_path
   end
+
+  private
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      flash[:notice] = 'User must be logged in.'
+      redirect_to root_path
+    end
+  end
 end
