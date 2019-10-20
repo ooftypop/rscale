@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You have a new Poll, <%= @user.email %>!</h1>
+    <p>
+      You have been invited to participate in <%= @poll.title %>
+    </p>
+    <p>
+      To vote, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks! R-scale!</p>
+  </body>
+</html>
