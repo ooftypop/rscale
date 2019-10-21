@@ -1,14 +1,16 @@
 <div class="poll-show" style="text-align: center;">
   <h5><%= @poll.title %></h5>
   <h5><%= @poll.description %></h5>
+
   <% if policy(@poll).update? %>
     <button><%= link_to 'Create Poll Option', new_poll_option_path(poll_id: @poll.id) %></button>
     <button><%= link_to 'Edit poll', edit_poll_path(@poll) %></button>
   <% end %>
+
   <div class="poll-options-index"><br />
     <%= render partial: "poll_options/index" %>
   </div>
-  
+
   <%= user_voted(@poll) %>
 
   <% if policy(@poll).update? %>
@@ -43,6 +45,7 @@
       $(".slider").attr("disabled", true);
       document.getElementById("masterSave").innerHTML = "Voted!"
       $("#masterSave").attr("disabled", true);
+      <%= @poll.all_users_voted? %>
     } else {
     }
   }
