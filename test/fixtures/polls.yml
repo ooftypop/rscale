@@ -1,0 +1,4 @@
+valid_poll:
+  id: 1
+  title: Poll title test
+  description: Poll test description
