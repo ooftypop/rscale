@@ -73,6 +73,7 @@ class PollsController < ApplicationController
 
   def poll_params
     params.require(:poll).permit(
+      :active,
       :description,
       :title,
       poll_options_attributes: [:id,

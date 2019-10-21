@@ -16,6 +16,8 @@
     <%= f.text_field :description, class: "form-control text-field",
         placeholder: "Short Description" %><br />
 
+    <%= f.check_box :active, style: "visibility: hidden; position: absolute;" %>
+
       <h5>Poll Options</h5>
     <table class='table'>
       <thead>
