@@ -1,0 +1,27 @@
+valid_poll_option:
+  id: 1
+  title: Poll option 1 for poll 1
+  description: Poll option description 1 for poll 1
+  poll_id: 1
+  user_id: 1
+
+# poll_option_one:
+#   id: 2
+#   poll_id: 1
+#   user_id: 1
+#   title: Poll option 2 for poll 1
+#   description: Poll option description 2 for poll 1
+#
+# poll_option_two:
+#   id: 3
+#   poll_id: 1
+#   user_id: 1
+#   title: Poll option 3 for poll 1
+#   description: Poll option description 3 for poll 1
+#
+# poll_option_three:
+#   id: 4
+#   poll_id: 1
+#   user_id: 1
+#   title: Poll option 4 for poll 1
+#   description: Poll option description 4 for poll 1

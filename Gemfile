@@ -67,7 +67,7 @@ end
 group :test do
   gem 'capybara', '>= 2.15' # test framework for web applications
   gem 'selenium-webdriver' # browser automation framework and ecosystem
-  gem 'chromedriver-helper' # to run system tests with Chrome
+  gem 'webdrivers', '~> 3.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

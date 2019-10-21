@@ -4,7 +4,7 @@ class PollOption < ApplicationRecord
 
   has_many :votes, dependent: :destroy
 
-  validates :title, presence: true
+  validates :title,   presence: true
 
   def sum_ratings
     vote_average = []

@@ -23,9 +23,9 @@ development:
   <<: *default
   database: rscale_development
 
-# test:
-#   <<: *default
-#   database: db/test.sqlite3
+test:
+  <<: *default
+  database: rscale_test
 #
 # production:
 #   <<: *default
