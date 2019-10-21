@@ -5,43 +5,45 @@
     <h3>Update Poll</h3>
   <% end %>
 
-  <%= form_for (@poll) do |f| %>
-    <% if @poll.errors.any? %>
-      <%= @poll.errors.full_messages %>
-    <% end %>
-
-    <%= f.text_field :title, class: "form-control text-field",
-        placeholder: "Title" %><br />
-
-    <%= f.text_field :description, class: "form-control text-field",
-        placeholder: "Short Description" %><br />
-
-    <%= f.check_box :active, style: "visibility: hidden; position: absolute;" %>
-
-      <h5>Poll Options</h5>
-    <table class='table'>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-        <tbody class='fields'>
-          <%= f.fields_for :poll_options do |builder| %>
-            <%= builder.hidden_field :poll_id, :value => @poll.id %>
-            <%= render 'poll_option', f: builder %>
-          <% end %>
-        </tbody>
-    </table>
-
-    <%= link_to_add_row('Add Poll Option', f, :poll_options, class: 'btn btn-primary') %>
-
-    <%= f.submit "Submit", class: "form-control submit-button" %><br />
-  <% end %>
-  <% if action_name == 'edit' %>
-    <% if policy(@poll).destroy? %>
-      <%= link_to 'Delete', @poll, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link" %><br />
+  <div class="form-field">
+    <%= form_for (@poll) do |f| %>
+      <% if @poll.errors.any? %>
+        <%= @poll.errors.full_messages %>
       <% end %>
-    <%= link_to 'Back', :back, class: "form-path-link " %><br />
-  <% end %>
+
+      <%= f.text_field :title, class: "form-control text-field",
+          placeholder: "Title" %><br />
+
+      <%= f.text_field :description, class: "form-control text-field",
+          placeholder: "Short Description" %><br />
+
+      <%= f.check_box :active, style: "visibility: hidden; position: absolute;" %>
+
+        <h5>Poll Options</h5>
+      <table class='poll-option-create-table'>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+          <tbody class='fields'>
+            <%= f.fields_for :poll_options do |builder| %>
+              <%= builder.hidden_field :poll_id, :value => @poll.id %>
+              <%= render 'poll_option', f: builder %>
+            <% end %>
+          </tbody>
+      </table>
+
+      <%= link_to_add_row('Add Poll Option', f, :poll_options, class: 'btn btn-primary') %>
+
+      <%= f.submit "Submit", class: "form-control submit-button" %><br />
+    <% end %>
+    <% if action_name == 'edit' %>
+      <% if policy(@poll).destroy? %>
+        <%= link_to 'Delete', @poll, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link" %><br />
+        <% end %>
+      <%= link_to 'Back', :back, class: "form-path-link " %><br />
+    <% end %>
+  </div>
 </div>

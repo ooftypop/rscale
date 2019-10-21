@@ -1,0 +1,31 @@
+.form {
+  text-align: center;
+  .form-field {
+    margin: 0 auto;
+    width: 600px;
+    .text-field {
+      border: 1px solid #696969;
+      border-radius: 2px;
+      margin: 10px;
+      padding-left: 5px;
+      text-decoration: none;
+    }
+    .submit-button {
+      background-color: #666666;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 20px;
+      margin: 0 auto;
+      padding: 5px 10px 5px 10px;
+      width: 100px;
+    }
+  }
+  .poll-option-create-table {
+    margin-bottom: 20px;
+  }
+  .add_fields {
+    background-color: rgba(102, 102, 102, 0.6);
+    margin-bottom: 20px;
+  }
+}
