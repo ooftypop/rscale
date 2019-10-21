@@ -11,7 +11,7 @@
     <%= render partial: "poll_options/index" %>
   </div>
 
-  <%= user_voted(@poll) %>
+  <%= user_vote_button(@poll) %>
 
   <% if policy(@poll).update? %>
     <% if @poll.roles.any? %>

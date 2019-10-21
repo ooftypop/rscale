@@ -33,4 +33,8 @@ class Poll < ApplicationRecord
       self.update(active: false)
     end
   end
+
+  def inactive?
+    self.active == false
+  end
 end

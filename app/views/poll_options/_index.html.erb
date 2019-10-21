@@ -10,7 +10,9 @@
           <% if policy(@poll).update? %>
             <th>Edit</th>
           <% end %>
-          <th>Sum</th>
+          <% if @poll.inactive? %>
+            <th>Sum</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +28,9 @@
             <% if policy(@poll).update? %>
               <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
             <% end %>
-            <td><%= poll_option.sum_ratings.round(2) %></td>
+            <% if @poll.inactive? %>
+              <td><%= poll_option.sum_ratings.round(2) %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

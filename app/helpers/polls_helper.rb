@@ -1,5 +1,5 @@
 module PollsHelper
-  def user_voted(poll)
+  def user_vote_button(poll)
     if current_user.voted_for_poll?(poll)
       button_tag("Voted!", class: ["submit-button", "submit-all-button"], type: "button")
     else
