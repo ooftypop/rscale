@@ -1,43 +1,22 @@
 <div class="poll-show">
-  <div id="poll-show-title"><%= @poll.title %></div>
-  <div id="poll-show-description"><%= @poll.description %></div>
-
-  <% if policy(@poll).update? %>
-    <div class="poll-show-admin-controls">
-        <button><%= link_to 'Create Poll Option', new_poll_option_path(poll_id: @poll.id) %></button>
-        <button><%= link_to 'Edit poll', edit_poll_path(@poll) %></button>
-    </div>
-  <% end %>
+  <div id="poll-show-header">
+    <% if policy(@poll).update? %>
+      <div class="poll-show-admin-controls">
+          <button><%= link_to 'New Option', new_poll_option_path(poll_id: @poll.id) %></button>
+          <button><%= link_to 'Edit Poll', edit_poll_path(@poll) %></button>
+      </div>
+    <% end %>
+    <div id="poll-show-title"><%= @poll.title %></div>
+    <div id="poll-show-description"><%= @poll.description %></div>
+  </div>
 
   <div class="poll-options-index"><br />
     <%= render partial: "poll_options/index" %>
   </div>
 
-  <%= user_vote_button(@poll) %>
-
-  <% if policy(@poll).update? %>
-    <% if @poll.roles.any? %>
-      <h5><%= @poll.title %> Participants</h5>
-      <table>
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @poll.roles.each do |role| %>
-            <% role.users.each do |user| %>
-              <tr>
-                <td><%= user.email %></td>
-                <td><%= link_to 'Remove user', remove_user_from_poll_path(resource_id: role.resource_id, name: role.name, user_id: user.id) %></td>
-              </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
-  <% end %>
+  <div style="text-align: center;">
+    <%= user_vote_button(@poll) %>
+  </div>
 </div>
 
 <script type="text/javascript">

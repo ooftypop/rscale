@@ -1,6 +1,6 @@
 
 <% if @poll.poll_options.any? %>
-  <div class="poll-options-index">
+  <div class="poll-options">
     <% @poll.poll_options.each do |poll_option| %>
       <div class="poll-option-container">
         <div class="poll-option-header">
@@ -9,7 +9,7 @@
           </div>
           <div class="poll-option-edit">
             <% if policy(@poll).update? %>
-              <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
+              <td><%= link_to '', edit_poll_option_path(poll_option), class: "fa fa-edit poll-option-edit-fa" %></td>
             <% end %>
           </div>
         </div>
@@ -25,11 +25,11 @@
         </div>
         <% if poll_option.description.present? %>
           <div class="poll-option-description-toggle">
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#poll-option-<%= poll_option.id %>" aria-expanded="false" aria-controls="poll-option-<%= poll_option.id %>">
-              V
+            <button class="btn" type="button" data-toggle="collapse" data-target="#poll-option-<%= poll_option.id %>" aria-expanded="false" aria-controls="poll-option-<%= poll_option.id %>">
+              <i class="fa fa-sort-down"></i>
             </button>
           </div>
-          <div class="collapse" id="poll-option-<%= poll_option.id %>">
+          <div class="collapse poll-option-description" id="poll-option-<%= poll_option.id %>">
             <div class="card card-body">
               <%= poll_option.description %>
             </div>

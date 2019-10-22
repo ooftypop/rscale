@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div class="vote-show">
     <div class="slider-range-value"><%= Vote.find_by(user_id: current_user.id, poll_option_id: option_id).rating %></div>
     <input type="range" min="-5" max="5" value="<%= Vote.find_by(user_id: current_user.id, poll_option_id: option_id).rating %>" class="slider" disabled>
 </div>

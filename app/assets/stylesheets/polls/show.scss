@@ -1,42 +1,83 @@
 .poll-show {
   background-color: #a1a1a1;
   height: 100%;
-  text-align: center;
-  #poll-show-title {
-    font-size: 30px;
-    font-weight: bold;
-  }
-  #poll-show-description {
-    font-size: 20px;
+  #poll-show-header {
+    margin-left: 10%;
+    padding-top: 50px;
+    position: relative;
+    #poll-show-title {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    #poll-show-description {
+      font-size: 20px;
+    }
+    .poll-show-admin-controls {
+      // position: absolute;
+      display: block;
+      // right: 11%;
+      // top: 50px;
+      // text-align: right;
+    }
   }
   .poll-options-index {
+    margin: 0px 10%;
     .poll-option-container {
       background-color: white;
       border-radius: 8px;
       min-height: 117px;
-      margin: 0 auto;
       margin-top: 20px;
       padding: 10px 5%;
       position: relative;
-      width: 80%;
+      width: 100%;
       .poll-option-header {
         height: 16px;
         width: 100%;
+        position: relative;
         .poll-option-title {
+          position: absolute;
           display: inline-block;
           font-size: 16px;
+          font-weight: bold;
           float: left;
         }
         .poll-option-edit {
           display: inline-block;
           float: right;
+          .poll-option-edit-fa {
+            color: black;
+          }
         }
       }
       .poll-option-description-toggle {
         position: absolute;
         right: 10px;
-        top: 40px;
+        top: 30px;
+        .fa-sort-down {
+          font-size: 30px;
+        }
       }
+      .poll-option-description {
+        .card {
+          border: none;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .poll-option-description-toggle {
+    right: 3% !important;
+    top: 60px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .poll-show {
+    .poll-option-header {
+      height: 22px !important;
     }
   }
 }
