@@ -1,5 +1,7 @@
 class VotesController < ApplicationController
 
+  before_action :authenticate_user!
+
   before_action :set_vote, except: [:index, :show]
 
   def index
