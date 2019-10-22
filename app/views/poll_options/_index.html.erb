@@ -29,7 +29,7 @@
               <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
             <% end %>
             <% if @poll.inactive? %>
-              <td><%= poll_option.sum_ratings.round(2) %></td>
+              <td><%= poll_option.average_ratings %></td>
             <% end %>
           </tr>
         <% end %>

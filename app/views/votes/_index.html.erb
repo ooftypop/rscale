@@ -1,6 +1,6 @@
 <div class="votes-index" style="text-align: center;">
   <% if @poll_option.votes.any? %>
     <h5>Vote average for <%= @poll_option.title %></h5>
-    <h6><%= @poll_option.sum_ratings.round(2) %></h6>
+    <h6><%= @poll_option.average_ratings %></h6>
   <% end %>
 </div>

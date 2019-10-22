@@ -6,12 +6,17 @@ class PollOption < ApplicationRecord
 
   validates :title,   presence: true
 
-  def sum_ratings
+  def average_ratings
     vote_average = []
+
     self.votes.each do |vote|
       vote_average = vote_average.push(vote.rating.to_f)
     end
-    vote_average.sum
-  end
 
+    vote_count    = vote_average.count
+    vote_sum      = vote_average.sum
+    sumed_average = (vote_sum/ vote_count)
+
+    sumed_average.round(2)
+  end
 end
