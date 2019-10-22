@@ -8,6 +8,17 @@
 @import "layouts/forms";
 @import "votes/votes";
 @import "users/sign_pages";
+@import "polls/show";
+
+// Main ========================================================================
+body, html {
+  height: 100%;
+  width: 100%;
+  .yield-div {
+    height: 100%;
+    padding: 0px 70px;
+  }
+}
 
 // Flash messages ==============================================================
 .notice, .alert {

@@ -1,10 +1,12 @@
-<div class="poll-show" style="text-align: center;">
-  <h5><%= @poll.title %></h5>
-  <h5><%= @poll.description %></h5>
+<div class="poll-show">
+  <div id="poll-show-title"><%= @poll.title %></div>
+  <div id="poll-show-description"><%= @poll.description %></div>
 
   <% if policy(@poll).update? %>
-    <button><%= link_to 'Create Poll Option', new_poll_option_path(poll_id: @poll.id) %></button>
-    <button><%= link_to 'Edit poll', edit_poll_path(@poll) %></button>
+    <div class="poll-show-admin-controls">
+        <button><%= link_to 'Create Poll Option', new_poll_option_path(poll_id: @poll.id) %></button>
+        <button><%= link_to 'Edit poll', edit_poll_path(@poll) %></button>
+    </div>
   <% end %>
 
   <div class="poll-options-index"><br />

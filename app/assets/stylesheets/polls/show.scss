@@ -1,0 +1,42 @@
+.poll-show {
+  background-color: #a1a1a1;
+  height: 100%;
+  text-align: center;
+  #poll-show-title {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  #poll-show-description {
+    font-size: 20px;
+  }
+  .poll-options-index {
+    .poll-option-container {
+      background-color: white;
+      border-radius: 8px;
+      min-height: 117px;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 10px 5%;
+      position: relative;
+      width: 80%;
+      .poll-option-header {
+        height: 16px;
+        width: 100%;
+        .poll-option-title {
+          display: inline-block;
+          font-size: 16px;
+          float: left;
+        }
+        .poll-option-edit {
+          display: inline-block;
+          float: right;
+        }
+      }
+      .poll-option-description-toggle {
+        position: absolute;
+        right: 10px;
+        top: 40px;
+      }
+    }
+  }
+}
