@@ -25,6 +25,8 @@ gem 'uglifier', '>= 1.3.0' # Ruby wrapper for UglifyJS JavaScript compressor
 gem 'bootsnap', '>= 1.1.0', require: false # reduces boot times through caching
 gem 'snoop_dogg', '~> 0.1.3' # a nicer way to see models
 gem 'turbolinks', '~> 5' # navigate application faster: github.com/turbolinks/turbolinks
+gem 'redis', '~> 4.0' # A Ruby client library for Redis
+gem 'sidekiq' # Simple, efficient background processing for Ruby http://sidekiq.org
 
 # ==============================================================================
 # Authentication & Authorization ===============================================
@@ -40,7 +42,7 @@ gem 'devise_invitable', '~> 2.0.0' # An invitation strategy for devise
 gem 'bootstrap', '~> 4.3.1'
 gem "font-awesome-rails" # font-awesome for asset pipeline
 gem 'jquery-rails' # automate using jQuery with Rails
-gem 'select2-rails'
+gem 'select2-rails' # Integrate Select2 javascript library with Rails asset pipeline https://github.com/argerim/select2-rails
 
 # ==============================================================================
 # Forms ========================================================================
