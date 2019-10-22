@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include Pundit
 
+  before_action :authenticate_user!
+
   protect_from_forgery prepend: true
 
   rescue_from Pundit::NotAuthorizedError,  with: :user_not_authorized
@@ -15,15 +17,4 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "Somethings up with that email..."
     redirect_to root_path
   end
-
-  private
-
-  # def authenticate_user!
-  #   if user_signed_in?
-  #     super
-  #   else
-  #     flash[:notice] = 'User must be logged in.'
-  #     redirect_to root_path
-  #   end
-  # end
 end
