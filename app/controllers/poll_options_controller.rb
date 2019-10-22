@@ -18,7 +18,7 @@ class PollOptionsController < ApplicationController
     @poll_option.assign_attributes(poll_option_params)
     if @poll_option.save
       flash[:notice] = "Poll option has been created!"
-      redirect_to poll_option_path(@poll_option)
+      redirect_to poll_path(@poll_option.poll_id)
     else
       flash[:alert] = "Poll option not created."
       render "new"

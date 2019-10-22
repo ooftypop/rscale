@@ -1,39 +1,41 @@
-<div class="poll-option-index" style="text-align: center;">
-  <% if @poll.poll_options.any? %>
-    <h5>Poll Options For <%= @poll.title %></h5>
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Vote Range</th>
-          <% if policy(@poll).update? %>
-            <th>Edit</th>
+
+<% if @poll.poll_options.any? %>
+  <div class="poll-options">
+    <% @poll.poll_options.each do |poll_option| %>
+      <div class="poll-option-container">
+        <div class="poll-option-header">
+          <div class="poll-option-title">
+            <%= poll_option.title %>
+          </div>
+          <div class="poll-option-edit">
+            <% if policy(@poll).update? %>
+              <td><%= link_to '', edit_poll_option_path(poll_option), class: "fa fa-edit poll-option-edit-fa" %></td>
+            <% end %>
+          </div>
+        </div>
+        <div class="rating-slider">
+          <% if current_user.voted_for_option?(poll_option) %>
+            <td><%= render partial: "votes/new", locals: { option_id: poll_option.id } %></td>
+          <% else %>
+            <td><%= render partial: "votes/show", locals: { option_id: poll_option.id } %></td>
           <% end %>
           <% if @poll.inactive? %>
-            <th>Sum</th>
+            <div>Average: <%= poll_option.average_ratings %></div>
           <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <% @poll.poll_options.each do |poll_option| %>
-          <tr>
-            <td><%= poll_option.title %></td>
-            <td><%= poll_option.description %></td>
-            <% if current_user.voted_for_option?(poll_option) %>
-              <td><%= render partial: "votes/new", locals: { option_id: poll_option.id } %></td>
-            <% else %>
-              <td><%= render partial: "votes/show", locals: { option_id: poll_option.id } %></td>
-            <% end %>
-            <% if policy(@poll).update? %>
-              <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
-            <% end %>
-            <% if @poll.inactive? %>
-              <td><%= poll_option.average_ratings %></td>
-            <% end %>
-          </tr>
+        </div>
+        <% if poll_option.description.present? %>
+          <div class="poll-option-description-toggle">
+            <button class="btn" type="button" data-toggle="collapse" data-target="#poll-option-<%= poll_option.id %>" aria-expanded="false" aria-controls="poll-option-<%= poll_option.id %>">
+              <i class="fa fa-sort-down"></i>
+            </button>
+          </div>
+          <div class="collapse poll-option-description" id="poll-option-<%= poll_option.id %>">
+            <div class="card card-body">
+              <%= poll_option.description %>
+            </div>
+          </div>
         <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

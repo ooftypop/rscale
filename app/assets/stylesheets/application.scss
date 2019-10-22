@@ -8,9 +8,24 @@
 @import "layouts/forms";
 @import "votes/votes";
 @import "users/sign_pages";
+@import "polls/show";
+
+// Main ========================================================================
+body, html {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  .yield-div {
+    height: 100%;
+    padding: 0px 70px;
+    margin: 0 auto;
+  }
+}
 
 // Flash messages ==============================================================
 .notice, .alert {
+  width: 100%;
   border: 0px solid white;
   border-radius: 0px;
   color: white;
@@ -24,4 +39,11 @@
 }
 .notice {
   background-color: green;
+}
+
+@media (max-width: 600px) {
+  .yield-div {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
 }
