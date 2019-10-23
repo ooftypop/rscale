@@ -1,4 +1,5 @@
 .navbar {
+  height: 64px;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -10,9 +11,13 @@
     background-color: #343a40 !important;
     border: none;
     text-decoration: none;
+    margin-top: 5px;
     .link-button {
       color: white;
     }
+  }
+  .dropdown-toggle {
+    margin-top: -2px;
   }
   .dropdown-menu {
     background-color: #343a40 !important;
