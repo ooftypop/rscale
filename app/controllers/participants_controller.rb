@@ -30,7 +30,7 @@ class ParticipantsController < ApplicationController
         flash[:notice] = "#{current_users} are part of the poll already."
       else
         user.add_role(:user, poll)
-        PollMailer.poll_invite_email(user, poll).deliver
+        PollMailer.poll_invite_email(user, poll).deliver_later(wait: 1.minutes.from_now)
       end
     end
 
@@ -76,7 +76,7 @@ class ParticipantsController < ApplicationController
             flash[:notice] = "#{current_users} are part of the poll already."
           else
             user.add_role(role.to_sym, poll)
-            PollMailer.poll_invite_email(user, poll).deliver
+            PollMailer.poll_invite_email(user, poll).deliver_later(wait: 1.minutes.from_now)
           end
         end
 

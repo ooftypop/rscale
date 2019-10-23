@@ -56,7 +56,7 @@ group :development, :test do
   # gem "factory_bot_rails", "~> 4.11.1" # library for setting up Ruby objects as test data
   # gem "rails-controller-testing", "~> 1.0.2" # brings back `assigns` and `assert_template` to your Rails tests
   # gem "rspec_junit_formatter", "~> 0.4.1" # RSpec results that your CI can read
-  # gem "rspec-rails", "<= 3.8.0" # RSpec for Rails-3+
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
