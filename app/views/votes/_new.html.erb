@@ -10,15 +10,16 @@
 
     <div id="textInput<%= option_id %>" class="slider-range-value">0</div>
 
-    <%= f.range_field :rating, id: "myRange#{option_id}", class: "slider", min: -5, max: 5, step: 0.01, onchange: "updateTextInput#{option_id}(this.value)" %>
+    <%= f.range_field :rating, id: "myRange#{option_id}", class: "slider", min: -5, max: 5, step: 0.01, oninput: "myFunction#{option_id}()" %>
 
     <%= f.submit "Lock in Vote", class: "submit-button vote-submit-button", id: "vote-submit-button#{option_id}" %>
 
   <% end %>
 </div>
 
-<script type="text/javascript">
-  function updateTextInput<%= option_id %>(val) {
-    document.getElementById("textInput<%= option_id %>").innerHTML=val;
-  }
+<script>
+function myFunction<%= option_id %>() {
+    var x = document.getElementById("myRange<%= option_id %>").value;
+    document.getElementById("textInput<%= option_id %>").innerHTML = x;
+}
 </script>
