@@ -15,8 +15,8 @@ class PollOption < ApplicationRecord
 
     vote_count    = vote_average.count
     vote_sum      = vote_average.sum
-    sumed_average = (vote_sum/ vote_count)
+    sumed_average = (vote_sum/ vote_count) unless vote_count == 0
 
-    sumed_average.round(2)
+    sumed_average.round(2) unless vote_count == 0
   end
 end

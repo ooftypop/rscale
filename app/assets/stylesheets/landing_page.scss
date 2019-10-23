@@ -1,0 +1,36 @@
+.landing-index {
+  .landing-about {
+    margin-top: 20%;
+    .landing-page-header {
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .landing-page-sub-header {
+      color: #666666;
+      font-size: 26px;
+      font-style: italic;
+    }
+    .landing-page-call-to-action {
+      margin-top: 30px;
+      .sign-up {
+        .call-to-action-sign-up {
+          background-color: #666666;
+          border-radius: 6px;
+          color: white;
+          font-size: 22px;
+          padding: 5px 28px
+        }
+      }
+      .sign-in {
+        margin-top: 10px;
+        .call-to-action-sign-in {
+          color: #666666;
+        }
+      }
+    }
+  }
+  #landing-page-image {
+    width: 100%;
+    margin-top: 30px;
+  }
+}

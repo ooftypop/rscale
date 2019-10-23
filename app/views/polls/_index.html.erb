@@ -1,50 +1,60 @@
-<div class="polls-index" style="text-align: center;">
-  <div class="poll-admin-index">
-    <% if current_user.has_role?(:resource_admin, :any) %>
-      <h5>Admin Polls</h5>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>View</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @user_admin_polls.each do |poll| %>
+<div class="polls-index container">
+  <div class="row">
+    <div class="poll-admin-index col-md-6">
+      <div class="poll-index-title">Polls you own</div>
+      <% if current_user.has_role?(:resource_admin, :any) %>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>View</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user_admin_polls.each do |poll| %>
+              <tr>
+                <td><%= poll.title %></td>
+                <td><%= poll.description %></td>
+                <td><%= link_to '', poll_path(poll.id), class: "fa fa-eye" %></td>
+                <td><%= link_to '', edit_poll_path(poll.id), class: "fa fa-edit" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div>
+          <%= link_to 'Start New Poll', new_poll_path %>
+        </div>
+      <% end %>
+    </div>
+    <div class="poll-user-index col-md-6">
+      <div class="poll-index-title">Polls your invited too</div>
+      <% if current_user.has_role?(:user, :any) %>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user_polls.each do |poll| %>
             <tr>
               <td><%= poll.title %></td>
               <td><%= poll.description %></td>
-              <td><%= link_to 'View poll', poll_path(poll.id) %></td>
-              <td><%= link_to 'Edit poll', edit_poll_path(poll.id) %></td>
+              <td><%= link_to '', poll_path(poll.id), class: "fa fa-eye" %></td>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
-  </div>
-  <div class="poll-user-index">
-    <% if current_user.has_role?(:user, :any) %>
-      <h5>Participation Polls</h5>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>View</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @user_polls.each do |poll| %>
-          <tr>
-            <td><%= poll.title %></td>
-            <td><%= poll.description %></td>
-            <td><%= link_to 'View poll', poll_path(poll.id) %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div>
+          <%= link_to 'Start New Poll', new_poll_path %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

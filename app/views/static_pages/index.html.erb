@@ -1,4 +1,32 @@
-<div class="sign-pages">
-<%= link_to 'Sign In', new_user_session_path, class: "sign-submit-button" %>
-<%= link_to 'Sign Up', new_user_registration_path, class: "sign-submit-button"  %>
+<div class="container landing-index">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="landing-about">
+        <div class="landing-page-header">
+          Vote on Anything<br>
+          and Everything.<br>
+          Ever.
+        </div>
+        <div class="landing-page-sub-header">
+          Invite your friends, family, colleagues, pets, enemies, anyone!
+          Vote on polls ranging from the next family getaway, to where the
+          next staff meeting should be held and everything in between.
+        </div>
+        <div class="landing-page-call-to-action">
+          <div class="sign-up">
+            <%= link_to 'Start Voting!', new_user_registration_path, class: "call-to-action-sign-up" %><br>
+          </div>
+          <div class="sign-in">
+            already a member? <%= link_to 'Sign In', new_user_session_path, class: "call-to-action-sign-in" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="landing-screenshot">
+        <%= image_tag 'poll_image.jpg', id: "landing-page-image" %>
+        <!-- <img src="/assets/poll_image.jpg" alt="poll_picture" id="landing-page-image"> -->
+      </div>
+    </div>
+  </div>
 </div>

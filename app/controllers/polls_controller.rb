@@ -1,6 +1,8 @@
 class PollsController < ApplicationController
   helper PollsHelper
 
+  before_action :authenticate_user!
+
   before_action :set_poll, except: [:index]
 
   def index

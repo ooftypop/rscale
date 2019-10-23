@@ -8,14 +8,31 @@
 @import "layouts/forms";
 @import "votes/votes";
 @import "users/sign_pages";
+@import "polls/show";
+@import "polls/index";
+@import "landing_page";
+
+// Main ========================================================================
+body, html {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  .yield-div {
+    height: 100%;
+    padding: 88px 70px;
+    margin: 0 auto;
+  }
+}
 
 // Flash messages ==============================================================
 .notice, .alert {
+  position: fixed;
+  width: 100%;
   border: 0px solid white;
   border-radius: 0px;
   color: white;
-  margin: 0;
-  margin-top: 56px;
+  top: 60px;
   padding: 0;
   text-align: center;
 }
@@ -24,4 +41,11 @@
 }
 .notice {
   background-color: green;
+}
+
+@media (max-width: 600px) {
+  .yield-div {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
 }

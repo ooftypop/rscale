@@ -1,7 +1,9 @@
 .navbar {
+  height: 64px;
   position: fixed;
   top: 0px;
   width: 100%;
+  z-index: 1000;
   .navbar-nav {
     width: 100%;
   }
@@ -9,12 +11,40 @@
     background-color: #343a40 !important;
     border: none;
     text-decoration: none;
+    margin-top: 5px;
     .link-button {
       color: white;
     }
   }
+  .dropdown-toggle {
+    margin-top: -2px;
+  }
   .dropdown-menu {
     background-color: #343a40 !important;
     border: none;
+  }
+  .navbar-sign-pages {
+    width: 100%;
+    .navbar-button {
+      color: white;
+      float: right;
+      margin: 5px;
+    }
+    .sign-up-button {
+      border: 2px solid #666666;
+      border-radius: 6px;
+      padding: 5px 10px;
+    }
+    .sign-in-button {
+      border: 2px solid rgba(1, 1, 1, 0);
+      padding: 5px 10px;
+    }
+    .navbar-button:hover {
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .sign-up-button:hover, .sign-in-button:hover {
+      color: #B6B6B6;
+    }
   }
 }
