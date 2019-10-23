@@ -53,10 +53,10 @@ gem 'select2-rails' # Integrate Select2 javascript library with Rails asset pipe
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # a debugger console
-  # gem "factory_bot_rails", "~> 4.11.1" # library for setting up Ruby objects as test data
   # gem "rails-controller-testing", "~> 1.0.2" # brings back `assigns` and `assert_template` to your Rails tests
   # gem "rspec_junit_formatter", "~> 0.4.1" # RSpec results that your CI can read
   gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails' # library for setting up Ruby objects as test data
 end
 
 group :development do
@@ -70,6 +70,7 @@ group :test do
   gem 'capybara', '>= 2.15' # test framework for web applications
   gem 'selenium-webdriver' # browser automation framework and ecosystem
   gem 'webdrivers', '~> 3.0'
+  gem 'database_cleaner'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

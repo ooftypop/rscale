@@ -10,5 +10,4 @@ class Group < ApplicationRecord
   accepts_nested_attributes_for :users
 
   validates :title, presence: true
-  validates :description, presence: true
 end
