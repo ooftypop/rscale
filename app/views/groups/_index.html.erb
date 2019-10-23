@@ -1,6 +1,6 @@
 <div class="group-index" style="text-align: center;">
+  <h4>Email groups</h4>
   <% if current_user.email_groups.any? %>
-    <h4>Email groups</h4>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Groups..." title="Type in a name">
     <table id="myTable">
       <thead>
@@ -24,6 +24,8 @@
         <% end %>
       </tbody>
     </table>
+  <% else %>
+    <%= link_to "Create New Group", new_group_path %>
   <% end %>
 </div>
 
