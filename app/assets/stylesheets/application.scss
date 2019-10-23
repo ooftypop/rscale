@@ -19,19 +19,19 @@ body, html {
   overflow-x: hidden;
   .yield-div {
     height: 100%;
-    padding: 0px 70px;
+    padding: 88px 70px;
     margin: 0 auto;
   }
 }
 
 // Flash messages ==============================================================
 .notice, .alert {
+  position: fixed;
   width: 100%;
   border: 0px solid white;
   border-radius: 0px;
   color: white;
-  margin: 0;
-  margin-top: 56px;
+  top: 60px;
   padding: 0;
   text-align: center;
 }
