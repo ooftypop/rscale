@@ -5,7 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      
+
       <% if user_signed_in? %>
         <li class="nav-item">
           <button class="nav-button"><%= link_to('Start Poll', new_poll_path, class: "link-button") %></button>
@@ -32,6 +32,11 @@
             </div>
           </li>
         <% end %>
+      <% else %>
+        <div class="navbar-sign-pages">
+          <%= link_to 'Sign Up', new_user_registration_path, class: "sign-up-button navbar-button" %>
+          <%= link_to 'Sign In', new_user_session_path, class: "sign-in-button navbar-button" %>
+        </div>
       <% end %>
     </ul>
   </div>
