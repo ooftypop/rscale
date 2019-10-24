@@ -20,24 +20,27 @@
       <%= f.check_box :active, style: "visibility: hidden; position: absolute;" %>
 
         <h5>Poll Options</h5>
-      <div class="table-wrapper">
-        <table class='poll-option-create-table fl-table'>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Description</th>
-            </tr>
-          </thead>
+        <div class="table-wrapper">
+          <table id="poll-options-table" class='poll-option-create-table fl-table'>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
             <tbody class='fields'>
-              <%= f.fields_for :poll_options do |builder| %>
-                <%= builder.hidden_field :poll_id, :value => @poll.id %>
-                <%= render 'poll_option', f: builder %>
+              <%= f.fields_for :poll_options do |poll_option| %>
+                <%= render 'poll_option_fields', f: poll_option %>
               <% end %>
             </tbody>
-        </table>
-      </div>
+          </table>
+        </div>
+        <div class='links'>
+          <%= link_to_add_association 'Add Option', f, :poll_options, class: "btn add-association-link", data: {'association-insertion-node': '#poll-options-table', 'association-insertion-method': :append} %>
+        </div>
 
-      <%= link_to_add_row('Add Poll Option', f, :poll_options, class: 'btn btn-primary') %>
+
 
       <%= f.submit "Submit", class: "form-control submit-button" %><br />
     <% end %>

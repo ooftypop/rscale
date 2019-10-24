@@ -2,7 +2,6 @@
   <div id="poll-show-header">
     <% if policy(@poll).update? %>
       <div class="poll-show-admin-controls">
-          <button><%= link_to 'New Option', new_poll_option_path(poll_id: @poll.id) %></button>
           <button><%= link_to 'Edit Poll', edit_poll_path(@poll) %></button>
       </div>
     <% end %>
