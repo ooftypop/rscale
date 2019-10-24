@@ -57,7 +57,8 @@ class PollOptionsController < ApplicationController
       :description,
       :poll_id,
       :title,
-      :user_id
+      :user_id,
+      :content
     )
   end
 end

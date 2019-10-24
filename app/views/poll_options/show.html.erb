@@ -4,4 +4,11 @@
     <div id="poll-option-show-title"><%= @poll_option.title %></div>
     <div id="poll-option-show-description"><%= @poll_option.description %></div>
   </div>
+  <div class="poll-option-image">
+    <% if @poll_option.images.attached? %>
+      <% @poll_option.images.each do |image| %>
+        <%= image_tag image, id: "poll-option-image"%>
+      <% end %>
+    <% end %>
+  </div>
 </div>
