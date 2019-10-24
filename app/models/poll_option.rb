@@ -1,4 +1,6 @@
 class PollOption < ApplicationRecord
+  has_many_attached :images
+
   belongs_to :poll, optional: true
   belongs_to :user
 

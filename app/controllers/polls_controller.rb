@@ -82,7 +82,8 @@ class PollsController < ApplicationController
                                 :description,
                                 :poll_id,
                                 :user_id,
-                                :_destroy]
+                                :_destroy,
+                                images: []]
     )
   end
 end
