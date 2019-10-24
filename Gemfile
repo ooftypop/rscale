@@ -47,7 +47,7 @@ gem 'select2-rails' # Integrate Select2 javascript library with Rails asset pipe
 # ==============================================================================
 # Forms ========================================================================
 # ==============================================================================
-# gem "cocoon", "~> 1.2.11" # for dynamic nested forms using jQuery
+gem "cocoon" # for dynamic nested forms using jQuery
 # gem "trix", "~> 0.11.1" # rich text editor for everyday writing
 
 

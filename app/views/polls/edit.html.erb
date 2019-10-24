@@ -1,21 +1,24 @@
 <div class="poll-edit">
-  <%= render partial: "polls/form" %>
-  <% if policy(@poll).update? %>
-    <% if current_user.email_groups.any? %>
-      <%= link_to 'Add Groups', add_groups_path(poll_id: @poll.id), remote: true %><br />
-    <% else %>
-      <%= link_to 'Create Group', new_group_path %><br />
+  <div class="button-group">
+    <% if policy(@poll).update? %>
+      <% if current_user.email_groups.any? %>
+        <%= link_to 'Add Groups', add_groups_path(poll_id: @poll.id), class: "btn poll-edit-button add-groups-button", remote: true %><br />
+      <% else %>
+        <%= link_to 'Create Group', new_group_path, class: "btn poll-edit-button create-group-button" %><br />
+      <% end %>
+      <%= link_to 'Add Users', new_poll_roles_path(poll_id: @poll.id), class: " btn poll-edit-button add-user-button", remote: true %><br />
     <% end %>
-    <%= link_to 'Add Users', new_poll_roles_path(poll_id: @poll.id), remote: true %><br />
-  <% end %>
-  <%= link_to 'View Poll', poll_path(@poll) %>
+    <%= link_to 'View Poll', poll_path(@poll), class: "btn poll-edit-button view-poll-button" %>
+  </div>
+  <%= render partial: "polls/form" %>
 
   <% if policy(@poll).update? %>
     <div class="poll-option-user-index">
       <% if @poll.roles.any? %>
         <h5><%= @poll.title %> Participants</h5>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Users Emails...." title="Type in a Email">
         <div class="table-wrapper">
-          <table class="fl-table">
+          <table id="myTable" class="fl-table">
             <thead>
               <tr>
                 <th>Email</th>
@@ -38,3 +41,24 @@
     </div>
   <% end %>
 </div>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
