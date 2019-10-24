@@ -27,6 +27,7 @@ gem 'snoop_dogg', '~> 0.1.3' # a nicer way to see models
 gem 'turbolinks', '~> 5' # navigate application faster: github.com/turbolinks/turbolinks
 gem 'redis', '~> 4.0' # A Ruby client library for Redis
 gem 'sidekiq' # Simple, efficient background processing for Ruby http://sidekiq.org
+gem 'aws-sdk-s3'
 
 # ==============================================================================
 # Authentication & Authorization ===============================================
