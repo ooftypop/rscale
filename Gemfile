@@ -29,7 +29,6 @@ gem 'redis', '~> 4.0' # A Ruby client library for Redis
 gem 'sidekiq' # Simple, efficient background processing for Ruby http://sidekiq.org
 gem 'aws-sdk-s3'
 gem "image_processing", "~> 1.0"
-
 # ==============================================================================
 # Authentication & Authorization ===============================================
 # ==============================================================================

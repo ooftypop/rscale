@@ -3,7 +3,7 @@
   <td><%= f.text_field :title, label: false %></td>
   <td><%= f.text_field :description, label: false %></td>
   <td>
-    <%= f.file_field :images, multiple: true, direct_upload: true %>
+    <%= f.file_field :images, multiple: true %>
   </td>
   <td><%= link_to_remove_association "Remove Option", f %></td>
 </tr>
