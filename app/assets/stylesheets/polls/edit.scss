@@ -1,0 +1,25 @@
+.poll-edit {
+  .button-group {
+    position: relative;
+    display: flex;
+    .poll-edit-button {
+      display: inline-block;
+      background-color: rgba(102, 102, 102, 0.6);
+      color: white;
+      margin: 5px;
+    }
+    .view-poll-button {
+      right: 0;
+      position: absolute;
+    }
+  }
+  .delete-resource-button {
+    background-color: #BD0000;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 12px;
+    margin: 5px;
+    padding: 5px 10px 5px 10px;
+  }
+}
