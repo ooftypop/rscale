@@ -1,47 +1,70 @@
-
 <% if @poll.poll_options.any? %>
-  <div class="poll-options">
-    <% @poll.poll_options.each do |poll_option| %>
-      <div class="poll-option-container">
-        <div class="poll-option-header">
-          <div class="poll-option-title">
-            <%= poll_option.title %>
-          </div>
-          <div class="poll-option-edit">
-            <% if policy(@poll).update? %>
-              <td><%= link_to '', edit_poll_option_path(poll_option), class: "fa fa-edit poll-option-edit-fa" %></td>
+  <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Polls..." title="Type in a name"> -->
+  <div class="poll-options-index table-wrapper">
+    <table id="myTable" class="fl-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <% if policy(@poll).update? %>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @poll.poll_options.each do |poll_option| %>
+        <tr>
+          <td><%= poll_option.title %></td>
+          <td><%= link_to 'Learn more', poll_option_path(poll_option), class: "fa fa-eye" %></td>
+          <td>
+            <% if current_user.voted_for_option?(poll_option) %>
+              <%= render partial: "votes/new", locals: { option_id: poll_option.id } %>
+            <% else %>
+              <%= render partial: "votes/show", locals: { option_id: poll_option.id } %>
             <% end %>
-          </div>
-        </div>
-        <div class="rating-slider">
-          <% if current_user.voted_for_option?(poll_option) %>
-            <td><%= render partial: "votes/new", locals: { option_id: poll_option.id } %></td>
-          <% else %>
-            <td><%= render partial: "votes/show", locals: { option_id: poll_option.id } %></td>
-          <% end %>
-          <% if @poll.inactive? %>
-            <div>Average: <%= poll_option.average_ratings %></div>
-          <% end %>
-        </div>
-        <% if poll_option.description.present? %>
-          <div class="poll-option-description-toggle">
-            <button id="button<%= poll_option.id %>" class="btn" type="button" data-toggle="collapse" data-target="#poll-option-<%= poll_option.id %>" aria-expanded="false" aria-controls="poll-option-<%= poll_option.id %>">
-              <i class="fa fa-sort-down"></i>
-            </button>
-          </div>
-          <div class="collapse poll-option-description" id="poll-option-<%= poll_option.id %>">
-            <div class="card card-body">
-              <%= poll_option.description %>
-            </div>
-          </div>
+          </td>
+          <td>
+            <% if @poll.inactive? %>
+              Average: <%= poll_option.average_ratings %>
+            <% end %>
+          </td>
+          <td>
+            <% if policy(@poll).update? %>
+              <%= link_to '', edit_poll_option_path(poll_option), class: "fa fa-edit poll-option-edit-fa" %>
+            <% end %>
+          </td>
+        </tr>
         <% end %>
-      </div>
-      <script type="text/javascript">
-        document.getElementById('button<%= poll_option.id %>').addEventListener('click', function() {
-          var icon = this.querySelector('.fa-sort-down');
-          icon.classList.toggle('rotate');
-        });
-      </script>
-    <% end %>
+      </tbody>
+    </table>
   </div>
+<% else %>
+  <% if policy(@poll).update? %>
+    <div class="add-poll-options">
+      <%= link_to 'Add Poll Options', edit_poll_path(@poll) %>
+    </div>
+  <% end %>
 <% end %>
+
+<script>
+// function myFunction() {
+//   var input, filter, table, tr, td, i, txtValue;
+//   input = document.getElementById("myInput");
+//   filter = input.value.toUpperCase();
+//   table = document.getElementById("myTable");
+//   tr = table.getElementsByTagName("tr");
+//   for (i = 0; i < tr.length; i++) {
+//     td = tr[i].getElementsByTagName("td")[0];
+//     if (td) {
+//       txtValue = td.textContent || td.innerText;
+//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//         tr[i].style.display = "";
+//       } else {
+//         tr[i].style.display = "none";
+//       }
+//     }
+//   }
+// }
+</script>
