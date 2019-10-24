@@ -20,20 +20,22 @@
       <%= f.check_box :active, style: "visibility: hidden; position: absolute;" %>
 
         <h5>Poll Options</h5>
-      <table class='poll-option-create-table'>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-          <tbody class='fields'>
-            <%= f.fields_for :poll_options do |builder| %>
-              <%= builder.hidden_field :poll_id, :value => @poll.id %>
-              <%= render 'poll_option', f: builder %>
-            <% end %>
-          </tbody>
-      </table>
+      <div class="table-wrapper">
+        <table class='poll-option-create-table fl-table'>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+            <tbody class='fields'>
+              <%= f.fields_for :poll_options do |builder| %>
+                <%= builder.hidden_field :poll_id, :value => @poll.id %>
+                <%= render 'poll_option', f: builder %>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
 
       <%= link_to_add_row('Add Poll Option', f, :poll_options, class: 'btn btn-primary') %>
 

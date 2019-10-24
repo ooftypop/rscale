@@ -2,26 +2,28 @@
 
   <h5>All Users</h5>
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for emails..." title="Type in a name">
-  <table id="myTable">
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>View</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
+  <div class="table-wrapper">
+    <table id="myTable" class="fl-table">
+      <thead>
         <tr>
-          <td><%= user.email %></td>
-          <td><%= user.first_name %></td>
-          <td><%= user.last_name %></td>
-          <td><%= link_to('View', admin_user_path(user.id)) %></td>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>View</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= link_to('View', admin_user_path(user.id)) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script>

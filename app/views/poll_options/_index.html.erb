@@ -25,7 +25,7 @@
         </div>
         <% if poll_option.description.present? %>
           <div class="poll-option-description-toggle">
-            <button class="btn" type="button" data-toggle="collapse" data-target="#poll-option-<%= poll_option.id %>" aria-expanded="false" aria-controls="poll-option-<%= poll_option.id %>">
+            <button id="button<%= poll_option.id %>" class="btn" type="button" data-toggle="collapse" data-target="#poll-option-<%= poll_option.id %>" aria-expanded="false" aria-controls="poll-option-<%= poll_option.id %>">
               <i class="fa fa-sort-down"></i>
             </button>
           </div>
@@ -36,6 +36,12 @@
           </div>
         <% end %>
       </div>
+      <script type="text/javascript">
+        document.getElementById('button<%= poll_option.id %>').addEventListener('click', function() {
+          var icon = this.querySelector('.fa-sort-down');
+          icon.classList.toggle('rotate');
+        });
+      </script>
     <% end %>
   </div>
 <% end %>

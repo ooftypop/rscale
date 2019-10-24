@@ -10,6 +10,7 @@
 @import "users/sign_pages";
 @import "polls/show";
 @import "polls/index";
+@import "groups/index";
 @import "landing_page";
 
 // Main ========================================================================
@@ -35,6 +36,7 @@ body, html {
   top: 60px;
   padding: 0;
   text-align: center;
+  z-index: 1000;
 }
 .alert {
   background-color: red;

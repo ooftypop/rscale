@@ -7,22 +7,24 @@
   <% if @group.users.any? %>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for emails..." title="Type in a name">
 
-    <table id="myTable">
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>Remove</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @group.users.each do |user| %>
+    <div class="table-wrapper">
+      <table id="myTable" class="fl-table">
+        <thead>
           <tr>
-            <td><%= user.email %></td>
-            <td><%= link_to 'Remove', remove_user_path(user_id: user.id, group_id: @group.id) %></td>
+            <th>Email</th>
+            <th>Remove</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @group.users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><%= link_to 'Remove', remove_user_path(user_id: user.id, group_id: @group.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   <% end %>
 </div>
 

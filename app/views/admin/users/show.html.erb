@@ -1,46 +1,50 @@
 <div class="admin-user-show" style="text-align: center;">
   <h5><%= @user.email %></h5>
-  <table>
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @user.first_name %></td>
-        <td><%= @user.last_name %></td>
-        <td><%= @user.email %></td>
-        <th><%= link_to 'Delete User', admin_remove_user_path(id: @user.id), data: { confirm: "Are you sure?" } %></th>
-      </tr>
-    </tbody>
-  </table>
-
-  <% if @user.roles.any? %>
-    <h5><%= @user.email %> Roles</h5>
-    <table>
+  <div class="table-wrapper">
+    <table class="fl-table">
       <thead>
         <tr>
-          <th>Resource Id</th>
-          <th>Role Name</th>
-          <th>Role Id</th>
-          <th>Delete Role</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
-        <% @user.roles.each do |role| %>
-          <tr>
-            <td><%= role.resource_id %></td>
-            <td><%= role.name %></td>
-            <td><%= role.id %></td>
-            <td><%= link_to 'Delete Role', admin_remove_role_path(resource_id: role.resource_id, name: role.name, user_id: @user.id) %></td>
-          </tr>
-        <% end %>
+        <tr>
+          <td><%= @user.first_name %></td>
+          <td><%= @user.last_name %></td>
+          <td><%= @user.email %></td>
+          <th><%= link_to 'Delete User', admin_remove_user_path(id: @user.id), data: { confirm: "Are you sure?" } %></th>
+        </tr>
       </tbody>
     </table>
+  </div>
+
+  <% if @user.roles.any? %>
+    <h5><%= @user.email %> Roles</h5>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>Resource Id</th>
+            <th>Role Name</th>
+            <th>Role Id</th>
+            <th>Delete Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.roles.each do |role| %>
+            <tr>
+              <td><%= role.resource_id %></td>
+              <td><%= role.name %></td>
+              <td><%= role.id %></td>
+              <td><%= link_to 'Delete Role', admin_remove_role_path(resource_id: role.resource_id, name: role.name, user_id: @user.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   <% else %>
     <h5><%= @user.email %> has no roles.</h5>
   <% end %>

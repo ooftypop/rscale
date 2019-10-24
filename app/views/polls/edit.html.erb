@@ -14,24 +14,26 @@
     <div class="poll-option-user-index">
       <% if @poll.roles.any? %>
         <h5><%= @poll.title %> Participants</h5>
-        <table>
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @poll.roles.each do |role| %>
-              <% role.users.each do |user| %>
-                <tr>
-                  <td><%= user.email %></td>
-                  <td><%= link_to 'Remove user', remove_user_from_poll_path(resource_id: role.resource_id, name: role.name, user_id: user.id) %></td>
-                </tr>
+        <div class="table-wrapper">
+          <table class="fl-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @poll.roles.each do |role| %>
+                <% role.users.each do |user| %>
+                  <tr>
+                    <td><%= user.email %></td>
+                    <td><%= link_to 'Remove user', remove_user_from_poll_path(resource_id: role.resource_id, name: role.name, user_id: user.id) %></td>
+                  </tr>
+                <% end %>
               <% end %>
-            <% end %>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       <% end %>
     </div>
   <% end %>

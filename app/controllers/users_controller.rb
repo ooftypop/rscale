@@ -8,8 +8,7 @@ class UsersController < ApplicationController
 
   def show
     if user_signed_in?
-      @user_admin_polls = Poll.with_role(:resource_admin, current_user)
-      @user_polls       = Poll.with_role(:user, current_user)
+      @user_polls = Poll.with_roles([:resource_admin, :user], current_user)
     else
       redirect_to sign_in_path
     end

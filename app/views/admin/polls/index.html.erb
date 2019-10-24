@@ -2,47 +2,49 @@
 
   <h5>All Polls</h5>
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Polls..." title="Type in a name">
-  <table id="myTable">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>View</th>
-        <th>Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if @polls.any? %>
-        <% @polls.each do |poll| %>
-          <tr>
-            <td><%= poll.title %></td>
-            <td><%= poll.description %></td>
-            <td><%= link_to 'View poll', poll_path(poll.id) %></td>
-            <td><%= link_to 'Edit poll', edit_poll_path(poll.id) %></td>
-          </tr>
+  <div class="table-wrapper">
+    <table id="myTable" class="fl-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>View</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @polls.any? %>
+          <% @polls.each do |poll| %>
+            <tr>
+              <td><%= poll.title %></td>
+              <td><%= poll.description %></td>
+              <td> <%= link_to 'View poll', poll_path(poll.id) %></td>
+              <td><%= link_to '', edit_poll_path(poll.id), class: "fa fa-edit" %></td>
+            </tr>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+  function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
       }
     }
   }
-}
 </script>

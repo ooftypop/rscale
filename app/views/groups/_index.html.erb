@@ -1,31 +1,38 @@
-<div class="group-index" style="text-align: center;">
-  <h4>Email groups</h4>
-  <% if current_user.email_groups.any? %>
+<div class="group-index">
+
+  <div class="group-index-header">
+    <h4>Email Groups</h4>
+    <% if current_user.email_groups.any? %>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Groups..." title="Type in a name">
-    <table id="myTable">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>View</th>
-          <th>Edit</th>
-          <th>Add Emails</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_user.email_groups.each do |group| %>
+    <div>
+      <%= link_to "Create New Group", new_group_path, class: "start-group-call-to-action" %>
+    </div>
+  </div>
+
+    <div class="table-wrapper">
+      <table id="myTable" class="fl-table">
+        <thead>
           <tr>
-            <td><%= group.title %></td>
-            <td><%= group.description %></td>
-            <td><%= link_to '', group_path(group), class: "fa fa-eye" %></td>
-            <td><%= link_to '', edit_group_path(group), class: "fa fa-edit" %></td>
-            <td><%= link_to 'Add Emails', edit_user_emails_path(id: group), remote: true %></td>
+            <th>Title</th>
+            <th>Description</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Add Emails</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <%= link_to "Create New Group", new_group_path %>
+        </thead>
+        <tbody>
+          <% current_user.email_groups.each do |group| %>
+            <tr>
+              <td><%= group.title %></td>
+              <td><%= group.description %></td>
+              <td><%= link_to 'View Group', group_path(group), class: "" %></td>
+              <td><%= link_to '', edit_group_path(group), class: "fa fa-edit" %></td>
+              <td><%= link_to 'Add Emails', edit_user_emails_path(id: group), remote: true %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   <% end %>
 </div>
 
