@@ -28,6 +28,7 @@ gem 'turbolinks', '~> 5' # navigate application faster: github.com/turbolinks/tu
 gem 'redis', '~> 4.0' # A Ruby client library for Redis
 gem 'sidekiq' # Simple, efficient background processing for Ruby http://sidekiq.org
 gem 'aws-sdk-s3'
+gem 'mini_magick', '~> 4.8'
 
 # ==============================================================================
 # Authentication & Authorization ===============================================
