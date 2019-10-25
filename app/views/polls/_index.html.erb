@@ -24,9 +24,9 @@
             <tr>
               <td><%= poll.title %></td>
               <td><%= poll.description %></td>
-              <td> <%= link_to 'View poll', poll_path(poll.id) %></td>
+              <td> <%= link_to 'View poll', poll_path(poll.slug) %></td>
               <% if current_user.has_role?(:resource_admin, poll) %>
-                <td class="table-edit-link"><%= link_to '', edit_poll_path(poll.id), class: "fa fa-edit" %></td>
+                <td class="table-edit-link"><%= link_to '', edit_poll_path(poll.slug), class: "fa fa-edit" %></td>
               <% end %>
             </tr>
           <% end %>
