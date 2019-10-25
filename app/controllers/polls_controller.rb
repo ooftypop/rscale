@@ -11,25 +11,7 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.friendly.find(params[:id])
-    if @poll.poll_options.any?
-      poll_option_ids = @poll.poll_options.ids
-      votes = []
-
-      poll_option_ids.each do |poll_option_id|
-        vote = Vote.find_by(user_id: current_user.id, poll_option_id: poll_option_id)
-
-        if vote
-          votes << vote
-        else
-          @vote = Vote.new
-        end
-
-      end
-
-      votes.each do |vote|
-        @vote = vote
-      end
-    end
+    @vote = Vote.new
   end
 
   def new

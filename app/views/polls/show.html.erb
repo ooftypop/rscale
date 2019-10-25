@@ -2,7 +2,7 @@
   <div id="poll-show-header">
     <% if policy(@poll).update? %>
       <div class="poll-show-admin-controls">
-          <%= link_to 'Edit Poll', edit_poll_path(@poll), class: "btn app-standard-button" %>
+        <%= link_to 'Edit Poll', edit_poll_path(@poll), class: "btn app-standard-button" %>
       </div>
     <% end %>
     <div id="poll-show-title"><%= @poll.title %></div>
