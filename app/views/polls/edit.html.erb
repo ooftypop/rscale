@@ -16,7 +16,7 @@
     <div class="poll-option-user-index">
       <% if @poll.roles.any? %>
         <h5><%= @poll.title %> Participants</h5>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Users Emails...." title="Type in a Email">
+        <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for Users Emails...." title="Type in a Email">
         <div class="table-wrapper">
           <table id="myTable" class="fl-table">
             <thead>
@@ -43,22 +43,5 @@
 </div>
 
 <script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
+ searchTable();
 </script>

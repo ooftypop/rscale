@@ -14,10 +14,13 @@
   <body>
     <%= render partial: 'layouts/navbar', locals: {  } %>
     <%= render partial: 'layouts/modal', locals: {  } %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice flash-message"><%= notice %></p>
+    <p class="alert flash-message"><%= alert %></p>
     <div class="yield-div">
       <%= yield %>
     </div>
+    <script type="text/javascript">
+      slideUp_messages();
+    </script>
   </body>
 </html>
