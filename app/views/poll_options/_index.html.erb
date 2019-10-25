@@ -1,13 +1,15 @@
 <% if @poll.poll_options.any? %>
-  <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Polls..." title="Type in a name"> -->
+  <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for Polls..." title="Type in a name">
   <div class="poll-options-index table-wrapper">
-    <table id="myTable" class="fl-table">
+    <table id="myTable" class="fl-table table table-condensed" style="border-collapse:collapse;">
       <thead>
         <tr>
           <th></th>
           <th></th>
           <th></th>
-          <th></th>
+          <% if @poll.inactive? %>
+            <th></th>
+          <% end %>
           <% if policy(@poll).update? %>
             <th></th>
           <% end %>
@@ -15,9 +17,11 @@
       </thead>
       <tbody>
         <% @poll.poll_options.each do |poll_option| %>
-        <tr>
+        <tr class="table-row-highlight">
           <td><%= poll_option.title %></td>
-          <td><%= link_to ' learn more', poll_option_path(poll_option), class: "fa fa-info-circle poll-option-index-link" %></td>
+          <td data-toggle="collapse" data-target="#poll_option_show<%= poll_option.id %>" class="accordion-toggle">
+            <a class="fa fa-info-circle poll-option-index-link"> learn more</a>
+          </td>
           <td>
             <% if current_user.voted_for_option?(poll_option) %>
               <%= render partial: "votes/new", locals: { option_id: poll_option.id } %>
@@ -25,15 +29,20 @@
               <%= render partial: "votes/show", locals: { option_id: poll_option.id } %>
             <% end %>
           </td>
-          <td>
-            <% if @poll.inactive? %>
-              Average: <%= poll_option.average_ratings %>
-            <% end %>
-          </td>
+          <% if @poll.inactive? %>
+            <td>Average: <%= poll_option.average_ratings %></td>
+          <% end %>
           <td>
             <% if policy(@poll).update? %>
               <%= link_to '', edit_poll_option_path(poll_option), class: "fa fa-edit poll-option-index-link" %>
             <% end %>
+          </td>
+        </tr>
+        <tr >
+          <td colspan="6" class="hiddenRow">
+            <div class="accordian-body collapse" id="poll_option_show<%= poll_option.id %>">
+              <%= render partial: "poll_options/show", locals: { poll_option: poll_option } %>
+            </div>
           </td>
         </tr>
         <% end %>
@@ -49,22 +58,8 @@
 <% end %>
 
 <script>
-// function myFunction() {
-//   var input, filter, table, tr, td, i, txtValue;
-//   input = document.getElementById("myInput");
-//   filter = input.value.toUpperCase();
-//   table = document.getElementById("myTable");
-//   tr = table.getElementsByTagName("tr");
-//   for (i = 0; i < tr.length; i++) {
-//     td = tr[i].getElementsByTagName("td")[0];
-//     if (td) {
-//       txtValue = td.textContent || td.innerText;
-//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//         tr[i].style.display = "";
-//       } else {
-//         tr[i].style.display = "none";
-//       }
-//     }
-//   }
-// }
+  searchTable();
+  // $(document).on('click',function(){
+  //   $('.collapse').collapse('hide');
+  // })
 </script>

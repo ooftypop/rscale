@@ -1,4 +1,7 @@
 class Poll < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   resourcify
 
   has_many :poll_options, dependent: :destroy

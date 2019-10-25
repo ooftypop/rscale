@@ -1,7 +1,7 @@
 <div class="admin-polls-index" style="text-align: center;">
 
   <h5>All Polls</h5>
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Polls..." title="Type in a name">
+  <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for Polls..." title="Type in a name">
   <div class="table-wrapper">
     <table id="myTable" class="fl-table">
       <thead>
@@ -29,22 +29,5 @@
 </div>
 
 <script>
-  function myFunction() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
+  searchTable();
 </script>

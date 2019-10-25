@@ -2,8 +2,7 @@ class PollOptionsController < ApplicationController
 
   before_action :authenticate_user!
 
-  before_action :set_poll_option
-
+  before_action :set_poll_option, except: [:index, :show]
 
   def index
     @poll_options = PollOption.all
@@ -23,7 +22,6 @@ class PollOptionsController < ApplicationController
       redirect_to poll_path(@poll_option.poll_id)
     else
       flash[:alert] = "Poll option not created."
-      render "new"
     end
   end
 
@@ -33,7 +31,7 @@ class PollOptionsController < ApplicationController
   def update
     if @poll_option.update(poll_option_params)
       flash[:notice] = "You have updated the Poll Option!"
-      redirect_to poll_option_path(@poll_option)
+      redirect_to poll_path(@poll_option.poll_id)
     else
       flash[:alert] = "Poll option unable to update."
     end

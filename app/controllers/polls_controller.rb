@@ -3,13 +3,14 @@ class PollsController < ApplicationController
 
   before_action :authenticate_user!
 
-  before_action :set_poll, except: [:index]
+  before_action :set_poll, except: [:index, :show]
 
   def index
     @polls = Poll.all
   end
 
   def show
+    @poll = Poll.friendly.find(params[:id])
     if @poll.poll_options.any?
       poll_option_ids = @poll.poll_options.ids
       votes = []
@@ -69,7 +70,7 @@ class PollsController < ApplicationController
   private
 
   def set_poll
-    @poll = params[:id].present? ? Poll.find(params[:id]) : Poll.new
+    @poll = params[:id].present? ? Poll.friendly.find(params[:id]) : Poll.new
   end
 
   def poll_params

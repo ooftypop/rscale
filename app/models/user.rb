@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :email, use: :slugged
+
   rolify
   devise :confirmable, :database_authenticatable, :invitable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

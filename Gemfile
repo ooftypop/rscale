@@ -29,6 +29,7 @@ gem 'redis', '~> 4.0' # A Ruby client library for Redis
 gem 'sidekiq' # Simple, efficient background processing for Ruby http://sidekiq.org
 gem 'aws-sdk-s3'
 gem "image_processing", "~> 1.0"
+
 # ==============================================================================
 # Authentication & Authorization ===============================================
 # ==============================================================================
@@ -44,6 +45,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem "font-awesome-rails" # font-awesome for asset pipeline
 gem 'jquery-rails' # automate using jQuery with Rails
 gem 'select2-rails' # Integrate Select2 javascript library with Rails asset pipeline https://github.com/argerim/select2-rails
+gem 'friendly_id', '~> 5.2.4' # Allows you to create pretty URL’s and work with human-friendly
 
 # ==============================================================================
 # Forms ========================================================================
