@@ -1,0 +1,46 @@
+// Index =======================================================================
+.poll-options-index {
+  tbody {
+    tr {
+      .poll-option-index-link {
+        color: #666666;
+      }
+      .accordion-toggle {
+        cursor: pointer;
+      }
+    }
+  }
+  .hiddenRow {
+    padding: 0 !important;
+    border: none;
+  }
+}
+
+.rotate {
+  font-size: 20px;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.down {
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+// Show ========================================================================
+.poll-option-show {
+  .poll-option-show-header {
+    .poll-option-show-description {
+      text-align: left;
+    }
+  }
+  .poll-option-image {
+    #poll-option-image {
+      margin: 5px;
+      border: 6px solid #666666;
+      max-width: 30%;
+    }
+  }
+}

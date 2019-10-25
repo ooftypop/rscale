@@ -10,9 +10,6 @@
           <% if @poll.inactive? %>
             <th></th>
           <% end %>
-          <% if policy(@poll).update? %>
-            <th></th>
-          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -20,7 +17,7 @@
         <tr class="table-row-highlight">
           <td><%= poll_option.title %></td>
           <td data-toggle="collapse" data-target="#poll_option_show<%= poll_option.id %>" class="accordion-toggle">
-            <a class="fa fa-info-circle poll-option-index-link"> learn more</a>
+            <a class="fa fa-sort-down rotate rotate<%= poll_option.id %> poll-option-index-link"></a> <a class="fa poll-option-index-link">show more</a>
           </td>
           <td>
             <% if current_user.voted_for_option?(poll_option) %>
@@ -32,11 +29,6 @@
           <% if @poll.inactive? %>
             <td>Average: <%= poll_option.average_ratings %></td>
           <% end %>
-          <td>
-            <% if policy(@poll).update? %>
-              <%= link_to '', edit_poll_option_path(poll_option), class: "fa fa-edit poll-option-index-link" %>
-            <% end %>
-          </td>
         </tr>
         <tr >
           <td colspan="6" class="hiddenRow">
@@ -45,6 +37,14 @@
             </div>
           </td>
         </tr>
+        <script type="text/javascript">
+          $('#poll_option_show<%= poll_option.id %>').on('shown.bs.collapse', function() {
+            $(".rotate<%= poll_option.id %>").addClass('down')
+          });
+          $('#poll_option_show<%= poll_option.id %>').on('hidden.bs.collapse', function() {
+            $(".rotate<%= poll_option.id %>").removeClass('down');
+          });
+        </script>
         <% end %>
       </tbody>
     </table>

@@ -1,9 +1,9 @@
 <div class="group-show" style="text-align: center;">
   <h5><%= @group.title %></h5>
   <h6><%= @group.description %></h6>
-  <button><%= link_to 'Edit group', edit_group_path(@group) %></button>
-  <button><%= link_to 'Add Emails', edit_user_emails_path(id: @group), remote: true %></button>
-  <button><%= link_to 'Back', :back, class: "form-path-link " %></button>
+  <%= link_to 'Edit group', edit_group_path(@group), class: "app-standard-button" %>
+  <%= link_to 'Add Emails', edit_user_emails_path(id: @group), class: "app-standard-button", remote: true %>
+  <%= link_to 'Back', :back, class: "form-path-link " %>
   <% if @group.users.any? %>
     <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for emails..." title="Type in a name">
 

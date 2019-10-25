@@ -1,0 +1,235 @@
+// Forms =======================================================================
+.form {
+  text-align: center;
+  .form-field {
+    margin: 0 auto;
+    width: 600px;
+    .text-field {
+      border: 1px solid #696969;
+      border-radius: 2px;
+      margin: 10px;
+      padding-left: 5px;
+      text-decoration: none;
+    }
+    .submit-button {
+      background-color: #666666;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 20px;
+      margin: 0 auto;
+      padding: 5px 10px 5px 10px;
+      width: 100px;
+    }
+  }
+  .poll-option-create-table {
+    margin-bottom: 20px;
+  }
+  .back-button {
+    color: black;
+  }
+}
+.add-association-link {
+  background-color: rgba(102, 102, 102, 0.6);
+  color: white;
+  margin-bottom: 20px;
+}
+
+// Tables ======================================================================
+.table-wrapper {
+  margin: 0 auto;
+  max-width: 1040px;
+  margin-top: 10px;
+  box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+}
+
+.fl-table td, .fl-table th {
+  text-align: center;
+  padding: 8px;
+}
+
+.fl-table td {
+  border-right: 1px solid #f8f8f8;
+  font-size: 12px;
+}
+
+.fl-table thead th {
+  color: #ffffff;
+  background: #666666;
+}
+.table-row-highlight:hover {
+  background-color: #f8f8f8;
+}
+
+.fl-table tr:nth-child(even) {
+  background: #F8F8F8;
+}
+
+// Tables Media
+@media (max-width: 767px) {
+  .fl-table {
+    display: block;
+    width: 100%;
+  }
+  .table-wrapper:before {
+    content: "Scroll horizontally >";
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: white;
+    padding: 0 0 10px;
+  }
+  .fl-table thead, .fl-table tbody, .fl-table thead th {
+    display: block;
+  }
+  .fl-table thead th:last-child{
+    border-bottom: none;
+  }
+  .fl-table thead {
+    float: left;
+  }
+  .fl-table tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+  }
+  .fl-table td, .fl-table th {
+    padding: 20px .625em .625em .625em;
+    height: 60px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 120px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+  .fl-table thead th {
+    text-align: left;
+    border-bottom: 1px solid #f7f7f9;
+  }
+  .fl-table tbody tr {
+    display: table-cell;
+  }
+  .fl-table tbody tr:nth-child(odd) {
+    background: none;
+  }
+  .fl-table tr:nth-child(even) {
+    background: transparent;
+  }
+  .fl-table tr td:nth-child(odd) {
+    background: #F8F8F8;
+    border-right: 1px solid #E6E4E4;
+  }
+  .fl-table tr td:nth-child(even) {
+    border-right: 1px solid #E6E4E4;
+  }
+  .fl-table tbody td {
+    display: block;
+    text-align: center;
+  }
+}
+
+// Modals ======================================================================
+.modal-body {
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+  text-align: center;
+  padding: 2rem 20px;
+  z-index: 100;
+}
+.modal-dialog {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  pointer-events: all;
+}
+.panel-heading {
+  text-align: center;
+}
+.modal-submit-button {
+  background-color: #666666;
+  color: white;
+  margin-top: 20px;
+}
+
+// Shared buttons CSS ===========================================================
+.app-standard-button {
+  display: inline-block;
+  background-color: rgba(102, 102, 102, 0.6);
+  color: white;
+  padding: 5px 10px 5px 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+}
+.delete-resource-button {
+  background-color: #BD0000;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 12px;
+  margin: 5px;
+  padding: 5px 10px 5px 10px;
+}
+.create-resource-call-to-action {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background-color: #666666;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  margin: 0 auto;
+}
+
+// Main ========================================================================
+body, html {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  .yield-div {
+    height: 100%;
+    padding: 88px 70px;
+    margin: 0 auto;
+  }
+}
+
+// Flash messages ==============================================================
+.notice, .alert {
+  position: fixed;
+  width: 100%;
+  border: 0px solid white;
+  border-radius: 0px;
+  color: white;
+  top: 60px;
+  padding: 0;
+  text-align: center;
+  z-index: 1000;
+}
+.alert {
+  background-color: red;
+}
+.notice {
+  background-color: green;
+}
+
+@media (max-width: 600px) {
+  .yield-div {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+}

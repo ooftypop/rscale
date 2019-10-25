@@ -3,7 +3,7 @@
   <div class="group-index-header">
     <h4>Email Groups</h4>
     <div>
-      <%= link_to "Create New Group", new_group_path, class: "start-group-call-to-action" %>
+      <%= link_to "Create New Group", new_group_path, class: "create-resource-call-to-action" %>
     </div>
     <% if current_user.email_groups.any? %>
     <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search Groups..." title="Type in a name">

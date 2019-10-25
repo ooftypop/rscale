@@ -1,56 +1,18 @@
+// Assets ======================================================================
 @import "select2";
 @import 'bootstrap';
 @import "select2-bootstrap";
 @import "font-awesome";
+
+// layouts =====================================================================
 @import "layouts/navbar";
-@import "layouts/modal";
-@import "layouts/tables";
-@import "layouts/forms";
-@import "votes/votes";
-@import "users/sign_pages";
-@import "polls/show";
-@import "polls/index";
-@import "polls/edit";
-@import "poll_options/show";
-@import "poll_options/index";
-@import "groups/index";
-@import "landing_page";
+@import "layouts/shared";
 
-// Main ========================================================================
-body, html {
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
-  .yield-div {
-    height: 100%;
-    padding: 88px 70px;
-    margin: 0 auto;
-  }
-}
-
-// Flash messages ==============================================================
-.notice, .alert {
-  position: fixed;
-  width: 100%;
-  border: 0px solid white;
-  border-radius: 0px;
-  color: white;
-  top: 60px;
-  padding: 0;
-  text-align: center;
-  z-index: 1000;
-}
-.alert {
-  background-color: red;
-}
-.notice {
-  background-color: green;
-}
-
-@media (max-width: 600px) {
-  .yield-div {
-    margin: 0px !important;
-    padding: 0px !important;
-  }
-}
+// resources ===================================================================
+@import "resources/users";
+@import "resources/groups";
+@import "resources/polls";
+@import "resources/poll_options";
+@import "resources/votes";
+//
+@import "resources/landing_page";

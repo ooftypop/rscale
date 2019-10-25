@@ -1,0 +1,42 @@
+// Show ========================================================================
+.poll-show {
+  padding: 0 10%;
+  height: 100%;
+  #poll-show-header {
+    padding-top: 50px;
+    position: relative;
+    #poll-show-title {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    #poll-show-description {
+      font-size: 20px;
+    }
+    .poll-show-admin-controls {
+      display: block;
+    }
+  }
+  .poll-options-index {
+    margin-left: 0px 3%;
+  }
+}
+
+// Index =======================================================================
+.polls-index {
+  padding-top: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+// Edit ========================================================================
+.poll-edit {
+  .button-group {
+    position: relative;
+    display: flex;
+    .view-poll-button {
+      right: 0;
+      position: absolute;
+    }
+  }
+}
