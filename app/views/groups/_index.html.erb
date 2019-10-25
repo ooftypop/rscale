@@ -2,11 +2,11 @@
 
   <div class="group-index-header">
     <h4>Email Groups</h4>
-    <% if current_user.email_groups.any? %>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Groups..." title="Type in a name">
     <div>
       <%= link_to "Create New Group", new_group_path, class: "start-group-call-to-action" %>
     </div>
+    <% if current_user.email_groups.any? %>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Groups..." title="Type in a name">
   </div>
 
     <div class="table-wrapper">

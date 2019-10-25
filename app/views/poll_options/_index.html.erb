@@ -17,7 +17,7 @@
         <% @poll.poll_options.each do |poll_option| %>
         <tr>
           <td><%= poll_option.title %></td>
-          <td><%= link_to 'Learn more', poll_option_path(poll_option), class: "fa fa-eye" %></td>
+          <td><%= link_to ' learn more', poll_option_path(poll_option), class: "fa fa-info-circle poll-option-index-link" %></td>
           <td>
             <% if current_user.voted_for_option?(poll_option) %>
               <%= render partial: "votes/new", locals: { option_id: poll_option.id } %>
@@ -32,7 +32,7 @@
           </td>
           <td>
             <% if policy(@poll).update? %>
-              <%= link_to '', edit_poll_option_path(poll_option), class: "fa fa-edit poll-option-edit-fa" %>
+              <%= link_to '', edit_poll_option_path(poll_option), class: "fa fa-edit poll-option-index-link" %>
             <% end %>
           </td>
         </tr>

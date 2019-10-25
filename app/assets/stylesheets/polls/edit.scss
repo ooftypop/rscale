@@ -2,12 +2,6 @@
   .button-group {
     position: relative;
     display: flex;
-    .poll-edit-button {
-      display: inline-block;
-      background-color: rgba(102, 102, 102, 0.6);
-      color: white;
-      margin: 5px;
-    }
     .view-poll-button {
       right: 0;
       position: absolute;
@@ -22,4 +16,10 @@
     margin: 5px;
     padding: 5px 10px 5px 10px;
   }
+}
+.poll-edit-button {
+  display: inline-block;
+  background-color: rgba(102, 102, 102, 0.6);
+  color: white;
+  margin: 5px;
 }
