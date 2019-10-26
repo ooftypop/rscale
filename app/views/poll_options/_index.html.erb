@@ -17,7 +17,7 @@
         <tr class="table-row-highlight">
           <td><%= poll_option.title %></td>
           <td data-toggle="collapse" data-target="#poll_option_show<%= poll_option.id %>" class="accordion-toggle">
-            <a class="fa fa-sort-down rotate rotate<%= poll_option.id %> poll-option-index-link"></a> <a class="fa poll-option-index-link">show more</a>
+            <a class="fa fa-sort-down rotate rotate<%= poll_option.id %> table-link"></a> <a class="fa table-link">show more</a>
           </td>
           <td>
             <% if current_user.voted_for_option?(poll_option) %>

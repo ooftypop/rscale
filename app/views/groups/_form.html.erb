@@ -20,9 +20,10 @@
 
       <%= f.submit "Submit", class: "form-control submit-button" %><br />
     <% end %>
+      <%= link_to 'Back', :back, class: "back-button form-path-link " %><br />
     <% if action_name == 'edit' %>
+      <%= link_to 'Add Emails', edit_user_emails_path(id: @group), class: "app-standard-button", remote: true %><br /><br /><br /><br />
       <%= link_to 'Delete', @group, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link delete-resource-button" %><br />
-      <%= link_to 'Back', :back, class: "form-path-link " %><br />
     <% end %>
   </div>
 </div>

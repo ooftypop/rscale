@@ -6,7 +6,7 @@
       <%= link_to "Create New Group", new_group_path, class: "create-resource-call-to-action" %>
     </div>
     <% if current_user.email_groups.any? %>
-    <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search Groups..." title="Type in a name">
+    <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search Groups..." title="Type in a title">
   </div>
 
     <div class="table-wrapper">
@@ -25,9 +25,9 @@
             <tr>
               <td><%= group.title %></td>
               <td><%= group.description %></td>
-              <td><%= link_to 'View Group', group_path(group), class: "" %></td>
-              <td><%= link_to '', edit_group_path(group), class: "fa fa-edit" %></td>
-              <td><%= link_to 'Add Emails', edit_user_emails_path(id: group), remote: true %></td>
+              <td><%= link_to 'View Group', group_path(group), class: "table-link" %></td>
+              <td><%= link_to '', edit_group_path(group), class: "table-link fa fa-edit" %></td>
+              <td><%= link_to 'Add Emails', edit_user_emails_path(id: group), class: "table-link", remote: true %></td>
             </tr>
           <% end %>
         </tbody>
