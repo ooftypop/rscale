@@ -1,6 +1,6 @@
 # R-Scale
 
-R-scale is an application for peer to peer voting on just abou tanything and everything.
+R-scale is an application for peer to peer voting on just abou anything and everything.
 
 ## Built With
 
