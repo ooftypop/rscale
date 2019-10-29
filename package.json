@@ -1,5 +1,7 @@
 {
   "name": "rscale",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "intro.js": "^2.9.3"
+  }
 }

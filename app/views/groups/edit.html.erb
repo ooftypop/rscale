@@ -1,3 +1,10 @@
 <div class="group-edit">
+  <button class="app-standard-button" onclick="runGroupEditTour()">What do I do?</button>
   <%= render partial: "groups/form" %>
 </div>
+
+<script>
+  function runGroupEditTour() {
+    introJs().start();
+  }
+</script>
