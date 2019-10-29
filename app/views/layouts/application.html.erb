@@ -8,7 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/intro.js@2.9.3/introjs.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/intro.js@2.9.3/themes/introjs-royal.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@2.9.3/intro.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+
+    <%= favicon_link_tag asset_path('favicon.ico') %>
   </head>
 
   <body>
@@ -21,6 +27,9 @@
     </div>
     <script type="text/javascript">
       slideUp_messages();
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
     </script>
   </body>
 </html>

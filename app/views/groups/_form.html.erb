@@ -12,17 +12,21 @@
         <%= @group.errors.full_messages %>
       <% end %>
 
+      <div data-step="1" data-intro='Made a mistake? Edit the group name.'>
       <%= f.text_field :title, class: "form-control text-field",
           placeholder: "Title" %><br />
+      </div>
 
+      <div data-step="2" data-intro='Or the description.'>
       <%= f.text_field :description, class: "form-control text-field",
           placeholder: "Short Description" %><br />
+      </div>
 
       <%= f.submit "Submit", class: "form-control submit-button" %><br />
     <% end %>
       <%= link_to 'Back', :back, class: "back-button form-path-link " %><br />
     <% if action_name == 'edit' %>
-      <%= link_to 'Add Emails', edit_user_emails_path(id: @group), class: "app-standard-button", remote: true %><br /><br /><br /><br />
+      <div data-step="3" data-intro='and add some emails while your at it!'><%= link_to 'Add Emails', edit_user_emails_path(id: @group), class: "app-standard-button", remote: true %></div><br /><br /><br /><br />
       <%= link_to 'Delete', @group, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link delete-resource-button" %><br />
     <% end %>
   </div>

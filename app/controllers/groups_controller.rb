@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
     @group.assign_attributes(group_params)
     if @group.save
       flash[:notice] = "Group Created!"
-      redirect_to group_path(@group)
+      redirect_to edit_group_path(@group)
     else
       flash[:alert] = "Group not created."
       render "new"

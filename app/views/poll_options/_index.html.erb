@@ -1,5 +1,5 @@
 <% if @poll.poll_options.any? %>
-  <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for Polls..." title="Type in a name">
+  <input data-step="4" data-intro="You can search through the options via title" type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for Polls..." title="Type in a name">
   <div class="poll-options-index table-wrapper">
     <table id="myTable" class="fl-table table table-condensed" style="border-collapse:collapse;">
       <thead>
@@ -14,12 +14,12 @@
       </thead>
       <tbody>
         <% @poll.poll_options.each do |poll_option| %>
-        <tr class="table-row-highlight">
+        <tr data-step="3" data-intro="this is one poll option to vote." class="table-row-highlight">
           <td><%= poll_option.title %></td>
-          <td data-toggle="collapse" data-target="#poll_option_show<%= poll_option.id %>" class="accordion-toggle">
+          <td data-step="5" data-intro="Click me to show more info on the option." data-toggle="collapse" data-target="#poll_option_show<%= poll_option.id %>" class="accordion-toggle">
             <a class="fa fa-sort-down rotate rotate<%= poll_option.id %> table-link"></a> <a class="fa table-link">show more</a>
           </td>
-          <td>
+          <td data-step="7" data-intro="You slide me to choose a score.">
             <% if current_user.voted_for_option?(poll_option) %>
               <%= render partial: "votes/new", locals: { option_id: poll_option.id } %>
             <% else %>
@@ -30,7 +30,7 @@
             <td>Average: <%= poll_option.average_ratings %></td>
           <% end %>
         </tr>
-        <tr >
+        <tr id="poll-o" data-step="6" data-intro="Im all the info on an option!">
           <td colspan="6" class="hiddenRow">
             <div class="accordian-body collapse" id="poll_option_show<%= poll_option.id %>">
               <%= render partial: "poll_options/show", locals: { poll_option: poll_option } %>
@@ -44,6 +44,10 @@
           $('#poll_option_show<%= poll_option.id %>').on('hidden.bs.collapse', function() {
             $(".rotate<%= poll_option.id %>").removeClass('down');
           });
+          function runPollShowTour() {
+            introJs().start();
+            $("#poll_option_show<%= poll_option.id %>").collapse('show')
+          };
         </script>
         <% end %>
       </tbody>
