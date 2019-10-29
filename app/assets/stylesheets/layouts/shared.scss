@@ -200,6 +200,22 @@ body, html {
   }
 }
 
+// Tour css ====================================================================
+.introjs-tooltip {
+  padding: 10px 0px 30px 0px !important;
+  text-align: center;
+}
+.introjs-tooltipbuttons {
+  position: relative !important;
+}
+.introjs-bullets {
+  right: 0;
+  left: 0;
+}
+.introjs-arrow {
+  visibility: hidden;
+}
+
 // Flash messages ==============================================================
 .notice, .alert {
   position: fixed;
