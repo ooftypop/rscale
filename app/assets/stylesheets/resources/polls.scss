@@ -21,6 +21,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .poll-show {
+    padding: 0;
+  }
+}
+
 // Index =======================================================================
 .polls-index {
   padding-top: 20px;
@@ -38,5 +44,72 @@
       right: 0;
       position: absolute;
     }
+  }
+}
+
+.poll-option-create-table {
+  margin-bottom: 20px;
+}
+@media (max-width: 740px) {
+  .poll-option-create-table {
+    display: block;
+    width: 100%;
+  }
+  .poll-option-create-table-wrapper:before {
+    content: "Scroll horizontally >";
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: white;
+    padding: 0 0 10px;
+  }
+  .poll-option-create-table thead, .poll-option-create-table tbody, .poll-option-create-table thead th {
+    display: block;
+  }
+  .poll-option-create-table thead th:last-child{
+    border-bottom: none;
+  }
+  .poll-option-create-table thead {
+    float: left;
+  }
+  .poll-option-create-table tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+  }
+  .poll-option-create-table td, .poll-option-create-table th {
+    padding: 20px .625em .625em .625em;
+    height: 60px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 120px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+  .poll-option-create-table thead th {
+    text-align: left;
+    border-bottom: 1px solid #f7f7f9;
+  }
+  .poll-option-create-table tbody tr {
+    display: table-cell;
+  }
+  .poll-option-create-table tbody tr:nth-child(odd) {
+    background: none;
+  }
+  .poll-option-create-table tr:nth-child(even) {
+    background: transparent;
+  }
+  .poll-option-create-table tr td:nth-child(odd) {
+    background: #F8F8F8;
+    border-right: 1px solid #E6E4E4;
+  }
+  .poll-option-create-table tr td:nth-child(even) {
+    border-right: 1px solid #E6E4E4;
+  }
+  .poll-option-create-table tbody td {
+    display: block;
+    text-align: center;
   }
 }
