@@ -1,6 +1,6 @@
 .landing-index {
   .landing-about {
-    margin-top: 20%;
+    margin-top: 20px;
     .landing-page-header {
       font-size: 40px;
       font-weight: bold;
@@ -33,5 +33,27 @@
     box-shadow: 5px 5px 8px #888888;
     width: 100%;
     margin-top: 30px;
+  }
+}
+
+// Media ==========================================================
+@media (max-width: 842px) {
+  .landing-index {
+    .landing-about {
+      .landing-page-header {
+        font-size: 30px;
+      }
+      .landing-page-sub-header {
+        font-size: 20px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .landing-index {
+    .landing-about {
+      margin-top: 78px;
+      text-align: center;
+    }
   }
 }
