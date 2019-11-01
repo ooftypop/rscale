@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html style="padding: 0; max-width: 600px; margin: 0 auto;">
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h3>You have a new Poll, <%= @user.email %>!</h3>
-    <p>
-      You have been invited to participate in <%= @poll.title %>
-    </p>
-    <p>
-      To vote, just follow this link: <%= @url %>.
-    </p>
-    <p>Thanks! R-scale!</p>
+  <header style="background-color: #666666; color: white; padding: 0; margin: 0; height: 60px;  text-align: center; line-height: 60px;">
+    <h2>You have choices to make!</h2>
+  </header><br />
+    <div style="color: #666666">
+      <p><%= "Hello, #{@user.email.capitalize}" %></p>
+      <p><%= "You have been invited to participate in #{@poll.title}" %></p>
+      <p><%= "To vote, just follow this link: #{@url}" %></p><br />
+      <p>Thanks,</p>
+      <p>your Rscale team</p>
+    </div>
   </body>
 </html>
