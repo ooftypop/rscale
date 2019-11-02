@@ -18,4 +18,8 @@ class UserMailerPreview < ActionMailer::Preview
   def invitation_instructions
     UserMailer.invitation_instructions(User.first, {})
   end
+
+  def unlock_instructions
+    UserMailer.unlock_instructions(User.first, {})
+  end
 end
