@@ -1,5 +1,18 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<!DOCTYPE html>
+<html style="padding: 0; max-width: 600px; margin: 0 auto;">
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <header style="background-color: #666666; color: white; padding: 0; margin: 0; height: 60px;  text-align: center; line-height: 60px;">
+    <h2>Welcome to Rscale!</h2>
+  </header><br />
+    <div style="color: #666666">
+      <p><%= "Hello, #{@email}" %></p>
+      <p>You can confirm your account email through the link below:</p>
+      <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p><br />
+      <p>Thanks,</p>
+      <p>your Rscale team</p>
+    </div>
+  </body>
+</html>
