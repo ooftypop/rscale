@@ -1,11 +1,27 @@
-<p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
+<!DOCTYPE html>
+<html style="padding: 0; max-width: 600px; margin: 0 auto;">
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <header style="background-color: #666666; color: white; padding: 0; margin: 0; height: 60px;  text-align: center; line-height: 60px;">
+    <h2>You got an invite!</h2>
+  </header><br />
+    <div style="color: #666666">
+      <p><%= "Hello, #{@resource.email}" %></p>
+      <p>Youre invited to take a poll! By following the link below you will have access,</p>
+      <p>also creating an account on R-Scale will give you access to create your own polls!</p>
+      <p style="text-align:center;">
+        <button style="background-color: rgba(102, 102, 102, 0.6); padding: 5px 10px 5px 10px; margin: 5px; border: none; border-radius: 6px;"><%= link_to 'Begin', accept_invitation_url(@resource, invitation_token: @token), style: "color: white; text-decoration: none; font-size: 20px;" %></button>
+      </p><br/>
+      <% if @resource.invitation_due_at %>
+        <p><%= t("devise.mailer.invitation_instructions.accept_until", due_date: l(@resource.invitation_due_at, format: :'devise.mailer.invitation_instructions.accept_until_format')) %></p><br/>
+      <% end %>
 
-<p><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %></p>
-
-<p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, invitation_token: @token) %></p>
-
-<% if @resource.invitation_due_at %>
-  <p><%= t("devise.mailer.invitation_instructions.accept_until", due_date: l(@resource.invitation_due_at, format: :'devise.mailer.invitation_instructions.accept_until_format')) %></p>
-<% end %>
-
-<p><%= t("devise.mailer.invitation_instructions.ignore") %></p>
+      <p>If you don't want to accept the invitation, please ignore this email.</p>
+      <p>Your account won't be created until you access the link above and set your password.</p><br/>
+      <p>Thanks,</p>
+      <p>your Rscale team</p>
+    </div>
+  </body>
+</html>
