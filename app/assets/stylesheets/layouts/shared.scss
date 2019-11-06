@@ -192,15 +192,17 @@ body, html {
   overflow-x: hidden;
   .yield-div {
     height: 100%;
-    padding: 88px 70px;
+    padding-top: 88px;
     margin: 0 auto;
+  }
+  .static_pages-yield-div {
+    padding-top: 0 !important;
   }
 }
 
 @media (max-width: 600px) {
   .yield-div {
     margin: 0px !important;
-    padding: 88px 10px !important;
   }
 }
 // Tour css ====================================================================
@@ -233,7 +235,7 @@ body, html {
   border: 0px solid white;
   border-radius: 0px;
   color: white;
-  top: 60px;
+  top: 0px;
   padding: 0;
   text-align: center;
   z-index: 1000;

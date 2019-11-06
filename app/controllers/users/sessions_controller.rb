@@ -4,7 +4,7 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   def new
-    super
+    render "sign_in_form.js"
   end
 
   def create

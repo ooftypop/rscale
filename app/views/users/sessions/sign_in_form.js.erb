@@ -1,0 +1,3 @@
+$(".modal-title").html("Sign In");
+$(".modal-body").html("<%= escape_javascript(render partial: '/users/sessions/new', locals: { }) %>");
+$("#myModal").modal("show");
