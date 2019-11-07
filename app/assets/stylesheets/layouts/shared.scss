@@ -229,6 +229,8 @@ body, html {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  font-family: 'Nunito';
+  letter-spacing: 0.0625em;
   .yield-div {
     height: 100%;
     padding-top: 88px;
@@ -237,6 +239,26 @@ body, html {
   .static_pages-yield-div {
     padding-top: 0 !important;
   }
+}
+a {
+  color: #64a19d;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+  color: #3c6360;
+}
+
+.bg-black {
+  background-color: #161616 !important;
+}
+
+.bg-primary {
+  background-color: #64a19d !important;
+}
+
+.text-primary {
+  color: #64a19d !important;
 }
 
 @media (max-width: 600px) {
