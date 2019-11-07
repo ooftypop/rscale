@@ -54,10 +54,10 @@
             <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <%= link_to 'Sign In', new_user_session_path, class: "nav-link js-scroll-trigger", remote: true %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Sign In', new_user_session_path, class: "nav-link js-scroll-trigger", remote: true %>
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
         <% end %>
       </ul>
