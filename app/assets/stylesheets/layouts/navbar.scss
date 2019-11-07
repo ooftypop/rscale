@@ -19,7 +19,6 @@ $primary:  #64a19d !default;
   font-size: 80%;
   padding: 0.75rem;
   color: #64a19d;
-  border: 1px solid #64a19d;
 }
 #mainNav .navbar-toggler:focus {
   outline: none;
@@ -88,10 +87,10 @@ $primary:  #64a19d !default;
   min-height: 56px;
   background-color: $white;
   .navbar-toggler {
+    border: none;
     font-size: 80%;
     padding: 0.75rem;
     color: $primary;
-    border: 1px solid $primary;
     &:focus {
       outline: none;
     }
@@ -148,5 +147,14 @@ $primary:  #64a19d !default;
   background-color: #ced4da !important;
   .navbar-brand, .navbar-toggler-right, .nav-link {
     color: #161616 !important;
+  }
+  .dropdown-menu {
+    background-color: #ced4da !important;
+    border: none;
+    margin-top: -5px;
+    .nav-button {
+      border: none;
+      background-color: rgba(255, 255, 255, 0.0)
+    }
   }
 }

@@ -30,7 +30,7 @@
 // Tables ======================================================================
 .table-wrapper {
   margin: 0 auto;
-  max-width: 1040px;
+  // max-width: 1040px;
   margin-top: 10px;
   box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
 }
@@ -175,16 +175,10 @@
 .create-resource-call-to-action {
   position: absolute;
   right: 0;
-  top: 40px;
-  background-color: #666666;
-  border-radius: 6px;
-  color: white;
-  font-size: 14px;
-  padding: 5px 10px;
-  margin: 0 auto;
+  top: 30px;
 }
 
-.btn {
+.btn, .btn-primary.disabled, .btn-primary:disabled {
   padding: 1.25rem 2rem;
   font-family: 'Varela Round';
   font-size: 80%;
