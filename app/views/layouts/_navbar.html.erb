@@ -12,25 +12,32 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= link_to('Home', root_path, class: "nav-link js-scroll-trigger") %>
+          </li>
+
+          <li class="nav-item">
            <%= link_to('Start Poll', new_poll_path, class: "nav-link js-scroll-trigger") %>
           </li>
           <li class="nav-item">
             <%= link_to('Create Group', new_group_path, class: "nav-link js-scroll-trigger") %>
           </li>
-          <li class="nav-item">
-            <%= link_to('Edit User', edit_user_registration_path(current_user.id), class: "nav-link js-scroll-trigger") %>
-          </li>
-          <li class="nav-item">
-            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger") %>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Settings
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <button class="nav-button"><%= link_to('Edit User', edit_user_registration_path(current_user.id), remote: true) %></button>
+              <button class="nav-button"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></button>
+            </div>
           </li>
 
-          <li class="nav-item">
           <% if policy(:admin).index? %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu2Link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Admin Dashboards
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenu2Link">
                 <button class="nav-button"><%= link_to 'Users Index', admin_users_path %></button>
                 <button class="nav-button"><%= link_to 'Polls index', admin_polls_path %></button>
               </div>
