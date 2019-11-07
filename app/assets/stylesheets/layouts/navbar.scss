@@ -11,100 +11,33 @@ $gray-900: #212529 !default;
 $black:    #161616 !default;
 $primary:  #64a19d !default;
 
-.btn {
-  box-shadow: 0 .1875rem .1875rem 0 rgba(0,0,0,.1) !important;
-  padding: 1.25rem 2rem;
-  font-family: 'Varela Round';
-  font-size: 80%;
-  text-transform: uppercase;
-  letter-spacing: .15rem;
-  border: 0;
-}
-
-.btn-primary {
-  background-color: $primary;
-  &:hover {
-    background-color: darken($primary, 10%);
-  }
-  &:focus {
-    background-color: darken($primary, 10%);
-    color: white;
-  }
-  &:active {
-    background-color: darken($primary, 15%) !important;
-  }
-}
-
-.contact-section {
-  padding: 5rem 0 0;
-  .card {
-    border: 0;
-    border-bottom: 0.25rem solid $primary;
-    h4 {
-      font-size: 0.8rem;
-      font-family: 'Varela Round';
-      text-transform: uppercase;
-      letter-spacing: 0.15rem;
-    }
-    hr {
-      border-color: $primary;
-      border-width: 0.25rem;
-      width: 3rem;
-    }
-  }
-  .social {
-    margin-top: 5rem;
-    a {
-      text-align: center;
-      height: 3rem;
-      width: 3rem;
-      background: fade-out($white, 0.9);
-      border-radius: 100%;
-      line-height: 3rem;
-      color: fade-out($white, 0.7);
-      &:hover {
-        color: fade-out($white, 0.5);
-      }
-      &:active {
-        color: $white;
-      }
-    }
-  }
-}
-
 #mainNav {
   min-height: 56px;
   background-color: #fff;
 }
-
 #mainNav .navbar-toggler {
   font-size: 80%;
   padding: 0.75rem;
   color: #64a19d;
   border: 1px solid #64a19d;
 }
-
 #mainNav .navbar-toggler:focus {
   outline: none;
 }
-
 #mainNav .navbar-brand {
   color: #161616;
   font-weight: 700;
   padding: .9rem 0;
 }
-
 #mainNav .navbar-nav .nav-item:hover {
   color: fade(white, 80%);
   outline: none;
   background-color: transparent;
 }
-
 #mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
   outline: none;
   background-color: transparent;
 }
-
 @media (min-width: 992px) {
   #mainNav {
     padding-top: 0;
@@ -151,7 +84,6 @@ $primary:  #64a19d !default;
     border-bottom: 0.25rem solid #64a19d;
   }
 }
-
 #mainNav {
   min-height: 56px;
   background-color: $white;
@@ -212,7 +144,6 @@ $primary:  #64a19d !default;
     }
   }
 }
-
 .signed-in-navbar {
   background-color: #ced4da !important;
   .navbar-brand, .navbar-toggler-right, .nav-link {
