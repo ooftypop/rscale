@@ -1,31 +1,126 @@
-<div class="container landing-index">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="landing-about">
-        <div class="landing-page-header">
-          Vote on Anything<br>
-          and Everything.<br>
-          Ever.
+<!-- Header -->
+<header id="overlay">
+  <div class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase">R-Scale</h1>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">One place to decide everything.</h2>
+        <a class="btn btn-primary js-scroll-trigger call-to-action-sign-up" href="#signup">Get Started</a>
+       </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="about-section bg-light">
+  <div class="container">
+
+    <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+      <div class="col-xl-8 col-lg-7">
+        <%= image_tag "landing-page-scale.jpg", class: "img-fluid", alt:"" %>
+      </div>
+      <div class="col-xl-4 col-lg-5">
+        <div class="featured-text text-center text-lg-left">
+          <h4>Vote on Anything</h4>
+          <p class="text-black-50 mb-0">You can vote on any range of things, ranging from the next family outing, to where the company investments should be held and everything in between.</p>
         </div>
-        <div class="landing-page-sub-header">
-          Invite your friends, family, colleagues, pets, enemies, anyone!
-          Vote on polls ranging from the next family getaway, to where the
-          next staff meeting should be held and everything in between.
-        </div>
-        <div class="landing-page-call-to-action">
-          <div class="sign-up">
-            <%= link_to 'Start Voting!', new_user_registration_path, class: "call-to-action-sign-up" %><br>
-          </div>
-          <div class="sign-in">
-            already a member? <%= link_to 'Sign In', new_user_session_path, class: "call-to-action-sign-in" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+      <div class="col-lg-6">
+        <%= image_tag "landing-page-scale.jpg", class: "img-fluid", alt:"" %>
+      </div>
+      <div class="col-lg-6">
+        <div class="bg-black text-center h-100 project">
+          <div class="d-flex h-100">
+            <div class="project-text w-100 my-auto text-center text-lg-left">
+              <h4 class="text-white">Upload Images</h4>
+              <p class="mb-0 text-white-50">Ability to upload a description and images to poll options can help drive home that particular options compared to others and vice versa. leading to a much more robust polling system.</p>
+              <hr class="d-none d-lg-block mb-0 ml-0">
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="landing-screenshot">
-        <%= image_tag 'poll_image.png', id: "landing-page-image" %>
+
+    <div class="row justify-content-center no-gutters">
+      <div class="col-lg-6">
+        <%= image_tag "landing-page-scale.jpg", class: "img-fluid", alt:"" %>
+      </div>
+      <div class="col-lg-6 order-lg-first">
+        <div class="bg-black text-center h-100 project">
+          <div class="d-flex h-100">
+            <div class="project-text w-100 my-auto text-center text-lg-right">
+              <h4 class="text-white">No More Giving Zeros</h4>
+              <p class="mb-0 text-white-50">R-Scale gives you the ability to vote negatively on an option, if you believe it can have a harmful effect on the overall purpose of the poll. You can give it a score of less than zero.</p>
+              <hr class="d-none d-lg-block mb-0 mr-0">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Signup Section -->
+<section id="signup" class="signup-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto text-center">
+
+        <i class="fa fa-paper-plane fa-2x mb-2 text-white"></i>
+        <h2 class="text-white mb-5">Get Started!</h2>
+
+        <div id="landing-page-signup">
+          <div class="sign-pages form-inline d-flex">
+            <%= render partial: "users/registrations/new"%>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section bg-black" id="contact">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-6 mb-3 mb-md-0">
+        <div class="card py-4 h-100">
+          <div class="card-body text-center">
+            <i class="fa fa-github text-primary mb-2"></i>
+            <h4 class="text-uppercase m-0">View Github</h4>
+            <hr class="my-4">
+            <div class="small text-black-50">
+              <a href="https://github.com/PaulStorberg">Go to Github</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3 mb-md-0">
+        <div class="card py-4 h-100">
+          <div class="card-body text-center">
+            <i class="fa fa-envelope text-primary mb-2"></i>
+            <h4 class="text-uppercase m-0">Email Creator</h4>
+            <hr class="my-4">
+            <div class="small text-black-50">
+              <a>Paul@Storberg.net</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black small text-center text-white-50">
+  <div class="container">
+    Copyright &copy; R-Scale 2019
+  </div>
+</footer>

@@ -30,7 +30,7 @@
 // Tables ======================================================================
 .table-wrapper {
   margin: 0 auto;
-  max-width: 1040px;
+  // max-width: 1040px;
   margin-top: 10px;
   box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
 }
@@ -175,13 +175,46 @@
 .create-resource-call-to-action {
   position: absolute;
   right: 0;
-  top: 40px;
-  background-color: #666666;
-  border-radius: 6px;
+  top: 30px;
+}
+
+.btn, .btn-primary.disabled, .btn-primary:disabled {
+  padding: 1.25rem 2rem;
+  font-family: 'Varela Round';
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  border: 0;
+}
+
+.btn-primary {
+  background-color: $primary;
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
+  &:focus {
+    background-color: darken($primary, 10%);
+    color: white;
+  }
+  &:active {
+    background-color: darken($primary, 15%) !important;
+  }
+}
+.btn-primary {
+  background-color: #64a19d;
+}
+
+.btn-primary:hover {
+  background-color: #4f837f;
+}
+
+.btn-primary:focus {
+  background-color: #4f837f;
   color: white;
-  font-size: 14px;
-  padding: 5px 10px;
-  margin: 0 auto;
+}
+
+.btn-primary:active {
+  background-color: #467370 !important;
 }
 
 // Main ========================================================================
@@ -190,17 +223,41 @@ body, html {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  font-family: 'Nunito';
+  letter-spacing: 0.0625em;
   .yield-div {
     height: 100%;
-    padding: 88px 70px;
+    padding-top: 88px;
     margin: 0 auto;
   }
+  .static_pages-yield-div {
+    padding-top: 0 !important;
+  }
+}
+a {
+  color: #64a19d;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+  color: #3c6360;
+}
+
+.bg-black {
+  background-color: #161616 !important;
+}
+
+.bg-primary {
+  background-color: #64a19d !important;
+}
+
+.text-primary {
+  color: #64a19d !important;
 }
 
 @media (max-width: 600px) {
   .yield-div {
     margin: 0px !important;
-    padding: 88px 10px !important;
   }
 }
 // Tour css ====================================================================
@@ -233,7 +290,7 @@ body, html {
   border: 0px solid white;
   border-radius: 0px;
   color: white;
-  top: 60px;
+  top: 0px;
   padding: 0;
   text-align: center;
   z-index: 1000;

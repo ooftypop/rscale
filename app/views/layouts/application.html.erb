@@ -25,7 +25,7 @@
     <%= render partial: 'layouts/modal', locals: {  } %>
     <p class="notice flash-message"><%= notice %></p>
     <p class="alert flash-message"><%= alert %></p>
-    <div class="yield-div">
+    <div class="yield-div <%= controller_name %>-yield-div">
       <%= yield %>
     </div>
     <script type="text/javascript">

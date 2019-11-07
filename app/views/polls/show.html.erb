@@ -1,6 +1,6 @@
 <div class="poll-show">
   <div data-step="9" data-intro="Its that easy! Happy voting!" id="poll-show-header">
-    <button class="app-standard-button" onclick="runPollShowTour()">What do I do?</button>
+    <button class="app-standard-button btn btn-primary js-scroll-trigger" onclick="runPollShowTour()">What do I do?</button>
     <% if policy(@poll).update? %>
       <div class="poll-show-admin-controls">
         <%= link_to 'Edit Poll', edit_poll_path(@poll), class: "btn app-standard-button" %>

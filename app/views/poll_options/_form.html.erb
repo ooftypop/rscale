@@ -23,7 +23,7 @@
       <%= f.text_field :description, class: "form-control text-field",
           placeholder: "Short Description" %><br />
 
-      <%= f.submit "Submit", class: "form-control submit-button" %><br />
+      <%= f.submit "Submit", class: "btn btn-primary js-scroll-trigger" %><br />
     <% end %>
     <% if action_name == 'edit' %>
       <%= link_to 'Delete', @poll_option, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link delete-resource-button" %><br />

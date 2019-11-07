@@ -2,13 +2,13 @@
   <div class="button-group">
     <% if policy(@poll).update? %>
       <% if current_user.email_groups.any? %>
-        <%= link_to 'Add Groups', add_groups_path(poll_id: @poll.id), class: "btn app-standard-button add-groups-button", remote: true %><br />
+        <%= link_to 'Add Groups', add_groups_path(poll_id: @poll.id), class: "btn btn-primary js-scroll-trigger app-standard-button add-groups-button ", remote: true %><br />
       <% else %>
-        <%= link_to 'Create Group', new_group_path, class: "btn app-standard-button create-group-button" %><br />
+        <%= link_to 'Create Group', new_group_path, class: "btn btn-primary js-scroll-trigger app-standard-button create-group-button" %><br />
       <% end %>
-      <%= link_to 'Add Users', new_poll_roles_path(poll_id: @poll.id), class: " btn app-standard-button add-user-button", remote: true %><br />
+      <%= link_to 'Add Users', new_poll_roles_path(poll_id: @poll.id), class: "btn btn-primary js-scroll-trigger app-standard-button add-user-button", remote: true %><br />
     <% end %>
-    <%= link_to 'View Poll', poll_path(@poll), class: "btn app-standard-button view-poll-button" %>
+    <%= link_to 'View Poll', poll_path(@poll), class: "btn btn-primary js-scroll-trigger app-standard-button view-poll-button" %>
   </div>
   <%= render partial: "polls/form" %>
 
