@@ -1,7 +1,6 @@
 .slidecontainer, .rating-slider {
   width: 100%;
 }
-
 .slider {
   border-radius: 12px;
   -webkit-appearance: none;
@@ -14,40 +13,34 @@
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
-
 .slider:hover {
   opacity: 1;
 }
-
 .slider::-webkit-slider-thumb {
   border-radius: 12px;
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
   height: 25px;
-  background: black;
+  background: darken(#64a19d, 5%);
   cursor: pointer;
 }
-
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: purple;
+  background: darken(#64a19d, 5%);
   cursor: pointer;
 }
-
 .vote-submit-button {
   position: absolute;
   visibility: hidden;
 }
-
 .slider-range-value {
   background-color: rgba(1,1,1,0);
   border: none;
   text-decoration: none;
   text-align: center;
 }
-
 .submit-all-button {
   background-color: #666666;
   border: none;
@@ -57,7 +50,6 @@
   margin: 20px;
   padding: 10px 20px 10px 20px;
 }
-
 .vote-show {
   .slider-range-value {
     margin: 0 auto;

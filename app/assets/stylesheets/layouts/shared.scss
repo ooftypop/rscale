@@ -146,10 +146,6 @@
 // }
 
 // Modals ======================================================================
-.modal-footer-button {
-  position: absolute;
-  bottom: 0;
-}
 
 // Shared buttons CSS ===========================================================
 .app-standard-button {
@@ -175,7 +171,6 @@
   right: 0;
   top: 30px;
 }
-
 .btn, .btn-primary.disabled, .btn-primary:disabled {
   padding: 1.25rem 2rem;
   font-family: 'Varela Round';
@@ -184,7 +179,6 @@
   letter-spacing: .15rem;
   border: 0;
 }
-
 .btn-primary {
   background-color: $primary;
   &:hover {
