@@ -6,13 +6,11 @@
 
   <% if f.object.class.require_password_on_accepting %>
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
+      <%= f.password_field :password, autofocus: true, placeholder: "Password", class: "form-input" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, autofocus: true, placeholder: "Password Confirmation", class: "form-input" %>
     </div>
   <% end %>
 
