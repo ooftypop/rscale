@@ -1,7 +1,7 @@
 <tr class="nested-fields">
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <td><%= f.text_field :title, label: false %></td>
-  <td><%= f.text_field :description, label: false %></td>
+  <td><%= f.text_field :title, label: false, class: "form-input" %></td>
+  <td><%= f.text_field :description, label: false, class: "form-input" %></td>
   <td>
     <%= f.file_field :images, multiple: true %>
   </td>

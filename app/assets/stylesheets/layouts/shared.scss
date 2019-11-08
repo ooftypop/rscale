@@ -26,6 +26,22 @@
     color: black;
   }
 }
+.form-input {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  height: auto;
+  font-family: 'Varela Round';
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border: 0;
+  border-radius: 2px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: 1px solid #696969;
+}
 
 // Tables ======================================================================
 .table-wrapper {
@@ -130,28 +146,6 @@
 // }
 
 // Modals ======================================================================
-.modal-body {
-  font-weight: 600;
-  font-style: normal;
-  font-size: 18px;
-  text-align: center;
-  padding: 2rem 20px;
-  z-index: 100;
-}
-.modal-dialog {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 6px;
-  pointer-events: all;
-}
-.panel-heading {
-  text-align: center;
-}
-.modal-submit-button {
-  background-color: #666666;
-  color: white;
-  margin-top: 20px;
-}
 
 // Shared buttons CSS ===========================================================
 .app-standard-button {
@@ -177,7 +171,6 @@
   right: 0;
   top: 30px;
 }
-
 .btn, .btn-primary.disabled, .btn-primary:disabled {
   padding: 1.25rem 2rem;
   font-family: 'Varela Round';
@@ -186,7 +179,6 @@
   letter-spacing: .15rem;
   border: 0;
 }
-
 .btn-primary {
   background-color: $primary;
   &:hover {
