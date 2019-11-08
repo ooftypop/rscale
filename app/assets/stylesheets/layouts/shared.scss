@@ -293,3 +293,17 @@ a:focus, a:hover {
 .notice {
   background-color: green;
 }
+
+@media (max-width: 390px) {
+  .create-resource-call-to-action {
+    // position: relative;
+  }
+  .btn {
+    padding: .45rem;
+  }
+  .nested-fields {
+    .form-input {
+      padding: .45rem;
+    }
+  }
+}
