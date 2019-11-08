@@ -17,10 +17,10 @@
         <%= @poll_option.errors.full_messages %>
       <% end %>
 
-      <%= f.text_field :title, class: "form-control text-field",
+      <%= f.text_field :title, class: "form-input",
           placeholder: "Title" %><br />
 
-      <%= f.text_field :description, class: "form-control text-field",
+      <%= f.text_field :description, class: "form-input",
           placeholder: "Short Description" %><br />
 
       <%= f.submit "Submit", class: "btn btn-primary js-scroll-trigger" %><br />

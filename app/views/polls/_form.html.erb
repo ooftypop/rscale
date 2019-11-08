@@ -11,10 +11,10 @@
         <%= @poll.errors.full_messages %>
       <% end %>
 
-      <%= f.text_field :title, class: "form-control text-field",
+      <%= f.text_field :title, class: "form-input",
           placeholder: "Title" %><br />
 
-      <%= f.text_field :description, class: "form-control text-field",
+      <%= f.text_field :description, class: "form-input",
           placeholder: "Short Description" %><br />
 
       <%= f.check_box :active, style: "visibility: hidden; position: absolute;" %>
