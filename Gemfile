@@ -15,6 +15,7 @@ gem "devise", ">= 4.7.1"
 gem 'devise_invitable', '~> 2.0.0' 
 gem "font-awesome-rails" 
 gem 'friendly_id', '~> 5.2.4' 
+gem 'groupdate'
 gem "image_processing", "~> 1.0"
 gem 'jbuilder', '~> 2.5' 
 gem 'jquery-rails' 

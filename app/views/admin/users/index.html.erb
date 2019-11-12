@@ -26,6 +26,10 @@
   </div>
 </div>
 
+<%= line_chart User.group(:created_at).count %>
+<%= pie_chart User.group(:created_at).count %>
+<%= column_chart User.group_by_hour_of_day(:created_at, format: "%l %P").count %>
+
 <script>
   searchTable();
 </script>
