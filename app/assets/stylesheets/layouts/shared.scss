@@ -169,10 +169,10 @@
 .create-resource-call-to-action {
   position: absolute;
   right: 0;
-  top: 30px;
+  // top: 30px;
 }
 .btn, .btn-primary.disabled, .btn-primary:disabled {
-  padding: 1.25rem 2rem;
+  // padding: 1.25rem 2rem;
   font-family: 'Varela Round';
   font-size: 80%;
   text-transform: uppercase;
@@ -295,9 +295,6 @@ a:focus, a:hover {
 }
 
 @media (max-width: 390px) {
-  .create-resource-call-to-action {
-    // position: relative;
-  }
   .btn {
     padding: .45rem;
   }
@@ -306,4 +303,10 @@ a:focus, a:hover {
       padding: .45rem;
     }
   }
+}
+
+// Fields ======================================================================
+.search-field {
+  border-radius: 3px;
+  padding-left: 4px;
 }

@@ -10,6 +10,7 @@
     <% end %>
     <%= link_to 'View Poll', poll_path(@poll), class: "btn btn-primary js-scroll-trigger app-standard-button view-poll-button" %>
   </div>
+  <%= form_title(@poll) %>
   <%= render partial: "polls/form" %>
 
   <% if policy(@poll).update? %>

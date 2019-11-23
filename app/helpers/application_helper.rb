@@ -15,4 +15,8 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def form_title(object, options = {  })
+    "<h3 class='form-title' style='margin-left: 15px;'>#{action_name.capitalize} #{object.class.name.humanize}</h3>".html_safe
+  end
 end

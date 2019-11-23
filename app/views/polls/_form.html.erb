@@ -1,55 +1,49 @@
 <div class="form">
-  <% if action_name == 'new' %>
-    <h3>Start Poll</h3>
-  <% elsif action_name == 'edit' %>
-    <h3>Update Poll</h3>
+  <%= form_for (@poll) do |f| %>
+  <div class="container-fluid">
+    <% if @poll.errors.any? %>
+      <%= @poll.errors.full_messages %>
+    <% end %>
+
+    <%= f.text_field :title, class: "form-input",
+        placeholder: "Title" %>
+
+    <%= f.text_area :description, class: "form-input",
+        placeholder: "Short Description" %>
+
+    <%= f.check_box :active, style: "visibility: hidden; position: absolute;" %>
+
+      <h5 style="margin-top: 30px;">Poll Options</h5>
+      <div class="table-wrapper poll-option-add-wrapper">
+        <table id="poll-options-table" class='poll-option-create-table fl-table'>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Attach Image</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody class='fields'>
+            <%= f.fields_for :poll_options do |poll_option| %>
+              <%= render 'poll_option_fields', f: poll_option %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class='links'>
+        <%= link_to_add_association 'Add Option', f, :poll_options, class: "btn app-standard-button", data: {'association-insertion-node': '#poll-options-table', 'association-insertion-method': :append} %>
+      </div>
+
+
+
+    <%= f.submit "Submit", class: "btn btn-primary js-scroll-trigger" %><br />
   <% end %>
 
-  <div class="form-field">
-    <%= form_for (@poll) do |f| %>
-      <% if @poll.errors.any? %>
-        <%= @poll.errors.full_messages %>
+  <% if action_name == 'edit' %>
+    <%= link_to 'Back', :back, class: "back-button form-path-link " %><br /><br />
+    <% if policy(@poll).destroy? %>
+      <%= link_to 'Delete', @poll, method: :delete, data: { confirm: "Are you sure?" }, class: "delete-resource-button form-path-link" %><br />
       <% end %>
-
-      <%= f.text_field :title, class: "form-input",
-          placeholder: "Title" %><br />
-
-      <%= f.text_field :description, class: "form-input",
-          placeholder: "Short Description" %><br />
-
-      <%= f.check_box :active, style: "visibility: hidden; position: absolute;" %>
-
-        <h5>Poll Options</h5>
-        <div class="table-wrapper poll-option-add-wrapper">
-          <table id="poll-options-table" class='poll-option-create-table fl-table'>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Attach Image</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody class='fields'>
-              <%= f.fields_for :poll_options do |poll_option| %>
-                <%= render 'poll_option_fields', f: poll_option %>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-        <div class='links'>
-          <%= link_to_add_association 'Add Option', f, :poll_options, class: "btn app-standard-button", data: {'association-insertion-node': '#poll-options-table', 'association-insertion-method': :append} %>
-        </div>
-
-
-
-      <%= f.submit "Submit", class: "btn btn-primary js-scroll-trigger" %><br />
-    <% end %>
-    <% if action_name == 'edit' %>
-      <%= link_to 'Back', :back, class: "back-button form-path-link " %><br /><br />
-      <% if policy(@poll).destroy? %>
-        <%= link_to 'Delete', @poll, method: :delete, data: { confirm: "Are you sure?" }, class: "delete-resource-button form-path-link" %><br />
-        <% end %>
-    <% end %>
-  </div>
+  <% end %>
 </div>

@@ -1,4 +1,5 @@
 module PollsHelper
+  
   def user_vote_button(poll)
     if current_user.voted_for_poll?(poll)
       button_tag("You Voted!", class: ["btn", "btn-primary", "js-scroll-trigger"], type: "button")
