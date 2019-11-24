@@ -1,16 +1,15 @@
 <div class="group-index">
 
   <div class="group-index-header">
-    <h4>Email Groups</h4>
     <div>
       <%= link_to "Create New Group", new_group_path, class: "btn btn-primary js-scroll-trigger create-resource-call-to-action" %>
     </div>
     <% if current_user.email_groups.any? %>
-    <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search Groups..." title="Type in a title">
+    <input type="text" id="groupInput" class="search-field" onkeyup="searchTable('group')" placeholder="Search Groups..." title="Type in a title">
   </div>
 
     <div class="table-wrapper">
-      <table id="myTable" class="fl-table">
+      <table id="groupTable" class="fl-table">
         <thead>
           <tr>
             <th>Title</th>
@@ -37,5 +36,5 @@
 </div>
 
 <script>
-  searchTable();
+  searchTable("group");
 </script>

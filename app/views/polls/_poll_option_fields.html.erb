@@ -1,9 +1,9 @@
 <tr class="nested-fields">
   <%= f.hidden_field :user_id, value: current_user.id %>
   <td><%= f.text_field :title, label: false, class: "form-input" %></td>
-  <td><%= f.text_field :description, label: false, class: "form-input" %></td>
+  <td><%= f.text_area :description, label: false, class: "form-input" %></td>
   <td>
     <%= f.file_field :images, multiple: true %>
   </td>
-  <td><%= link_to_remove_association "Remove Option", f, class: "table-link" %></td>
+  <td><%= link_to_remove_association "Remove", f, class: "table-link" %></td>
 </tr>
