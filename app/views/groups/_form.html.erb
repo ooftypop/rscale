@@ -1,12 +1,6 @@
 <div class="form">
-  <% if action_name == 'new' %>
-    <h3>Create group</h3>
-  <% elsif action_name == 'edit' %>
-    <h3>Update group</h3>
-  <% end %>
-
-  <div class="form-field">
-    <%= form_for (@group) do |f| %>
+  <%= form_for (@group) do |f| %>
+    <div class="container-fluid">
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <% if @group.errors.any? %>
         <%= @group.errors.full_messages %>
@@ -18,16 +12,18 @@
       </div>
 
       <div data-step="2" data-intro='Or the description.'>
-      <%= f.text_field :description, class: "form-input",
+      <%= f.text_area :description, class: "form-input",
           placeholder: "Short Description" %><br />
       </div>
 
       <%= f.submit "Submit", class: "btn btn-primary js-scroll-trigger" %><br />
-    <% end %>
-      <%= link_to 'Back', :back, class: "back-button form-path-link " %><br />
-    <% if action_name == 'edit' %>
-      <div data-step="3" data-intro='and add some emails while your at it!'><%= link_to 'Add Emails', edit_user_emails_path(id: @group), class: "app-standard-button", remote: true %></div><br /><br /><br /><br />
-      <%= link_to 'Delete', @group, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link delete-resource-button" %><br />
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+
+    <%= link_to 'Back', :back, class: "back-button form-path-link " %><br />
+
+  <% if action_name == 'edit' %>
+    <div data-step="3" data-intro='and add some emails while your at it!'><%= link_to 'Add Emails', edit_user_emails_path(id: @group), class: "app-standard-button", remote: true %></div><br /><br /><br /><br />
+    <%= link_to 'Delete', @group, method: :delete, data: { confirm: "Are you sure?" }, class: "form-path-link delete-resource-button" %><br />
+  <% end %>
 </div>

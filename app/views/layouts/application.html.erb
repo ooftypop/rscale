@@ -17,17 +17,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
     <%= favicon_link_tag asset_path('favicon.ico') %>
-    
   </head>
 
   <body>
     <%= render partial: 'layouts/navbar', locals: {  } %>
     <%= render partial: 'layouts/modal', locals: {  } %>
+
     <p class="notice flash-message"><%= notice %></p>
     <p class="alert flash-message"><%= alert %></p>
+
     <div class="yield-div <%= controller_name %>-yield-div">
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
+
     <script type="text/javascript">
       slideUp_messages();
       $(function () {

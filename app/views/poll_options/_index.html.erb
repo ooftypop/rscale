@@ -1,7 +1,23 @@
 <% if @poll.poll_options.any? %>
-  <input data-step="4" data-intro="You can search through the options via title" type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for Polls..." title="Type in a name">
+  <div data-step="9" data-intro="Its that easy! Happy voting!" id="poll-show-header">
+    <div data-step="1" data-intro="This is the polls title." id="poll-show-title"><%= @poll.title %></div>
+    <div data-step="2" data-intro="This is the polls description." id="poll-show-description"><%= @poll.description %></div>
+  </div>
+
+  <div class="polls-index">
+    <button class="btn btn-primary js-scroll-trigger create-resource-call-to-action" onclick="runPollShowTour()">What do I do?</button>
+    <div class="poll-index-header">
+      <% if policy(@poll).update? %>
+        <div>
+          <%= link_to 'Edit Poll', edit_poll_path(@poll), class: "btn btn-primary create-resource-call-to-action", style: "right: 155px;" %>
+        </div>
+      <% end %>
+      <input data-step="4" data-intro="You can search through the options via title" type="text" id="pollOptionsInput" class="search-field" onkeyup="searchTable('pollOptions')" placeholder="Search for Polls..." title="Type in a name">
+    </div>
+  </div>
+
   <div class="poll-options-index table-wrapper">
-    <table id="myTable" class="fl-table table table-condensed" style="border-collapse:collapse;">
+    <table id="pollOptionsTable" class="fl-table table table-condensed" style="border-collapse: collapse;">
       <thead>
         <tr>
           <th></th>

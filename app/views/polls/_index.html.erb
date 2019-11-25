@@ -1,15 +1,13 @@
-<div class="polls-index">
-
+<div class="polls-index"> <!-- Margin should be removed once button is restyled -->
   <div class="poll-index-header">
-    <h3>Polls</h3>
     <div>
-      <%= link_to 'Start New Poll', new_poll_path, class: "btn btn-primary js-scroll-trigger create-resource-call-to-action" %>
+      <%= link_to 'New Poll', new_poll_path, class: "btn btn-primary js-scroll-trigger create-resource-call-to-action" %>
     </div>
-    <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for Polls..." title="Type in a name">
+    <input type="text" id="pollInput" class="search-field" onkeyup="searchTable('poll')" placeholder="Search for Polls..." title="Type in a name">
   </div>
 
   <div class="table-wrapper">
-    <table id="myTable" class="fl-table">
+    <table id="pollTable" class="fl-table">
       <thead>
         <tr>
           <th>Title</th>
@@ -37,5 +35,5 @@
 </div>
 
 <script>
-  searchTable();
+  searchTable("poll");
 </script>

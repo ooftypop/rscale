@@ -1,15 +1,4 @@
 <div class="poll-show">
-  <div data-step="9" data-intro="Its that easy! Happy voting!" id="poll-show-header">
-    <button class="app-standard-button btn btn-primary js-scroll-trigger" onclick="runPollShowTour()">What do I do?</button>
-    <% if policy(@poll).update? %>
-      <div class="poll-show-admin-controls">
-        <%= link_to 'Edit Poll', edit_poll_path(@poll), class: "btn app-standard-button" %>
-      </div>
-    <% end %>
-    <div data-step="1" data-intro="This is the polls title." id="poll-show-title"><%= @poll.title %></div>
-    <div data-step="2" data-intro="This is the polls description." id="poll-show-description"><%= @poll.description %></div>
-  </div>
-
   <div class="poll-options-index"><br />
     <%= render partial: "poll_options/index" %>
   </div>
