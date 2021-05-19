@@ -20,7 +20,7 @@ gem "image_processing", "~> 1.0"
 gem 'jbuilder', '~> 2.5' 
 gem 'jquery-rails' 
 gem "pg", "<= 1.1.3" 
-gem 'puma', '~> 3.11' 
+gem 'puma', '~> 4.3' 
 gem "pundit" 
 gem 'redis', '~> 4.0' 
 gem 'sass-rails', '~> 5.0' 
